@@ -1,0 +1,30 @@
+{
+    "name": "tinywan/load-balancing",
+    "description": "This nginx load balancing for build composer packagist",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://www.tinywan.com/",
+    "support": {
+        "issues": "https://github.com/Tinywan/load-balancing/issues",
+        "source": "https://github.com/Tinywan/load-balancing"
+    },
+    "authors": [
+        {
+            "name": "Tinywan",
+            "email": "756684177@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Robin\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Robin\\Tests\\": "tests"
+        }
+    }
+}

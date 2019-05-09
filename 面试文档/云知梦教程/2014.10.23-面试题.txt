@@ -1,0 +1,185 @@
+1.date函数参数
+Y
+y
+m
+n
+d
+j
+t
+L
+H
+i
+s
+
+2.字符串转数组,数组转字符串,字符串截取,字符串替换,字符串查找
+explode();
+join();
+substr();
+mb_substr();
+str_replace();
+preg_replace();
+preg_match();
+
+3.左链接,右链接，内链接
+user left join post on user.id=post.user_id
+post right join user on post.user_id=user.id
+user inner join post on user.id=post.user_id
+#复习基础课中mysql的所有课程
+
+4.无限分类
+id name pid path
+#高级课24号课程
+
+5.从url地址中取出后缀
+第一种:
+<?php 
+$url='http://www.baidu.com/index.php';
+
+$arr=pathinfo($url);
+
+echo "<pre>";
+print_r($arr);
+echo "</pre>";
+ ?>
+
+第二种:
+<?php 
+$url='http://www.baidu.com/index.php';
+
+$arr=explode('.',$url);
+
+echo array_pop($arr);
+ ?>
+
+第三种:
+<?php 
+$url='http://www.baidu.com/index.php';
+
+$pos=strrpos($url,'.');
+
+echo substr($url,$pos+1);
+ ?>
+
+6.mvc理解:
+m model 数据模型
+v view  模板视图
+c control 类控制器
+
+7.解决大访问量
+web服务器:
+至少两台以上服务器来提交对客户的请求，web服务器负载均衡，apache并发人数3000左右，nginx并发人数20000左右
+mysql服务器:
+多台mysql服务器对外提供sql响应，数据库服务器负载均衡
+
+软件:
+1)静态缓存
+2)数据缓存
+
+数据库:
+1)字段加索引
+2)分表
+
+8.mysql优化
+1)服务器优化
+	1)服务器负载均衡
+2)数据库优化
+	1)myisam表引擎
+3)表优化
+	1)分表
+	2)字段索引
+4)sql语句优化
+	1)写sql语句时，where后面的字段尽量使用加索引的字段，而且要小心有的sql语句会让索引失效.
+
+9.安全登录系统
+1)验证码
+2)限制登录时间
+3)动态口令
+4)短信验证
+
+10.防sql注入
+1)mysql服务器用户权限问题
+2)用addslashes函数把表单数据进行转义处理
+3)用htmlspecialchars函数把表单数据进行实体化
+4)使用mysql预处理机制发送执行sql语句
+5)及时给mysql软件更新补丁
+
+11.防盗链
+$_SERVER['HTTP_REFERER'];
+#获取上一个页面的来源url，通过url中的域名或ip可以判断是否是来自本机的某一个脚本
+
+12.heredoc标记
+$str=<<<x
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<h1>{$name}</h1>
+		<h1>{$name}</h1>
+		<h1>{$name}</h1>
+		<h1>{$name}</h1>
+	</div>
+</body>
+</html>
+x;
+
+13.运算符
+<?php 
+$a=0;
+$b=4;
+
+if($a=3 || $b=5){
+	$a++; //true
+	$b++; //5
+}
+
+echo $a; //1
+echo '<br>';
+echo $b; //5
+?>
+
+<?php 
+$a=0;
+$b=4;
+
+if($a=3 & $b=4){
+	$a++;
+	$b++;
+}
+
+echo $a;
+echo '<br>';
+echo $b;
+
+13.web服务器返回的状态码:
+1)200 正常响应
+2)404 文件找不到
+3)302 地址重定向
+4)403 拒绝访问
+5)500 内部程序错误
+6)304 没有更新
+
+14.冒泡排序
+function ss($arr){
+	for($i=0;$i<count($arr);$i++){
+		for($j=$i+1;$j<count($arr);$j++){
+			if($arr[$i]>$arr[$j]){
+				$x=$arr[$i];
+				$arr[$i]=$arr[$j];
+				$arr[$j]=$x;
+			}
+		}
+	}
+	return $arr;
+}
+
+
+
+
+
+
+
+
+
+

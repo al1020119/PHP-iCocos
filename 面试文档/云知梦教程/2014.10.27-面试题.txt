@@ -1,0 +1,83 @@
+一.把数组中的值加一
+1.$arr=array(1,2,3);
+
+foreach($arr as &$val){
+	$val=2;
+}
+
+2.$arr=array(1,2,3);
+
+foreach($arr as $key=>$val){
+	$arr[$key]=$val+1;
+}
+
+二.函数中echo和return的区别:
+$a=10;
+$b=20;
+
+function show($a,$b){
+	echo $a+$b;
+	return $a+$b;
+}
+
+echo "$a+$b=".show($a,$b);
+
+三.验证邮箱格式
+$str="jia@qq.com";
+
+echo preg_match('/\w+@\w+\.\w+/',$str);
+
+四.复习ajax
+
+五.字符串翻转
+$str='abcdef';
+
+$str2='';
+
+for($i=strlen($str)-1;$i>=0;$i--){
+	$str2.=$str{$i};
+}
+
+echo $str2;
+
+六.mysql中获取当前时间以及日期格式化函数:
+1.now();
+2.date_format();
+
+七.在 HTTP 1.0 中，状态码401的含义是什么?;如果返回“找不到文件”的提示，则可用header 函数，其语句为(?)
+
+401:未被授权
+返回找不到文件:header("HTTP/1.0 404  File Not Found");
+
+八:用函数控制报错级别
+error_reporting(E_ALL);
+
+九:两个地址的相对路径:
+$a='/a/b/c/d/e.php';
+$b='/a/b/12/34/c.php';
+
+$arr1=explode('/',$a);
+
+array_shift($arr1);
+
+$arr2=explode('/',$b);
+
+array_shift($arr2);
+
+for($i=0;$i<count($arr1);$i++){
+	if($arr1[$i]!=$arr2[$i]){:x
+		$pos=$i;
+		break;
+	}
+}
+
+$length=count($arr2)-1-$pos;
+
+$str1=str_repeat('../',$length);
+
+$str2=join('/',array_slice($arr1,$pos));
+
+echo $str1.$str2;
+
+
+

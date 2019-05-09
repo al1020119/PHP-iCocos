@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+    <title>php面试题整理 - hdcoder - 博客园</title>
+<meta property="og:description" content="php面试题整理php 面试 最近一直在面试,所以总结了下常见的 PHP 面试题. PHP基础题目安全对一套程序来说至关重要，请说说在开发中应该注意哪些安全机制？①防远程提交；②防SQL注入，对特殊代">
+    <link type="text/css" rel="stylesheet" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-CodingLife.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-CodingLife-mobile.css">
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/hdcoder/rss">
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/hdcoder/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/hdcoder/wlwmanifest.xml">
+    <script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/amp4ads-host-v0.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_rendering_313.js"></script><script async="" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery-2.js"></script>
+    <script>var currentBlogId=317438;var currentBlogApp='hdcoder',cb_enable_mathjax=true;var isLogined=false;</script>
+    <script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: { 
+            equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, 
+            extensions: ['extpfeil.js'],
+            Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/MathJax.js"></script>
+<script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+<link rel="stylesheet" type="text/css" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/default.css"><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><link rel="preload" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/integrator.js" as="script"><script type="text/javascript" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/integrator.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_313.js" async=""></script><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<a name="top"></a>
+
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/hdcoder/"><img id="blogLogo" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/hdcoder/"></a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/hdcoder/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/hdcoder/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/hdcoder/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 6&nbsp; </span>
+<span id="stats_article_count">文章 - 2&nbsp; </span>
+<span id="stats-comment_count">评论 - 3</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+        <div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/hdcoder/p/8862724.html">php面试题整理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><div style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft YaHei&quot;, &quot;微软雅黑&quot;, &quot;WenQuanYi Micro Hei&quot;, STXihei, &quot;华文细黑&quot;, Heiti, &quot;黑体&quot;, SimSun, &quot;宋体&quot;, Song, sans-serif; font-size: 18px; line-height: 1.33; font-weight: 100; color: #2f2f2f">
+	<div class="preview html_preview"><h1 class="story_title" style="margin-top: 0.7em; margin-right: 0; margin-bottom: 0.7em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.6; color: inherit; font-size: 38.5px">php面试题整理</h1><div class="story_tags" style="margin-top: 0; margin-right: 0; margin-bottom: 1.2em; margin-left: 0"><span class="tag blue label" style="display: inline-block; vertical-align: baseline; line-height: 1; margin-top: 0.125em; margin-right: 0.125em; margin-bottom: 0.125em; margin-left: 0.125em; background-color: #ebeeef; border-color: #ebeeef; background-image: none; padding-top: 0.6em; padding-right: 0.8em; padding-bottom: 0.6em; padding-left: 0.8em; color: #5e6060; text-transform: none; font-weight: bold; font-size: 12px">php</span>&nbsp;<span class="tag blue label" style="display: inline-block; vertical-align: baseline; line-height: 1; margin-top: 0.125em; margin-right: 0.125em; margin-bottom: 0.125em; margin-left: 0.125em; background-color: #ebeeef; border-color: #ebeeef; background-image: none; padding-top: 0.6em; padding-right: 0.8em; padding-bottom: 0.6em; padding-left: 0.8em; color: #5e6060; text-transform: none; font-weight: bold; font-size: 12px">面试</span>&nbsp;</div><p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">最近一直在面试,所以总结了下常见的 PHP 面试题.</p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="phpe59fbae7a180e9a298e79bae_1" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="phpe59fbae7a180e9a298e79bae_1" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a><a name="php基础题目" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="php基础题目" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a>
+</div>
+<h3 style="margin-top: 1.0em; margin-right: 0; margin-bottom: .6em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; font-size: 24.5px">PHP基础题目</h3>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">安全对一套程序来说至关重要，请说说在开发中应该注意哪些安全机制？<br>
+①防远程提交；<br>
+②防SQL注入，对特殊代码进行过滤；<br>
+③防止注册机灌水，使用验证码；</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">在程序的开发中，如何提高程序的运行效率？<br>
+①优化SQL语句，查询语句中尽量不使用select *，用哪个字段查哪个字段；少用子查询可用表连接代替；少用模糊查询<br>
+②数据表中创建索引<br>
+③对程序中经常用到的数据生成缓存</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">现在编程中经常采取MVC三层结构，请问MVC分别指哪三层，有什么优点？<br>
+MVC三层分别指：业务模型、视图、控制器，由控制器层调用模型处理数据，然后将数据映射到视图层进行显示，优点是：<br>
+①可以实现代码的重用性，避免产生代码冗余<br>
+②M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">对json数据格式的理解？<br>
+JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，json数据格式固定，可以被多种语言用作数据的传递<br>
+PHP中处理json格式的函数为json_decode( string <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 5.095em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.213em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.724em, 1004.21em, 2.892em, -1000em); top: -2.546em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: STIXGeneral; font-style: italic;">j<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.001em;"></span></span><span class="mi" id="MathJax-Span-4" style="font-family: STIXGeneral; font-style: italic;">s</span><span class="mi" id="MathJax-Span-5" style="font-family: STIXGeneral; font-style: italic;">o</span><span class="mi" id="MathJax-Span-6" style="font-family: STIXGeneral; font-style: italic;">n</span><span class="mo" id="MathJax-Span-7" style="font-family: STIXGeneral;">[</span><span class="mo" id="MathJax-Span-8" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-9" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.188em;">b</span><span class="mi" id="MathJax-Span-10" style="font-family: STIXGeneral; font-style: italic;">o</span><span class="mi" id="MathJax-Span-11" style="font-family: STIXGeneral; font-style: italic;">o</span><span class="mi" id="MathJax-Span-12" style="font-family: STIXGeneral; font-style: italic;">l<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.001em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.546em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.304em; border-left: 0px solid; width: 0px; height: 1.179em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi><mi>s</mi><mi>o</mi><mi>n</mi><mo stretchy="false">[</mo><mo>,</mo><mi>b</mi><mi>o</mi><mi>o</mi><mi>l</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">json [, bool </script>assoc ] ) ，接受一个 JSON格式的字符串并且把它转换为PHP变量，参数json待解码的json string格式的字符串。assoc当该参数为TRUE时，将返回array而非object；<br>
+Json_encode：将PHP变量转换成json格式</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">Print、echo、print_r有什么区别？<br>
+① echo和print都可以做输出，不同的是，echo不是函数，没有返回值，而print是一个函数有返回值，所以相对而言如果只是输出echo会更快，而print_r通常用于打印变量的相关信息，通常在调试中使用。<br>
+② print 是打印字符串<br>
+③ print_r 则是打印复合类型 如数组 对象</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">SESSION与COOKIE的区别？<br>
+①COOKIE保存在客户端，而SESSION则保存在服务器端<br>
+②从安全性来讲，SESSION的安全性更高<br>
+③从保存内容的类型的角度来讲，COOKIE只保存字符串（及能够自动转换成字符串）<br>
+④从保存内容的大小来看，COOKIE保存的内容是有限的，比较小，而SESSION基本上没有这个限制<br>
+⑤从性能的角度来讲，用SESSION的话，对服务器的压力会更大一些<br>
+⑥SEEION依赖于COOKIE，但如果禁用COOKIE，也可以通过url传递</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">PHP处理数组的常用函数？<br>
+①array()创建数组；<br>
+②count()返回数组中元素的数目；<br>
+③array_push()将一个或多个元素插入数组的末尾（入栈）；<br>
+④array_column()返回输入数组中某个单一列的值；<br>
+⑤array_combine()通过合并两个数组来创建一个新数组；<br>
+⑥array_reverse()以相反的顺序返回数组；<br>
+⑦array_unique()删除数组中的重复值；<br>
+⑧in_array()检查数组中是否存在指定的值；</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">PHP处理字符串的常用函数？<br>
+①trim()移除字符串两侧的空白字符和其他字符；<br>
+②substr_replace()把字符串的一部分替换为另一个字符串；<br>
+③substr_count()计算子串在字符串中出现的次数；<br>
+④substr()返回字符串的一部分；<br>
+⑤strtolower()把字符串转换为小写字母；<br>
+⑥strtoupper()把字符串转换为大写字母；<br>
+⑦strtr()转换字符串中特定的字符；<br>
+⑧strrchr()查找字符串在另一个字符串中最后一次出现；<br>
+⑨strstr()查找字符串在另一字符串中的第一次出现（对大小写敏感）；strrev()反转字符串；strlen()返回字符串的长
+度；str_replace()替换字符串中的一些字符（对大小写敏感）；print()输出一个或多个字符串；explode()把字符串打散为数
+组；is_string()检测变量是否是字符串；strip_tags()从一个字符串中去除HTML标签；mb_substr()用来截中文与英文的
+函数</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">PHP处理时间的常用函数？<br>
+date_default_timezone_get()返回默认时区。<br>
+date_default_timezone_set()设置默认时区。<br>
+date()格式化本地时间／日期。<br>
+getdate()返回日期／时间信息。<br>
+gettimeofday()返回当前时间信息。<br>
+microtime()返回当前时间的微秒数。<br>
+mktime()返回一个日期的 Unix时间戳。<br>
+strtotime()将任何英文文本的日期或时间描述解析为 Unix时间戳。<br>
+time()返回当前时间的 Unix时间戳。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">PHP操作文件的常用函数？<br>
+①打开文件；<br>
+②删除文件；<br>
+③读取文件；<br>
+④写入文件；<br>
+⑤修改文件；<br>
+⑥关闭文件；<br>
+⑦创建文件等等</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">PHP操作目录（文件夹）的常用函数？<br>
+①打开目录；<br>
+②删除目录；<br>
+③读取目录；<br>
+④创建目录；<br>
+⑤修改目录；<br>
+⑥关闭目录</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">SQL语言包括哪几部分？每部分都有哪些操作关键字？<br>
+答：SQL语言包括数据定义(DDL)、数据操纵(DML),数据控制(DCL)和数据查询（DQL）四个部分。<br>
+数据定义：Create Table,Alter Table,Drop Table, Craete/Drop Index等<br>
+数据操纵：Select ,insert,update,delete,<br>
+数据控制：grant,revoke<br>
+数据查询：select</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">完整性约束包括哪些？<br>
+答：数据完整性(Data Integrity)是指数据的精确(Accuracy)和可靠性(Reliability)。<br>
+分为以下四类：</p>
+</li>
+</ol>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>实体完整性：规定表的每一行在表中是惟一的实体。</li>
+<li>域完整性：是指表中的列必须满足某种特定的数据类型约束，其中约束又包括取值范围、精度等规定。</li>
+<li>参照完整性：是指两个表的主关键字和外关键字的数据应一致，保证了表之间的数据的一致性，防止了数据丢失或无意义的数据在数据库中扩散。</li>
+<li>用户定义的完整性：不同的关系数据库系统根据其应用环境的不同，往往还需要一些特殊的约束条件。用户定义的完整性即是针对某个特定关系数据库的约束条件，它反映某一具体应用必须满足的语义要求。<br>
+与表有关的约束：包括列约束(NOT NULL（非空约束）)和表约束(PRIMARY KEY、foreign key、check、UNIQUE) 。</li>
+</ol>
+<ol start="14" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是事务？及其特性？<br>
+答：事务：是一系列的数据库操作，是数据库应用的基本逻辑单位。<br>
+事务特性：<br>
+（1）原子性：即不可分割性，事务要么全部被执行，要么就全部不被执行。<br>
+（2）一致性或可串性。事务的执行使得数据库从一种正确状态转换成另一种正确状态<br>
+（3）隔离性。在事务正确提交之前，不允许把该事务对数据的任何改变提供给任何其他事务，<br>
+（4） 持久性。事务正确提交后，其结果将永久保存在数据库中，即使在事务提交后有了其他故障，事务的处理结果也会得到保存。<br>
+或者这样理解：<br>
+事务就是被绑定在一起作为一个逻辑工作单元的SQL语句分组，如果任何一个语句操作失败那么整个操作就被失败，以后操作就会回滚到操作前状态，或者是上有
+个节点。为了确保要么执行，要么不执行，就可以使用事务。要将有组语句作为事务考虑，就需要通过ACID测试，即原子性，一致性，隔离性和持久性。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是锁？<br>
+答：<br>
+数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。<br>
+加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。<br>
+基本锁类型：锁包括行级锁和表级锁</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么叫视图？游标是什么？<br>
+答：视图是一种虚拟的表，具有和物理表相同的功能。可以对视图进行增，改，查，操作，视图通常是有一个表或者多个表的行或列的子集。对视图的修改不影响基本表。它使得我们获取数据更容易，相比多表查询。<br>
+游标：是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是存储过程？用什么来调用？<br>
+答：存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次。如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。可以用一个命令对象来调用存储过程。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">索引的作用？和它的优点缺点是什么？<br>
+答：索引就一种特殊的查询表，数据库的搜索引擎可以利用它加速对数据的检索。它很类似与现实生活中书的目录，不需要查询整本书内容就可以找到想要的数据。
+索引可以是唯一的，创建索引允许指定单个列或者是多个列。缺点是它减慢了数据录入的速度，同时也增加了数据库的尺寸大小。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">如何通俗地理解三个范式？<br>
+第一范式：1NF是对属性的原子性约束，要求属性具有原子性，不可再分解<br>
+第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性<br>
+第三范式：3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是基本表？什么是视图？<br>
+答：基本表是本身独立存在的表，在 SQL 中一个关系就对应一个表。 视图是从一个或几个基本表导出的表。视图本身不独立存储在数据库中，是一个虚表</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">试述视图的优点？<br>
+答：(1) 视图能够简化用户的操作 (2) 视图使用户能以多种角度看待同一数据； (3) 视图为数据库提供了一定程度的逻辑独立性； (4) 视图能够对机密数据提供安全保护。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">NULL是什么意思<br>
+答：NULL这个值表示UNKNOWN(未知):它不表示“”(空字符串)。对NULL这个值的任何比较都会生产一个NULL值。您不能把任何值与一个 NULL值进行比较，并在逻辑上希望获得一个答案。<br>
+使用IS NULL来进行NULL判断</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">主键、外键和索引的区别？<br>
+主键、外键和索引的区别<br>
+定义：<br>
+主键--唯一标识一条记录，不能有重复的，不允许为空<br>
+外键--表的外键是另一表的主键, 外键可以有重复的, 可以是空值<br>
+索引--该字段没有重复值，但可以有一个空值<br>
+作用：<br>
+主键--用来保证数据完整性<br>
+外键--用来和其他表建立联系用的<br>
+索引--是提高查询排序的速度<br>
+个数：<br>
+主键--主键只能有一个<br>
+外键--一个表可以有多个外键<br>
+索引--一个表可以有多个唯一索引</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">说说对SQL语句优化有哪些方法？（选择几条）<br>
+（1）Where子句中：where表之间的连接必须写在其他Where条件之前，那些可以过滤掉最大数量记录的条件必须写在Where子句的末尾.HAVING最后。<br>
+（2）用EXISTS替代IN、用NOT EXISTS替代NOT IN。<br>
+（3） 避免在索引列上使用计算<br>
+（4）避免在索引列上使用IS NULL和IS NOT NULL<br>
+（5）对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。<br>
+（6）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描<br>
+（7）应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">SQL语句中‘相关子查询’与‘非相关子查询’有什么区别？<br>
+答：子查询：嵌套在其他查询中的查询称之。<br>
+子查询又称内部，而包含子查询的语句称之外部查询（又称主查询）。<br>
+所有的子查询可以分为两类，即相关子查询和非相关子查询<br>
+（1）非相关子查询是独立于外部查询的子查询，子查询总共执行一次，执行完毕后将值传递给外部查询。<br>
+（2）相关子查询的执行依赖于外部查询的数据，外部查询执行一行，子查询就执行一次。<br>
+故非相关子查询比相关子查询效率高</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">char和varchar的区别？<br>
+答：是一种固定长度的类型，varchar则是一种可变长度的类型，它们的区别是：<br>
+char(M)类型的数据列里，每个值都占用M个字节，如果某个长度小于M，MySQL就会在它的右边用空格字符补足．（在检索操作中那些填补出来的空格
+字符将被去掉）在varchar(M)类型的数据列里，每个值只占用刚好够用的字节再加上一个用来记录其长度的字节（即总长度为L+1字节）．</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">Mysql 的存储引擎,myisam和innodb的区别。<br>
+答：简单的表达：<br>
+MyISAM 是非事务的存储引擎；适合用于频繁查询的应用；表锁，不会出现死锁；适合小数据，小并发<br>
+innodb是支持事务的存储引擎；合于插入和更新操作比较多的应用；设计合理的话是行锁（最大区别就在锁的级别上）；适合大数据，大并发。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">数据表类型有哪些<br>
+答：MyISAM、InnoDB、HEAP、BOB,ARCHIVE,CSV等。<br>
+MyISAM：成熟、稳定、易于管理，快速读取。一些功能不支持（事务等），表级锁。<br>
+InnoDB：支持事务、外键等特性、数据行锁定。空间占用大，不支持全文索引等。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">MySQL数据库作发布系统的存储，一天五万条以上的增量，预计运维三年,怎么优化？<br>
+a. 设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。<br>
+b. 选择合适的表字段数据类型和存储引擎，适当的添加索引。<br>
+c. mysql库主从读写分离。<br>
+d. 找规律分表，减少单表中的数据量提高查询速度。<br>
+e.添加缓存机制，比如memcached，apc等。<br>
+f. 不经常改动的页面，生成静态页面。<br>
+g. 书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">对于大流量的网站,您采用什么样的方法来解决各页面访问量统计问题？<br>
+答：<br>
+a. 确认服务器是否能支撑当前访问量。<br>
+b. 优化数据库访问。<br>
+c. 禁止外部访问链接（盗链）, 比如图片盗链。<br>
+d. 控制文件下载。<br>
+e. 使用不同主机分流。<br>
+f. 使用浏览统计软件，了解访问量，有针对性的进行优化。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是面向对象?<br>
+答：面向对象OO = 面向对象的分析OOA + 面向对象的设计OOD + 面向对象的编程OOP；通俗的解释就是“万物皆对象”，把所有的事物都看作一个个可以独立的对象(单元)，它们可以自己完成自己的功能，而不是像C那样分成一个个函数。<br>
+现在纯正的OO语言主要是Java和C#，PHP、C++也支持OO，C是面向过程的。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">简述 private、 protected、 public修饰符的访问权限。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">private : 私有成员, 在类的内部才可以访问。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">protected : 保护成员，该类内部和继承类中可以访问。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">public : 公共成员，完全公开，没有访问限制</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">堆和栈的区别？<br>
+答：栈是编译期间就分配好的内存空间，因此你的代码中必须就栈的大小有明确的定义；<br>
+堆是程序运行期间动态分配的内存空间，你可以根据程序的运行情况确定要分配的堆内存的大小。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">面向对象的特征有哪些方面?<br>
+答：主要有封装,继承,多态。如果是4个方面则加上：抽象。<br>
+下面的解释为理解：<br>
+封装：<br>
+封装是保证软件部件具有优良的模块性的基础,封装的目标就是要实现软件部件的高内聚,低耦合,防止程序相互依赖性而带来的变动影响.<br>
+继承：<br>
+在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原
+来的方法使之更适合特殊的需要，这就是继承。继承是子类自动共享父类数据和方法的机制，这是类之间的一种关系，提高了软件的可重用性和可扩展性。<br>
+多态：<br>
+多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。<br>
+抽象：<br>
+抽象就是找出一些事物的相似和共性之处，然后将这些事物归为一个类，这个类只考虑这些事物的相似和共性之处，并且会忽略与当前主题和目标无关的那些方面，将注意力集中在与当前目标有关的方面。例如，看到一只蚂蚁和大象，你能够想象出它们的相同之处，那就是抽象。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">抽象类和接口的概念以及区别？<br>
+答：抽象类：它是一种特殊的，不能被实例化的类，只能作为其他类的父类使用。使用abstract关键字声明。<br>
+它是一种特殊的抽象类，也是一个特殊的类，使用interface声明。<br>
+（1）抽象类的操作通过继承关键字extends实现，而接口的使用是通过implements关键字来实现。<br>
+（2）抽象类中有数据成员，可以实现数据的封装，但是接口没有数据成员。<br>
+（3）抽象类中可以有构造方法，但是接口没有构造方法。<br>
+（4）抽象类的方法可以通过private、protected、public关键字修饰（抽象方法不能是private），而接口中的方法只能使用public关键字修饰。<br>
+（5）一个类只能继承于一个抽象类，而一个类可以同时实现多个接口。<br>
+（6）抽象类中可以有成员方法的实现代码，而接口中不可以有成员方法的实现代码。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是构造函数，什么是析构函数，作用是什么？<br>
+答：构造函数（方法）是对象创建完成后第一个被对象自动调用的方法。它存在于每个声明的类中，是一个特殊的成员方法。作用是执行一些初始化的任务。Php中使用__construct()声明构造方法，并且只能声明一个。<br>
+析构函数（方法）作用和构造方法正好相反，是对象被销毁之前最后一个被对象自动调用的方法。是PHP5中新添加的内容作用是用于实现在销毁一个对象之前执行一些特定的操作，诸如关闭文件和释放内存等。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">如何重载父类的方法，举例说明<br>
+答：重载，即覆盖父类的方法，也就是使用子类中的方法替换从父类中继承的方法，也叫方法的重写。<br>
+覆盖父类方法的关键是在子类中创建于父类中相同的方法包括方法的名称、参数和返回值类型。PHP中只要求方法的名称相同即可。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">常用的魔术方法有哪些？举例说明<br>
+答：php规定以两个下划线（__）开头的方法都保留为魔术方法，所以建议大家函数名最好不用__开头，除非是为了重载已有的魔术方法。<br>
+__construct() 实例化类时自动调用。<br>
+__destruct() 类对象使用结束时自动调用。<br>
+__set() 在给未定义的属性赋值的时候调用。<br>
+__get() 调用未定义的属性时候调用。<br>
+__isset() 使用isset()或empty()函数时候会调用。<br>
+__unset() 使用unset()时候会调用。<br>
+__sleep() 使用serialize序列化时候调用。<br>
+__wakeup() 使用unserialize反序列化的时候调用。<br>
+__call() 调用一个不存在的方法的时候调用。<br>
+__callStatic()调用一个不存在的静态方法是调用。<br>
+__toString() 把对象转换成字符串的时候会调用。比如 echo。<br>
+__invoke() 当尝试把对象当方法调用时调用。<br>
+__set_state() 当使用var_export()函数时候调用。接受一个数组参数。<br>
+__clone() 当使用clone复制一个对象时候调用。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x548C;&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x3001;&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x8FD9;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E09;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E2A;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5173;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x952E;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x8BCD;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5206;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x522B;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4EE3;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x8868;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4EC0;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E48;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#xFF1F;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5728;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x54EA;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E9B;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x573A;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5408;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E0B;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4F7F;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7528;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#xFF1F;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7B54;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#xFF1A;&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-13" style="width: 32.688em; display: inline-block;"><span style="display: inline-block; position: relative; width: 27.222em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.607em, 1027.22em, 2.892em, -1000em); top: -2.546em; left: 0em;"><span class="mrow" id="MathJax-Span-14"><span class="mi" id="MathJax-Span-15" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.018em;"></span></span><span class="mi" id="MathJax-Span-16" style="font-family: STIXGeneral; font-style: italic;">h</span><span class="mi" id="MathJax-Span-17" style="font-family: STIXGeneral; font-style: italic;">i</span><span class="mi" id="MathJax-Span-18" style="font-family: STIXGeneral; font-style: italic;">s</span><span class="texatom" id="MathJax-Span-19"><span class="mrow" id="MathJax-Span-20"><span class="mo" id="MathJax-Span-21"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">和</span></span></span></span><span class="mi" id="MathJax-Span-22" style="font-family: STIXGeneral; font-style: italic;">s</span><span class="mi" id="MathJax-Span-23" style="font-family: STIXGeneral; font-style: italic;">e</span><span class="mi" id="MathJax-Span-24" style="font-family: STIXGeneral; font-style: italic;">l<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.001em;"></span></span><span class="mi" id="MathJax-Span-25" style="font-family: STIXGeneral; font-style: italic; text-rendering: optimizelegibility;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.146em;"></span></span><span class="texatom" id="MathJax-Span-26"><span class="mrow" id="MathJax-Span-27"><span class="mo" id="MathJax-Span-28"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">、</span></span></span></span><span class="mi" id="MathJax-Span-29" style="font-family: STIXGeneral; font-style: italic;">p</span><span class="mi" id="MathJax-Span-30" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mi" id="MathJax-Span-31" style="font-family: STIXGeneral; font-style: italic;">r<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.023em;"></span></span><span class="mi" id="MathJax-Span-32" style="font-family: STIXGeneral; font-style: italic;">e</span><span class="mi" id="MathJax-Span-33" style="font-family: STIXGeneral; font-style: italic;">n</span><span class="mi" id="MathJax-Span-34" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.018em;"></span></span><span class="texatom" id="MathJax-Span-35"><span class="mrow" id="MathJax-Span-36"><span class="mo" id="MathJax-Span-37"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">这</span></span></span></span><span class="texatom" id="MathJax-Span-38"><span class="mrow" id="MathJax-Span-39"><span class="mo" id="MathJax-Span-40"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">三</span></span></span></span><span class="texatom" id="MathJax-Span-41"><span class="mrow" id="MathJax-Span-42"><span class="mo" id="MathJax-Span-43"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">个</span></span></span></span><span class="texatom" id="MathJax-Span-44"><span class="mrow" id="MathJax-Span-45"><span class="mo" id="MathJax-Span-46"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">关</span></span></span></span><span class="texatom" id="MathJax-Span-47"><span class="mrow" id="MathJax-Span-48"><span class="mo" id="MathJax-Span-49"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">键</span></span></span></span><span class="texatom" id="MathJax-Span-50"><span class="mrow" id="MathJax-Span-51"><span class="mo" id="MathJax-Span-52"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">词</span></span></span></span><span class="texatom" id="MathJax-Span-53"><span class="mrow" id="MathJax-Span-54"><span class="mo" id="MathJax-Span-55"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">分</span></span></span></span><span class="texatom" id="MathJax-Span-56"><span class="mrow" id="MathJax-Span-57"><span class="mo" id="MathJax-Span-58"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">别</span></span></span></span><span class="texatom" id="MathJax-Span-59"><span class="mrow" id="MathJax-Span-60"><span class="mo" id="MathJax-Span-61"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">代</span></span></span></span><span class="texatom" id="MathJax-Span-62"><span class="mrow" id="MathJax-Span-63"><span class="mo" id="MathJax-Span-64"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">表</span></span></span></span><span class="texatom" id="MathJax-Span-65"><span class="mrow" id="MathJax-Span-66"><span class="mo" id="MathJax-Span-67"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">什</span></span></span></span><span class="texatom" id="MathJax-Span-68"><span class="mrow" id="MathJax-Span-69"><span class="mo" id="MathJax-Span-70"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">么</span></span></span></span><span class="texatom" id="MathJax-Span-71"><span class="mrow" id="MathJax-Span-72"><span class="mo" id="MathJax-Span-73"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">？</span></span></span></span><span class="texatom" id="MathJax-Span-74"><span class="mrow" id="MathJax-Span-75"><span class="mo" id="MathJax-Span-76"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">在</span></span></span></span><span class="texatom" id="MathJax-Span-77"><span class="mrow" id="MathJax-Span-78"><span class="mo" id="MathJax-Span-79"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">哪</span></span></span></span><span class="texatom" id="MathJax-Span-80"><span class="mrow" id="MathJax-Span-81"><span class="mo" id="MathJax-Span-82"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">些</span></span></span></span><span class="texatom" id="MathJax-Span-83"><span class="mrow" id="MathJax-Span-84"><span class="mo" id="MathJax-Span-85"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">场</span></span></span></span><span class="texatom" id="MathJax-Span-86"><span class="mrow" id="MathJax-Span-87"><span class="mo" id="MathJax-Span-88"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">合</span></span></span></span><span class="texatom" id="MathJax-Span-89"><span class="mrow" id="MathJax-Span-90"><span class="mo" id="MathJax-Span-91"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">下</span></span></span></span><span class="texatom" id="MathJax-Span-92"><span class="mrow" id="MathJax-Span-93"><span class="mo" id="MathJax-Span-94"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">使</span></span></span></span><span class="texatom" id="MathJax-Span-95"><span class="mrow" id="MathJax-Span-96"><span class="mo" id="MathJax-Span-97"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">用</span></span></span></span><span class="texatom" id="MathJax-Span-98"><span class="mrow" id="MathJax-Span-99"><span class="mo" id="MathJax-Span-100"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">？</span></span></span></span><span class="texatom" id="MathJax-Span-101"><span class="mrow" id="MathJax-Span-102"><span class="mo" id="MathJax-Span-103"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">答</span></span></span></span><span class="texatom" id="MathJax-Span-104"><span class="mrow" id="MathJax-Span-105"><span class="mo" id="MathJax-Span-106"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 83%; font-style: normal; font-weight: normal;">：</span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.546em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.304em; border-left: 0px solid; width: 0px; height: 1.32em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mrow class="MJX-TeXAtom-ORD"><mo>和</mo></mrow><mi>s</mi><mi>e</mi><mi>l</mi><mi>f</mi><mrow class="MJX-TeXAtom-ORD"><mo>、</mo></mrow><mi>p</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mrow class="MJX-TeXAtom-ORD"><mo>这</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>三</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>个</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>关</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>键</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>词</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>分</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>别</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>代</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>表</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>什</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>么</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>？</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>在</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>哪</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>些</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>场</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>合</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>下</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>使</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>用</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>？</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>答</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>：</mo></mrow></math></span></span><script type="math/tex" id="MathJax-Element-2">this和self、parent这三个关键词分别代表什么？在哪些场合下使用？ 
+答：</script>this 当前对象<br>
+self 当前类<br>
+parent 当前类的父类<br>
+$this在当前类中使用,使用-&gt;调用属性和方法。<br>
+self也在当前类中使用，不过需要使用::调用。<br>
+parent在类中使用。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">类中如何定义常量、如何类中调用常量、如何在类外调用常量。<br>
+答：类中的常量也就是成员常量，常量就是不会改变的量，是一个恒值。<br>
+定义常量使用关键字const.<br>
+例如：const PI = 3.1415326;<br>
+无论是类内还是类外，常量的访问和变量是不一样的，常量不需要实例化对象，<br>
+访问常量的格式都是类名加作用域操作符号（双冒号）来调用。<br>
+即：类名 :: 类常量名;</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">作用域操作符::如何使用？都在哪些场合下使用？<br>
+答：调用类常量<br>
+调用静态方法</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">__autoload()方法的工作原理是什么？<br>
+答：使用这个魔术函数的基本条件是类文件的文件名要和类的名字保持一致。<br>
+当程序执行到实例化某个类的时候，如果在实例化前没有引入这个类文件，那么就自动执行__autoload()函数。<br>
+这个函数会根据实例化的类的名称来查找这个类文件的路径，当判断这个类文件路径下确实存在这个类文件后<br>
+就执行include或者require来载入该类，然后程序继续执行，如果这个路径下不存在该文件时就提示错误。<br>
+使用自动载入的魔术函数可以不必要写很多个include或者require函数</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">如何进行SQL优化？（关于后边的解释同学们可以进行理解，到时根据自己的理解把大体意思说出来即可）<br>
+答：（1）选择正确的存储引擎<br>
+以 MySQL为例，包括有两个存储引擎 MyISAM 和 InnoDB，每个引擎都有利有弊。<br>
+MyISAM 
+适合于一些需要大量查询的应用，但其对于有大量写操作并不是很好。甚至你只是需要update一个字段，整个表都会被锁起来，而别的进程，就算是读进程都
+无法操作直到读操作完成。另外，MyISAM 对于 SELECT COUNT(*) 这类的计算是超快无比的。<br>
+InnoDB 的趋势会是一个非常复杂的存储引擎，对于一些小的应用，它会比 MyISAM 还慢。但是它支持“行锁” ，于是在写操作比较多的时候，会更优秀。并且，他还支持更多的高级应用，比如：事务。<br>
+（2）优化字段的数据类型<br>
+记住一个原则，越小的列会越快。如果一个表只会有几列罢了（比如说字典表，配置表），那么，我们就没有理由使用 INT 来做主键，使用 
+MEDIUMINT, SMALLINT 或是更小的 TINYINT 会更经济一些。如果你不需要记录时间，使用 DATE 要比 DATETIME 
+好得多。当然，你也需要留够足够的扩展空间。<br>
+（3）为搜索字段添加索引<br>
+索引并不一定就是给主键或是唯一的字段。如果在你的表中，有某个字段你总要会经常用来做搜索，那么最好是为其建立索引，除非你要搜索的字段是大的文本字段，那应该建立全文索引。<br>
+（4）避免使用Select <em style="font-style: italic">从数据库里读出越多的数据，那么查询就会变得越慢。并且，如果你的数据库服务器和WEB服务器是两台独立的服务器的话，这还会增加网络传输的负载。即使你要查询数据表的所有字段，也尽量不要用</em>通配符，善用内置提供的字段排除定义也许能给带来更多的便利。<br>
+（5）使用 ENUM 而不是 VARCHAR<br>
+ENUM 类型是非常快和紧凑的。在实际上，其保存的是 
+TINYINT，但其外表上显示为字符串。这样一来，用这个字段来做一些选项列表变得相当的完美。例如，性别、民族、部门和状态之类的这些字段的取值是有
+限而且固定的，那么，你应该使用 ENUM 而不是 VARCHAR。<br>
+（6）尽可能的使用 NOT NULL<br>
+除非你有一个很特别的原因去使用 NULL 值，你应该总是让你的字段保持 NOT NULL。 
+NULL其实需要额外的空间，并且，在你进行比较的时候，你的程序会更复杂。 
+当然，这里并不是说你就不能使用NULL了，现实情况是很复杂的，依然会有些情况下，你需要使用NULL值。<br>
+（7）固定长度的表会更快<br>
+如果表中的所有字段都是“固定长度”的，整个表会被认为是 “static” 或 “fixed-length”。 例如，表中没有如下类型的字段： 
+VARCHAR，TEXT，BLOB。只要你包括了其中一个这些字段，那么这个表就不是“固定长度静态表”了，这样，MySQL 
+引擎会用另一种方法来处理。<br>
+固定长度的表会提高性能，因为MySQL搜寻得会更快一些，因为这些固定的长度是很容易计算下一个数据的偏移量的，所以读取的自然也会很快。而如果字段不是定长的，那么，每一次要找下一条的话，需要程序找到主键。<br>
+并且，固定长度的表也更容易被缓存和重建。不过，唯一的副作用是，固定长度的字段会浪费一些空间，因为定长的字段无论你用不用，他都是要分配那么多的空间。</p>
+</li>
+</ol>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="phpe4b8ade7baa7e9a298e79bae_2" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="phpe4b8ade7baa7e9a298e79bae_2" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a><a name="php中级题目" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="php中级题目" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a>
+</div>
+<h3 style="margin-top: 1.0em; margin-right: 0; margin-bottom: .6em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; font-size: 24.5px">PHP中级题目</h3>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>网页/应用访问慢突然变慢，如何定位问题</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>top、iostat查看cpu、内存及io占用情况</li>
+<li>内核、程序参数设置不合理<br>
+查看有没有报内核错误，连接数用户打开文件数这些有没有达到上限等等</li>
+<li>链路本身慢<br>
+是否跨运营商、用户上下行带宽不够、dns解析慢、服务器内网广播风暴什么的</li>
+<li>程序设计不合理<br>
+是否程序本身算法设计太差，数据库语句太过复杂或者刚上线了什么功能引起的</li>
+<li>其它关联的程序引起的<br>
+如果要访问数据库，检查一下是否数据库访问慢</li>
+<li>是否被攻击了<br>
+查看服务器是否被DDos了等等</li>
+<li>硬件故障<br>
+这个一般直接服务器就挂了，而不是访问慢</li>
+</ul>
+<ol start="2" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>如何设计/优化一个访问量比较大的博客/论坛</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>减少http请求（比如使用雪碧图）</li>
+<li>优化数据库（范式、SQL语句、索引、配置、读写分离）</li>
+<li>缓存使用（Memcache、Redis）</li>
+<li>负载均衡</li>
+<li>动态内容静态化+CDN</li>
+<li>禁止外部盗链（refer、图片添加水印）</li>
+<li>控制大文件下载</li>
+<li>使用集群</li>
+</ul>
+<ol start="3" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>HTTP中GET与POST的区别，注意最后一条</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>GET在浏览器回退时是无害的，而POST会再次提交请求。</li>
+<li>GET产生的URL地址可以被Bookmark，而POST不可以。</li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST没有。</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
+<li>GET参数通过URL传递，POST放在Request body中。</li>
+<li>GET产生一个TCP数据包，POST产生两个TCP数据包。</li>
+</ul>
+<ol start="4" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>Cookie存在哪</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>如果设置了过期时间，Cookie存在硬盘里</li>
+<li>没有设置过期时间，Cookie存在内存里</li>
+</ul>
+<ol start="5" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>Linux进程属性</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>进程：是用pid表示，它的数值是唯一的</li>
+<li>父进程：用ppid表示</li>
+<li>启动进程的用户：用UID表示</li>
+<li>启动进程的用户所属的组：用GID表示</li>
+<li>进程的状态：运行R，就绪W，休眠S，僵尸Z</li>
+</ul>
+<ol start="6" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">统计某一天网站的访问量<br>
+推荐篇文章，讲awk实际使用的<a href="https://segmentfault.com/a/1190000009745139" target="_blank" style="color: #0088cc; text-decoration: none">shell在手分析服务器日志不愁</a></p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">如何修改文件为当前用户只读<br>
+chmod u=r 文件名</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">fastcgi通过端口监听和通过文件监听的区别</p>
+</li>
+</ol>
+<table class="table table-striped table-celled" style="max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; border: 1px solid rgba(34 , 36 , 38 , .15); width: 100%; margin-bottom: 20px">
+<thead>
+<tr style="page-break-inside: avoid">
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: none">监听方式	</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1)">形式	</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1)">nginx链接fastcgi方式</th>
+</tr>
+</thead>
+<tbody>
+<tr style="page-break-inside: avoid">
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: none">端口监听	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1)">fastcgi_pass 127.0.0.1:9000	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1)">TCP链接</td>
+</tr>
+<tr style="page-break-inside: avoid">
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: none">文件监听	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: 1px solid rgba(34 , 36 , 38 , .1)">fastcgi_pass /tmp/php_cgi.sock</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: 1px solid rgba(34 , 36 , 38 , .1)">	Unix domain Socket</td>
+</tr>
+</tbody>
+</table>
+<ol start="9" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>nginx的负载均衡实现方式</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>轮询</li>
+<li>用户IP哈希</li>
+<li>指定权重</li>
+<li>fair（第三方）</li>
+<li>url_hash（第三方）</li>
+</ul>
+<ol start="10" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">Redis主从是怎样同步数据的？（即复制功能）</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">无
+论是初次连接还是重新连接，当建立一个从服务器时，从服务器都将从主服务器发送一个SYNC命令。接到SYNC命令的主服务器将开始执行BGSAVE，并
+在保存操作执行期间，将所有新执行的命令都保存到一个缓冲区里面，当BGSAVE执行完毕后，主服务器将执行保存操作所得到的.rdb文件发送给从服务
+器，从服务器接收这个.rdb文件，并将文件中的数据载入到内存中。之后主服务器会以Redis命令协议的格式，将写命令缓冲区中积累的所有内容都发送给
+从服务器。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">Memcache与Redis的区别</p>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>Memcache</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>该产品本身特别是数据在内存里边的存储，如果服务器突然断电，则全部数据就会丢失</li>
+<li>单个key（变量）存放的数据有1M的限制</li>
+<li>存储数据的类型都是String字符串类型</li>
+<li>本身没有持久化功能</li>
+<li>可以使用多核（多线程）</li>
+</ul>
+<ol start="2" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>Redis</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>数据类型比较丰富:String、List、Set、Sortedset、Hash</li>
+<li>有持久化功能，可以把数据随时存储在磁盘上</li>
+<li>本身有一定的计算功能</li>
+<li>单个key（变量）存放的数据有1GB的限制</li>
+</ul>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">执行SQL语句：select count(*) from articles 时，MyISAM和InnoDB哪个快</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">MyISAM快，因为MyISAM本身就记录了数量，而InnoDB要扫描数据</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">隐式转换</p>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>当查询字段是INT类型，如果查询条件为CHAR，将查询条件转换为INT，如果是字符串前导都是数字将会进行截取，如果不是转换为0。</li>
+<li>当查询字段是CHAR/VARCHAR类型，如果查询条件为INT，将查询字段为换为INT再进行比较，可能会造成全表扫描</li>
+</ul>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">最左前缀原则<br>
+有一个复合索引：INDEX(<code style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #2C3E50; padding-top: 2px; padding-right: 4px; padding-bottom: 2px; padding-left: 4px">a</code>, <code style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #2C3E50; padding-top: 2px; padding-right: 4px; padding-bottom: 2px; padding-left: 4px">b</code>, <code style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #2C3E50; padding-top: 2px; padding-right: 4px; padding-bottom: 2px; padding-left: 4px">c</code>)</p>
+</li>
+</ol>
+<table class="table table-striped table-celled" style="max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; border: 1px solid rgba(34 , 36 , 38 , .15); width: 100%; margin-bottom: 20px">
+<thead>
+<tr style="page-break-inside: avoid">
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: none">使用方式</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1)">	能否用上索引</th>
+</tr>
+</thead>
+<tbody>
+<tr style="page-break-inside: avoid">
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: none">select * from users where a = 1 and b = 2	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1)">能用上a、b</td>
+</tr>
+<tr style="page-break-inside: avoid">
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: none">select * from users where b = 2 and a = 1	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: 1px solid rgba(34 , 36 , 38 , .1)">能用上a、b（有MySQL查询优化器）</td>
+</tr>
+<tr style="page-break-inside: avoid">
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: none">select * from users where a = 2 and c = 1	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1)">能用上a</td>
+</tr>
+<tr style="page-break-inside: avoid">
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: none">select * from users where b = 2 and c = 1	</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; border-left: 1px solid rgba(34 , 36 , 38 , .1)">不能</td>
+</tr>
+</tbody>
+</table>
+<ol start="15" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>聚簇索引和非聚簇索引的区别</li>
+</ol>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">聚簇索引的叶节点就是数据节点，而非聚簇索引的页节点仍然是索引检点，并保留一个链接指向对应数据块。</p>
+<ol start="16" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">Session可不可以设置失效时间，比如30分钟过期</p>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>设置seesion.cookie_lifetime有30分钟，并设置session.gc_maxlifetime为30分钟</li>
+<li>自己为每一个Session值增加timestamp</li>
+<li>每次访问之前, 判断时间戳</li>
+</ul>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">PHP进程间通信的几种方式</p>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>消息队列</li>
+<li>信号量+共享内存</li>
+<li>信号</li>
+<li>管道</li>
+<li>socket</li>
+</ul>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">php类的静态调用和实例化调用各自的利弊</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">静态方法是类中的一个成员方法，属于整个类，即使不用创建任何对象也可以直接调用！静态方法效率上要比实例化高，静态方法的缺点是不自动销毁，而实例化的则可以做销毁。</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">php7新特性</p>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 35px">
+<li>?? 运算符（NULL 合并运算符）</li>
+<li>函数返回值类型声明</li>
+<li>标量类型声明</li>
+<li>use 批量声明</li>
+<li>define 可以定义常量数组</li>
+<li>闭包（ Closure）增加了一个 call 方法<br>
+详细的可以见官网：<a href="https://secure.php.net/manual/en/migration70.new-features.php" target="_blank" style="color: #0088cc; text-decoration: none">php7-new-features</a></li>
+</ul>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">php7卓越性能背后的优化</p>
+</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>减少内存分配次数</li>
+<li>多使用栈内存</li>
+<li>缓存数组的hash值</li>
+<li>字符串解析成桉树改为宏展开</li>
+<li>使用大块连续内存代替小块破碎内存</li>
+<li>详细的可以参考鸟哥的PPT：<a href="https://github.com/devlinkcn/ppts_for_php2016/blob/master/%EF%BC%88%E6%83%A0%E6%96%B0%E5%AE%B8%EF%BC%89PHP7%E6%80%A7%E8%83%BD%E4%B9%8B%E6%BA%90.pdf" target="_blank" style="color: #0088cc; text-decoration: none">PHP7性能之源</a></li>
+</ul>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">21.列出一些防范SQL注入、XSS攻击、CSRF攻击的方法</p>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>SQL注入：</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>addslashes函</li>
+<li>mysql_real_escape_string/mysqli_real_escape_string/PDO::quote()</li>
+<li>PDO预处理</li>
+<li>XSS：htmlspecial函数</li>
+</ul>
+<ol start="2" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>CSRF：</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>验证HTTP REFER</li>
+<li>使用toke进行验证</li>
+</ul>
+<ol start="22" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>PHP里有哪些设计模式</li>
+</ol>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>单例模式</li>
+<li>工厂模式</li>
+<li>脸面模式（facade）</li>
+<li>注册器模式</li>
+<li>策略模式</li>
+<li>原型模式</li>
+<li>装饰器模式<br>
+<a href="http://larabase.com/collection/5/post/144" target="_blank" style="color: #0088cc; text-decoration: none">PHP设计模式简介</a></li>
+</ul>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="phpe9ab98e7baa7e9a298e79bae_3" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="phpe9ab98e7baa7e9a298e79bae_3" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a><a name="php高级题目" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="php高级题目" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a>
+</div>
+<h3 style="margin-top: 1.0em; margin-right: 0; margin-bottom: .6em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; font-size: 24.5px">PHP高级题目</h3>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">mysql_real_escape_string mysql_escape_string有什么本质的区别，有什么用处，为什么被弃用？</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是闭包，跟原型链、作用域链有什么关联</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">什么是内存泄漏，js内存泄漏是怎么产生的？</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">ip地址能被伪造吗？</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">一台电脑配置无限好，可以同时打开多少个网页</p>
+</li>
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">有100万个奖品，每个人可以中奖3次，先到先得，怎么控制并发，不能发超，并保证完全的先到先得模式<br>
+设置奖品概率，分三张表，都使用innodb引擎，一张存中奖记录（预先插入一行），一张存奖品发放概况，一张存用户抽奖情况（uin唯一索引），大并发情况下，利用mysql的排他锁进行并发控制。流程如下：<br>
+begin</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">查询用户抽奖次数，加排他锁</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">对用户抽奖次数的更新/插入</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">锁行查询发放情况</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">获得抽奖结果（某些奖品发完之后，动态变更概率）</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">更新发放表</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">插入中奖记录</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">commit</p>
+</li>
+</ol>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">7.遇到脏读怎么办？<br>
+8.innodb的master线程在什么情况下fork其他子线程？<br>
+9.数据链路层的数据是怎么校验的，有哪些校验方式？<br>
+10.b+树的查询时间复杂度是多少，哈希表是多少，为什么数据库索引用b+树存储，而不是哈希表，数据库索引存储还有其他数据结构吗？<br>
+11.apache是怎么跟php通讯的，sapi是什么<br>
+12.php的垃圾回收机制？<br>
+13.一个网页从输入地址回车，到完整展示网页内容这段时间里，做了哪些工作，越详细越好。<br>
+14.设计一个中继服务器，转发客户A-&gt;客户B的请求；<br>
+15.myisam跟innodb有什么区别；<br>
+16.php进程死锁产生的原因是什么？怎么自动排查与自动恢复？<br>
+17.有class A { public function b(<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-107" style="width: 0.928em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.741em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.966em, 1000.69em, 2.826em, -1000em); top: -2.546em; left: 0em;"><span class="mrow" id="MathJax-Span-108"><span class="mi" id="MathJax-Span-109" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mo" id="MathJax-Span-110" style="font-family: STIXGeneral;">,</span></span><span style="display: inline-block; width: 0px; height: 2.546em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.225em; border-left: 0px solid; width: 0px; height: 0.81em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi><mo>,</mo></math></span></span><script type="math/tex" id="MathJax-Element-3">a, </script>b, $c){}};<br>
+怎么使用['b' =&gt; 2, 'a' =&gt; 1, 'c' =&gt; 3]，对进行A::b进行调用，并顺利赋值？<br>
+php5.2-&gt;php7.1的各版本演进历史，新增特性？<br>
+18. 画一个tcp三次握手图</p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="e4bba3e7a081e9a298e79bae_4" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="e4bba3e7a081e9a298e79bae_4" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a><a name="代码题目" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="代码题目" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a>
+</div>
+<h3 style="margin-top: 1.0em; margin-right: 0; margin-bottom: .6em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; font-size: 24.5px">代码题目</h3>
+<ol style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>反转数组函数的实现</li>
+<li>两个有序int集合是否有相同元素的最优算法</li>
+<li>将一个数组中的元素随机（打乱）</li>
+<li>求n以内的质数（质数的定义：在大于1的自然数中，除了1和它本身意外，无法被其他自然数整除的数）</li>
+<li>约瑟夫环问题(相关题目：一群猴子排成一圈，按1,2,…,n依次编号。然后从第1只开始数，数到第m只,把它踢出圈，从它后面再开始数， 
+再数到第m只，在把它踢出去…，如此不停的进行下去， 直到最后只剩下一只猴子为止，那只猴子就叫做大王。要求编程模拟此过程，输入m、n, 
+输出最后那个大王的编号。)</li>
+<li>如何在有序的数组中找到一个数的位置（二分查找）</li>
+<li>给定一个有序整数序列，找出绝对值最小的元素</li>
+<li>找出有序数组中随机3个数和为0的所有情况</li>
+<li>编写一个PHP函数，求任意n个正负整数里面最大的连续和，要求算法时间复杂度尽可能低。</li>
+<li>用php写一个函数，获取一个文本文件最后n行内容，要求尽可能效率高，并可以跨平台使用。</li>
+<li>PHP解决多进程同时写一个文件的问题</li>
+<li>设计一个秒杀系统</li>
+</ol>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="e7ae97e6b395e9a298e79bae_5" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="e7ae97e6b395e9a298e79bae_5" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a><a name="算法题目" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="算法题目" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a>
+</div>
+<h3 style="margin-top: 1.0em; margin-right: 0; margin-bottom: .6em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; font-size: 24.5px">算法题目</h3>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">1.排序</p>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">冒泡排序<br>
+介绍：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">冒
+泡排序（Bubble 
+Sort，台湾译为：泡沫排序或气泡排序）是一种简单的排序算法。它重复地走访过要排序的数列，依次比较两个元素，如果他们的顺序错误就把他们交换过来。
+走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">步骤：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>
+对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<br>
+针对所有的元素重复以上的步骤，除了最后一个。<br>
+持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。<br>
+具体代码：</p>
+</li>
+</ul>
+<div class="xiaoshujiang_code_container" style="margin-top: 1em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; position: relative; padding-bottom: 2em"><pre style="line-height: initial !important; white-space: pre-wrap; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px"><code data-info=" php" class="language-php hljs" style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #657b83; padding-top: 0.5em; padding-right: 0.5em; padding-bottom: 0.5em; padding-left: 0.5em; overflow: visible !important; display: block; background: #fdf6e3">$arr=<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">array</span></span>(<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">43</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">54</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">62</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">21</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">66</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">32</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">78</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">36</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">76</span></span>,<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">39</span></span>);
+<span class="hljs-function" style="overflow: visible !important"><span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title" style="overflow: visible !important; color: #268bd2"><span class="hljs-function"><span class="hljs-title">bubbleSort</span></span></span><span class="hljs-function"> </span><span class="hljs-params" style="overflow: visible !important"><span class="hljs-function"><span class="hljs-params">($arr)</span></span></span><span class="hljs-function">
+</span></span>{
+$len = count($arr);
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//该层循环控制 需要冒泡的轮数</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span> ($i=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>; $i&lt;$len; $i++) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//该层循环用来控制每轮 冒出一个数 需要比较的次数</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span> ($k=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">0</span></span>; $k&lt;$len-$i; $k++) {
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>($arr[$k] &gt; $arr[$k+<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>]) {
+$tmp = $arr[$k+<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>]; <span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">// 声明一个临时变量</span></span>
+$arr[$k+<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>] = $arr[$k];
+$arr[$k] = $tmp;
+}
+}
+}
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">return</span></span> $arr;
+}
+</code></pre></div>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">选择排序<br>
+介绍：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">选择排序(Selection sort)是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。以此类推，直到所有元素均排序完毕。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">具体代码：</p>
+</li>
+</ul>
+<div class="xiaoshujiang_code_container" style="margin-top: 1em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; position: relative; padding-bottom: 2em"><pre style="line-height: initial !important; white-space: pre-wrap; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px"><code data-info=" php" class="language-php hljs" style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #657b83; padding-top: 0.5em; padding-right: 0.5em; padding-bottom: 0.5em; padding-left: 0.5em; overflow: visible !important; display: block; background: #fdf6e3"><span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//实现思路 双重循环完成，外层控制轮数，当前的最小值。内层 控制的比较次数</span></span>
+<span class="hljs-function" style="overflow: visible !important"><span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title" style="overflow: visible !important; color: #268bd2"><span class="hljs-function"><span class="hljs-title">select_sort</span></span></span><span class="hljs-params" style="overflow: visible !important"><span class="hljs-function"><span class="hljs-params">($arr)</span></span></span><span class="hljs-function"> </span></span>{
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//$i 当前最小值的位置， 需要参与比较的元素</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span>($i=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">0</span></span>, $len=count($arr); $i&lt;$len<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">-1</span></span>; $i++) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//先假设最小的值的位置</span></span>
+$p = $i;
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//$j 当前都需要和哪些元素比较，$i 后边的。</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span>($j=$i+<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>; $j&lt;$len; $j++) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//$arr[$p] 是 当前已知的最小值</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>($arr[$p] &gt; $arr[$j]) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//比较，发现更小的,记录下最小值的位置；并且在下次比较时，应该采用已知的最小值进行比较。</span></span>
+$p = $j;
+}
+}
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//已经确定了当前的最小值的位置，保存到$p中。</span></span>
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//如果发现 最小值的位置与当前假设的位置$i不同，则位置互换即可</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>($p != $i) {
+$tmp = $arr[$p];
+$arr[$p] = $arr[$i];
+$arr[$i] = $tmp;
+}
+}
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//返回最终结果</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">return</span></span> $arr;
+}
+</code></pre></div>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">插入排序<br>
+介绍：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">插
+入排序（Insertion 
+Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插
+入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，
+为最新元素提供插入空间。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">步骤：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">从第一个元素开始，该元素可以认为已经被排序<br>
+取出下一个元素，在已经排序的元素序列中从后向前扫描<br>
+如果该元素（已排序）大于新元素，将该元素移到下一位置<br>
+重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>
+将新元素插入到该位置中<br>
+重复步骤2<br>
+具体代码：</p>
+</li>
+</ul>
+<div class="xiaoshujiang_code_container" style="margin-top: 1em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; position: relative; padding-bottom: 2em"><pre style="line-height: initial !important; white-space: pre-wrap; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px"><code data-info=" php" class="language-php hljs" style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #657b83; padding-top: 0.5em; padding-right: 0.5em; padding-bottom: 0.5em; padding-left: 0.5em; overflow: visible !important; display: block; background: #fdf6e3"><span class="hljs-function" style="overflow: visible !important"><span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title" style="overflow: visible !important; color: #268bd2"><span class="hljs-function"><span class="hljs-title">insert_sort</span></span></span><span class="hljs-params" style="overflow: visible !important"><span class="hljs-function"><span class="hljs-params">($arr)</span></span></span><span class="hljs-function">
+</span></span>{
+$len=count($arr);
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span>($i=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>; $i&lt;$len; $i++) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//获得当前需要比较的元素值。</span></span>
+$tmp = $arr[$i];
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//内层循环控制 比较 并 插入</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span>($j=$i<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">-1</span></span>; $j&gt;=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">0</span></span>; $j--) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//$arr[$i];//需要插入的元素; $arr[$j];//需要比较的元素</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>($tmp &lt; $arr[$j]) {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//发现插入的元素要小，交换位置</span></span>
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//将后边的元素与前面的元素互换</span></span>
+$arr[$j+<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>] = $arr[$j];
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//将前面的数设置为 当前需要交换的数</span></span>
+$arr[$j] = $tmp;
+} <span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">else</span></span> {
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//如果碰到不需要移动的元素</span></span>
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//由于是已经排序好是数组，则前面的就不需要再次比较了。</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">break</span></span>;
+}
+}
+}
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//将这个元素 插入到已经排序好的序列内。</span></span>
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//返回</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">return</span></span> $arr;
+}
+</code></pre></div>
+<ul style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 35px">
+<li>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">快速排序<br>
+介绍：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">快
+速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要Ο(n log 
+n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n) 
+算法更快，因为它的内部循环（inner 
+loop）可以在大部分的架构上很有效率地被实现出来，且在大部分真实世界的数据，可以决定设计的选择，减少所需时间的二次方项之可能性。</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">步骤：</p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">从数列中挑出一个元素，称为 “基准”（pivot），<br>
+重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。<br>
+递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>
+具体代码：</p>
+</li>
+</ul>
+<div class="xiaoshujiang_code_container" style="margin-top: 1em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; position: relative; padding-bottom: 2em"><pre style="line-height: initial !important; white-space: pre-wrap; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px"><code data-info=" php" class="language-php hljs" style="border: 0; font-size: 90%; background-color: rgba(214 , 219 , 223 , 0.28); color: #657b83; padding-top: 0.5em; padding-right: 0.5em; padding-bottom: 0.5em; padding-left: 0.5em; overflow: visible !important; display: block; background: #fdf6e3"><span class="hljs-function" style="overflow: visible !important"><span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title" style="overflow: visible !important; color: #268bd2"><span class="hljs-function"><span class="hljs-title">quick_sort</span></span></span><span class="hljs-params" style="overflow: visible !important"><span class="hljs-function"><span class="hljs-params">($arr)</span></span></span><span class="hljs-function">
+</span></span>{
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//判断参数是否是一个数组</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>(!is_array($arr)) <span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">return</span></span> <span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">false</span></span>;
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//递归出口:数组长度为1，直接返回数组</span></span>
+$length = count($arr);
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>($length&lt;=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>) <span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">return</span></span> $arr;
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//数组元素有多个,则定义两个空数组</span></span>
+$left = $right = <span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">array</span></span>();
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//使用for循环进行遍历，把第一个元素当做比较的对象</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">for</span></span>($i=<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">1</span></span>; $i&lt;$length; $i++)
+{
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//判断当前元素的大小</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">if</span></span>($arr[$i]&lt;$arr[<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">0</span></span>]){
+$left[]=$arr[$i];
+}<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">else</span></span>{
+$right[]=$arr[$i];
+}
+}
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//递归调用</span></span>
+$left=quick_sort($left);
+$right=quick_sort($right);
+<span class="hljs-comment" style="overflow: visible !important; color: #93a1a1"><span class="hljs-comment">//将所有的结果合并</span></span>
+<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">return</span></span> array_merge($left,<span class="hljs-keyword" style="overflow: visible !important; color: #859900"><span class="hljs-keyword">array</span></span>($arr[<span class="hljs-number" style="overflow: visible !important; color: #2aa198"><span class="hljs-number">0</span></span>]),$right);
+}
+</code></pre></div>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="mysql_6" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="mysql_6" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a><a name="mysql" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none"></a><a id="mysql" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; visibility: hidden"></a>
+</div>
+<h3 style="margin-top: 1.0em; margin-right: 0; margin-bottom: .6em; margin-left: 0; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; font-size: 24.5px">mysql</h3>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6"><a href="https://files.cnblogs.com/files/hdcoder/mysql%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0.zip" target="_blank" style="color: #0088cc; text-decoration: none">mysql基础练习</a></p>
+<p style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0; line-height: 1.6">参考:<br>
+1.<a href="http://jsyzchen.com/2017/08/18/the-interview-summary-of-phper-who-has-three-years-working-experience/#more" target="_blank" style="color: #0088cc; text-decoration: none">3年PHPer的面试总结</a><br>
+2.<a href="https://zhuanlan.zhihu.com/p/27493130" target="_blank" style="color: #0088cc; text-decoration: none">八年phper的高级工程师面试之路</a><br>
+3.<a href="https://www.cnblogs.com/isykw/p/6115461.html" target="_blank" style="color: #0088cc; text-decoration: none">PHP四种基础算法详解</a></p>
+</div>
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(8862724,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow('0b1c810e-16aa-e611-845c-ac853d9f53ac');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/hdcoder/" target="_blank"><img src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/20161114110149.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/hdcoder/">hdcoder</a><br>
+            <a href="http://home.cnblogs.com/u/hdcoder/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/hdcoder/followers">粉丝 - 2</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('0b1c810e-16aa-e611-845c-ac853d9f53ac');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(8862724,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(8862724,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/hdcoder/p/6260701.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/hdcoder/p/6260701.html" title="发布于2017-01-07 23:34">apache本地和局域网访问设置</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2018-04-17 11:41</span> <a href="https://www.cnblogs.com/hdcoder/">hdcoder</a> 阅读(<span id="post_view_count">668</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=8862724" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(8862724);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=317438,cb_entryId=8862724,cb_blogApp=currentBlogApp,cb_blogUserGuid='0b1c810e-16aa-e611-845c-ac853d9f53ac',cb_entryCreatedDate='2018/4/17 11:41:00';loadViewCount(cb_entryId);var cb_postType=1;var isMarkdown=false;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-工控')">【推荐】超50万C++/C#源码: 大型实时仿真HMI组态CAD\GIS图形源码！</a><br><a href="https://gitee.com/enterprises?from=bky-2" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-gitee')">【推荐】专业便捷的企业级代码托管服务 - Gitee 码云</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20hdcoder%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CIX_vs646OACFdIxYAodXOMKZw"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="1" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/mszhangxuefei/archive/2011/04/16/dotnet-1.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">.NET基础面试题整理</a><br>·  <a href="https://www.cnblogs.com/carsonzhu/p/4564464.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">php面试题整理</a><br>·  <a href="https://www.cnblogs.com/dee0912/p/3999596.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">PHP 面试题数组篇[ 整理中 ]</a><br>·  <a href="https://www.cnblogs.com/xiaohaoxuezhang/p/4573185.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">面试题整理</a><br>·  <a href="https://www.cnblogs.com/jami918/p/3597593.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">面试题整理</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CKeBv8646OACFQqKwgodrZsB_g"><div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="2" data-load-complete="true" width="468" height="60" frameborder="0"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/620860/" target="_blank">杀死那个盗版网站</a><br> ·  <a href="https://news.cnblogs.com/n/620877/" target="_blank">FF否认遣散员工 计划重启中国市场</a><br> ·  <a href="https://news.cnblogs.com/n/620875/" target="_blank">搜狗CEO王小川：开放公共数据，用人工智能惠民生</a><br> ·  <a href="https://news.cnblogs.com/n/620876/" target="_blank">3.5万美元的Model 3要开售 特斯拉是否已经江郎才尽</a><br> ·  <a href="https://news.cnblogs.com/n/620874/" target="_blank">贝索斯私家侦探试图让他与前妻麦肯齐复合</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+ if(enablePostBottom()) {
+    codeHighlight();
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverT2();
+    deliverC1();
+    deliverC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);  
+}
+</script>
+</div>
+
+    
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/hdcoder/">hdcoder</a><br>园龄：<a href="https://home.cnblogs.com/u/hdcoder/" title="入园时间：2016-11-14">2年3个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/hdcoder/followers/">2</a><br>关注：<a href="https://home.cnblogs.com/u/hdcoder/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow('0b1c810e-16aa-e611-845c-ac853d9f53ac')">+加关注</a></div><script>getFollowStatus('0b1c810e-16aa-e611-845c-ac853d9f53ac')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="Calendar" cellspacing="0" cellpadding="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2019/02/01');return false;">&lt;</a></td><td align="center">2019年3月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2019/04/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">24</td><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td class="CalTodayDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/hdcoder/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/hdcoder/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/hdcoder/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/hdcoder/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/hdcoder/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/hdcoder/p/8862724.html">1. php面试题整理</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6260701.html">2. apache本地和局域网访问设置</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6208728.html">3. linux环境下验证码不显示的几种情况</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6172314.html">4. 个人504错误排查</a></li><li><a href="https://www.cnblogs.com/hdcoder/articles/6089754.html">5. 深入理解linux权限</a></li><li><a href="https://www.cnblogs.com/hdcoder/articles/6079757.html">6. Ubuntu基础知识：关于PPA那些事儿</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6079743.html">7. vm安装ubuntu桥接模式无法联网</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6079736.html">8. ubuntu下安装ssh</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/hdcoder/tag/ubuntu/">ubuntu</a>(3)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/%E5%B1%80%E5%9F%9F%E7%BD%91/">局域网</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/%E6%A1%A5%E6%8E%A5./">桥接.</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/%E6%9D%83%E9%99%90/">权限</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/%E9%AA%8C%E8%AF%81%E7%A0%81/">验证码</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/apache/">apache</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/linux/">linux</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/php/">php</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/ppa/">ppa</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/setGID/">setGID</a>(1)</li><li><a href="https://www.cnblogs.com/hdcoder/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(5)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/hdcoder/category/910390.html">apache(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/hdcoder/category/910386.html">linux(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/hdcoder/category/910387.html">mysql</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/hdcoder/category/910389.html">nginx</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/hdcoder/category/910388.html">php(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/hdcoder/category/910391.html">随想</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(6)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/hdcoder/archive/2018/04.html">2018年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/hdcoder/archive/2017/01.html">2017年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/hdcoder/archive/2016/12.html">2016年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/hdcoder/archive/2016/11.html">2016年11月 (2)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlecategory" class="catListArticleCategory sidebar-block">
+<h3 class="catListTitle">文章分类<span style="font-size:11px;font-weight:normal">(2)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="https://www.cnblogs.com/hdcoder/category/911415.html">linux(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="https://www.cnblogs.com/hdcoder/category/911417.html">mysql </a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="https://www.cnblogs.com/hdcoder/category/911418.html">nginx </a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="https://www.cnblogs.com/hdcoder/category/911416.html">php</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlearchive" class="catListArticleArchive sidebar-block">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(2)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="https://www.cnblogs.com/hdcoder/archives/2016/11.html" rel="nofollow">2016年11月 (2)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/hdcoder/articles/6089754.html#4156855">1. Re:深入理解linux权限</a></li>
+        <li class="recent_comment_body">很好，谢谢作者解惑</li>
+        <li class="recent_comment_author">--风马志</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/hdcoder/articles/6089754.html#4124011">2. Re:深入理解linux权限</a></li>
+        <li class="recent_comment_body">学习了，感谢</li>
+        <li class="recent_comment_author">--mirsultan</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/hdcoder/articles/6089754.html#4003838">3. Re:深入理解linux权限</a></li>
+        <li class="recent_comment_body">这么好的内容为什么没人对作者说声谢谢！</li>
+        <li class="recent_comment_author">--hreg</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/hdcoder/p/6079743.html">1. vm安装ubuntu桥接模式无法联网(4113)</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6208728.html">2. linux环境下验证码不显示的几种情况(1112)</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/8862724.html">3. php面试题整理(667)</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6172314.html">4. 个人504错误排查(617)</a></li><li><a href="https://www.cnblogs.com/hdcoder/p/6260701.html">5. apache本地和局域网访问设置(97)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 hdcoder
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: STIXSizeOneSym, sans-serif;"></div></div><iframe id="google_osd_static_frame_3711629775434" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>

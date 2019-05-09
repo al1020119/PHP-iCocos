@@ -1,0 +1,134 @@
+2014.10.24-面试题:
+
+
+写出你认为语言中的高级函数:
+1.数组
+array_filter();
+array_map();
+array_multisort();
+array_count_values();
+array_splice();
+
+2.字符串
+htmlspecialchars();
+htmlspecialchars_decode();
+json_encode();
+json_decode();
+substr_count();
+pathinfo();
+parse_url();
+parse_str();
+
+3.正则
+preg_match_all();
+preg_replace();
+
+5.文件
+file_get_contents();
+file_put_contents();
+scandir();
+readfile();
+
+6.画图
+imagecreatefromjpeg();
+
+7.cookie与session
+setcookie();
+session_id(); 
+session_name(); 
+
+8.数据库操作
+mysql_fetch_assoc();
+last_insert_id();
+
+smarty模板引擎中的关键字:
+1.assign();
+2.display();
+3.for
+4.if
+5.foreach
+6.volist
+
+mysql:
+1.字段管理
+2.索引管理
+3.增、删、改、查
+4.多表查询
+
+首字母大写:
+<?php 
+$str='hello_world';
+
+$arr=explode('_',$str);
+
+foreach($arr as $key=>$val){
+	$arr[$key]=ucfirst($val);
+}
+
+echo join('',$arr);
+ ?>
+
+千分位:
+<?php 
+$str='1234567890';
+
+$str2=strrev($str);
+
+$arr=str_split($str2,3);
+
+echo strrev(join(',',$arr));
+ ?>
+
+复习:linux任务计划
+复习:linux用户权限
+
+网站采集:
+<?php 
+header('content-type:text/html;charset=utf-8');
+$str=file_get_contents('http://www.baidu.com');
+preg_match_all('/<title>(.*)<\/title>/',$str,$ms);
+echo '<h1>'.$ms[1][0].'</h1>';
+echo '<hr>';
+$str=file_get_contents('http://www.qq.com');
+preg_match_all('/<title>(.*)<\/title>/',$str,$ms);
+echo '<h1>'.iconv('gbk','utf-8',$ms[1][0]).'</h1>';
+ ?>
+
+目录遍历:
+<?php 
+
+$dir='bs';
+
+function tree($dir){
+	$arr=scandir($dir);
+
+	foreach($arr as $file){
+		if($file!='.' && $file!='..'){
+			$path=$dir.'/'.$file;
+
+			if(is_dir($path)){
+				tree($path);
+			}else{
+				echo $path.'<br>';
+			}
+		}
+	}
+}
+
+tree($dir);
+
+ ?>
+
+js判断浏览器类型:
+info=navigator.userAgent;	
+if(info.search(/firefox/i)>=0){
+	// type='firefox';
+	document.body.style.background='#faa';	
+}else if(info.search(/msie/i)>=0){
+	// type='ie';
+	document.body.style.background='#afa';	
+}else if(info.search(/chrome/i)>=0){
+	document.body.style.background='#aaf';	
+	// type='chrome';
+}
+

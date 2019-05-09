@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  	<title>2017招聘季：PHP面试题超强总结！-PHP头条-PHP中文网</title>
+  	<meta name="keywords" content="PHP面试">
+  	<meta name="description" content="暖意浓浓，又到了一年一度的IT招聘旺季，俗话说金三银四，各家公司都正在火热招聘中，每个准备找工作或者换工作的小伙伴们也都想找一家好单位，进入一家好公司，那各位的技能是最重要的了">
+<meta property="article:author" content="大家讲道理">
+<meta property="article:published_first" content=",">
+	<script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/hm.js"></script><script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/push.js"></script><script>var system={win: false,mac: false,xll: false,ipad:false};var p=navigator.platform;system.win=p.indexOf("Win")==0;system.mac= p.indexOf("Mac")==0;system.x11=(p=="X11")||(p.indexOf("Linux")==0);system.ipad=(navigator.userAgent.match(/iPad/i) != null)?true:false;if(system.win || system.mac || system.xll||system.ipad){}else{window.location.href = "http://m.php.cn/article/353786.html";}</script>
+<meta name="mobile-agent" content="format=html5;url=http://m.php.cn/article/353786.html">
+<meta http-equiv="Cache-Control" content="no-transform ">
+<link rel="shortcut icon" href="http://www.php.cn/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/layui.css">
+<link rel="stylesheet" href="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/style.css">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.php.cn/article/353786.html">
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]--> 
+  	<link rel="stylesheet" href="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/shCoreDefault.css">
+  	<link rel="stylesheet" href="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/shCoreDefault1.css">
+  	<style type="text/css">
+		.layui-badge-dots{margin-right: 15px;width: 5px;height: 5px;background: #bbb!important;position: relative;display: inline-block;font-size: 12px;text-align: center;background-color: #FF5722;color: #fff;padding: 0;border-radius: 50%;}
+		.relevant{color: #666;}
+		.relevant:hover{color: #bbb}
+ 	 </style>
+	  <script type="application/ld+json">
+		 {
+		 "@context": "https://zhanzhang.baidu.com/contexts/cambrian.jsonld",
+		 "@id": "http://www.php.cn/toutiao-353786.html",
+		 "title": "2017招聘季：PHP面试题超强总结！",
+		 "description": "暖意浓浓，又到了一年一度的IT招聘旺季，俗话说金三银四，各家公司都正在火热招聘中，每个准备找工作或者换工作的小伙伴们也都想找一家好单位，进入一家好公司，那各位的技能是最重要的了",
+		 "images": ["http://img.php.cn/upload/article/000/000/004/dfc37f50e8972952bd73111912d7dff4.jpg"],
+		 "pubDate": "2018-05-11T13:50:55"
+		 }
+	   </script>
+<script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/share.js"></script><link id="layuicss-layer" rel="stylesheet" href="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/layer.css" media="all"><link rel="stylesheet" href="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/share_style0_16.css"></head>
+<body class="site-home" id="LAY_home" style="background-color: #eee;">
+<div class="layui-header header header-index">
+    <div class="layui-col-md3 php-logo">
+        <a href="http://www.php.cn/" target="_self" class="hide-text"></a>
+    </div>
+    <ul class="layui-nav php-nav">
+        <li class="layui-nav-item ">
+            <a href="http://www.php.cn/" title="php中文网首页">首页</a>
+        </li><li class="layui-nav-item ">
+            <a href="http://www.php.cn/course.html" title="视频教程">视频教程</a>
+        </li>
+        <li class="layui-nav-item ">
+            <a href="http://www.php.cn/wenda.html" title="社区问答">社区问答</a>
+        </li>
+        <li class="layui-nav-item layui-hide-xs ">
+            <a href="http://www.php.cn/article.html" title="技术文章">技术文章<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd><a href="http://www.php.cn/toutiao.html" target="_blank">每日头条</a></dd>
+                <dd><a href="http://www.php.cn/php-weizijiaocheng.html" target="_blank">php教程</a></dd>
+                <dd class="layui-show-xs"><a href="http://www.php.cn/jishu/php/" target="_blank">php小知识<span class="layui-badge-dot"></span></a></dd>
+                <dd><a href="http://www.php.cn/mysql-tutorials.html" target="_blank">mysql教程</a></dd>
+                <dd><a href="http://www.php.cn/linux.html" target="_blank">linux运维</a></dd>
+                <dd><a href="http://www.php.cn/div-tutorial.html" target="_blank">html教程</a></dd>
+                <dd><a href="http://www.php.cn/js-tutorial.html" target="_blank">javascript教程</a></dd>
+                <dd><a href="http://www.php.cn/css-tutorial.html" target="_blank">css教程</a></dd>
+                <dd><a href="http://www.php.cn/xiaochengxu.html" target="_blank">小程序开发</a></dd>
+                <dd><a href="http://www.php.cn/blog.html" target="_blank">博客文章</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-hide-xs ">
+            <a href="http://www.php.cn/dic.html" title="编程词典">编程词典<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd><a href="http://www.php.cn/dic/29.html" target="_blank">php词典</a></dd>
+                <dd class="layui-show-xs"><a href="http://www.php.cn/course/type/99.html" target="_blank">原生手册<span class="layui-badge-dot"></span></a></dd>
+                <dd><a href="http://www.php.cn/dic/51.html" target="_blank">mysql词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/33.html" target="_blank">Linux词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/54.html" target="_blank">Redis词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/11.html" target="_blank">html词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/17.html" target="_blank">javascript词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/12.html" target="_blank">css词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/15.html" target="_blank">Bootstrap词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/19.html" target="_blank">jquery词典</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a target="_blank" href="http://www.php.cn/xiazai/" title="资源下载">资源下载<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd><a href="http://www.php.cn/xiazai/shouce" target="_blank" title="手册下载">手册下载</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/gongju" target="_blank" title="工具下载">工具下载</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/learn" target="_blank" title="学习课件">学习课件</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/js" target="_blank" title="js特效">js特效</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/code" target="_blank" title="网站源码">网站源码</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/leiku" target="_blank" title="类库下载">类库下载</a></dd>
+            </dl> 
+        </li>
+                <li class="layui-nav-item ">
+            <a href="http://www.php.cn/course/type/3.html" title="菜鸟学堂">菜鸟学堂</a>
+        </li>
+    <span class="layui-nav-bar"></span></ul>
+    
+                <div class="user-card-box">
+            <a id="header-avator" href="http://www.php.cn/member/283367.html" class="user-card-item js-header-avator"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" width="40" height="40"><i class="myspace_remind" style="display: none;"></i><span style="display: none;">动态提醒</span></a>
+            <div class="g-user-card">
+                <div class="card-inner">
+                    <div class="card-top">
+                        <a href="http://www.php.cn/member/283367.html"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="iCocos" class="l"></a>
+                        <a href="http://www.php.cn/member/283367.html"><span class="name text-ellipsis" title="iCocos">iCocos</span></a>
+                        <p class="meta"><a href="javascript:;">P豆<b id="js-user-mp">0</b></a><a href="javascript:;">积分<b id="js-user-credit">0</b></a></p>
+                    </div>
+
+                    <div class="user-center-box">                            
+                        <ul>                                
+                            <li>
+                                <a href="http://www.php.cn/member/283367.html" target="_blank"><i class="user-center-icon layui-icon"></i>个人中心</a>
+                            </li>                                
+                            <li>                                    
+                                <a href="http://www.php.cn/member/283367/courses.html" target="_blank"><i class="user-center-icon layui-icon"></i>我的课程</a>                                                                    
+                            </li>                                
+                            <li>
+                                <a href="http://www.php.cn/member/283367/blog.html" target="_blank"><i class="user-center-icon layui-icon"></i>我的博客</a>
+                            </li>                                
+                            <li>
+                                <a href="http://www.php.cn/user.html" target="_blank"><i class="user-center-icon layui-icon"></i>个人设置</a>
+                            </li>
+                            <div class="clear"></div>                        
+                        </ul>                        
+                    </div>
+
+                    <div class="card-sets">
+                        <a href="http://www.php.cn/user/setbindsns.html" target="_blank">帐号绑定</a>
+                        <a href="http://www.php.cn/account/logout.html">安全退出</a>
+                    </div>
+                </div>
+                <i class="card-arr"></i>
+            </div>
+        </div>
+
+        <div class="header_message_record">
+                        <a target="_blank" href="http://www.php.cn/message.html"><i class="layui-icon layui-icon-speaker"></i></a>
+        </div>
+            <div class="layui-form component">
+        <div class="layui-form-select">
+            <div class="layui-select-title">
+                <input type="text" id="key_words" placeholder="输入关键词搜索" onkeyup="keyup()" style="background:#000" class="layui-input"><a href="javascript:;" onclick="searchs()"><i class="layui-icon"></i></a>
+            </div>
+        </div>
+    </div>
+	</div>
+<div class="layui-main" style=" margin-top: 20px;">
+
+	<div class="layui-row php-article">
+    <div class="layui-col-md8 article-list-left">
+		<div class="profile">
+			<div><a href="http://www.php.cn/">首页</a> &gt; <a href="http://www.php.cn/toutiao.html">PHP头条</a> &gt; 正文</div>
+			<h1>2017招聘季：PHP面试题超强总结！</h1>
+			<span title="是否原创"><i class="layui-icon"></i>原创</span>
+			<span><i class="layui-icon" title="添加时间"></i>
+						2018-05-11 13:50:55			</span>
+			<span><i class="layui-icon" title="评论"></i>10</span>
+			<span class="hot"><i class="layui-icon" title="浏览"></i>2404</span>
+		</div>
+				<a href="http://www.php.cn/k.html" target="_blank" rel="nofollow"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/article.gif" alt="第五期线上培训班"></a>
+		<div class="detail-content-wrap">
+							<div class="content">
+					
+暖意浓浓，又到了一年一度的IT招聘旺季，俗话说金三银四，各家公司都正在火热招聘中，每个准备找工作或者换工作的小伙伴们也都想找一家好单位，进入一家
+好公司，那各位的技能是最重要的了，但是同样应聘机巧也不可忽视，php中文网给大家总结了全面的php面试题，供大家参考！（<a href="http://www.php.cn/toutiao-353969.html" target="_self">2017招聘季：php薪资待遇如何？</a>）<p></p><p><span style="font-size: 18px;"><strong>PHP面试基础题目</strong></span></p><h4>1、双引号和单引号的区别</h4><ul class=" list-paddingleft-2"><li><p>双引号解释变量，单引号不解释变量</p></li><li><p>双引号里插入单引号，其中单引号里如果有变量的话，变量解释</p></li><li><p>双引号的变量名后面必须要有一个非数字、字母、下划线的特殊字符，或者用{}讲变量括起来，否则会将变量名后面的部分当做一个整体，引起语法错误</p></li><li><p>双引号解释转义字符，单引号不解释转义字符，但是解释'\和\\</p></li><li><p>能使单引号字符尽量使用单引号，单引号的效率比双引号要高（因为双引号要先遍历一遍，判断里面有没有变量，然后再进行操作，而单引号则不需要判断）</p></li></ul><h4>2、常用的超全局变量(8个)</h4><ul class=" list-paddingleft-2"><li><p>$_GET       -----&gt;get传送方式</p></li><li><p>$_POST       -----&gt;post传送方式</p></li><li><p>$_REQUEST    -----&gt;可以接收到get和post两种方式的值</p></li></ul><hr><ul class=" list-paddingleft-2"><li><p>$GLOBALS    -----&gt;所有的变量都放在里面</p></li><li><p>$_FILES       -----&gt;上传文件使用</p></li><li><p>$_SERVER     -----&gt;系统环境变量</p></li></ul><hr><ul class=" list-paddingleft-2"><li><p>$_SESSION    -----&gt;会话控制的时候会用到</p></li><li><p>$_COOKIE     -----&gt;会话控制的时候会用到</p></li></ul><h4>3、HTTP中POST、GET、PUT、DELETE方式的区别</h4><blockquote><p>HTTP
+定义了与服务器交互的不同的方法，最基本的是POST、GET、PUT、DELETE，与其比不可少的URL的全称是资源描述符，我们可以这样理
+解：url描述了一个网络上资源，而post、get、put、delegate就是对这个资源进行增、删、改、查的操作！</p></blockquote><h5>3.1表单中get和post提交方式的区别</h5><ul class=" list-paddingleft-2"><li><p>get
+是把参数数据队列加到提交表单的action属性所指的url中，值和表单内各个字段一一对应，从url中可以看到；post是通过HTTPPOST机
+制，将表单内各个字段与其内容防止在HTML的head中一起传送到action属性所指的url地址，用户看不到这个过程</p></li><li><p>对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据</p></li><li><p>get传送的数据量较小，post传送的数据量较大，一般被默认不受限制，但在理论上，IIS4中最大量为80kb，IIS5中为1000k，get安全性非常低，post安全性较高</p></li></ul><h5>3.2</h5><ul class=" list-paddingleft-2"><li><p>GET请求会向数据库发索取数据的请求，从而来获取信息，该请求就像数据库的select操作一样，只是用来查询一下数据，不会修改、增加数据，不会影响资源的内容，即该请求不会产生副作用。无论进行多少次操作，结果都是一样的。</p></li><li><p>与GET不同的是，PUT请求是向服务器端发送数据的，从而改变信息，该请求就像数据库的update操作一样，用来修改数据的内容，但是不会增加数据的种类等，也就是说无论进行多少次PUT操作，其结果并没有不同。</p></li><li><p>POST请求同PUT请求类似，都是向服务器端发送数据的，但是该请求会改变数据的种类等资源，就像数据库的insert操作一样，会创建新的内容。几乎目前所有的提交操作都是用POST请求的。</p></li><li><p>DELETE请求顾名思义，就是用来删除某一个资源的，该请求就像数据库的delete操作。</p></li></ul><h4>4、PHP介绍</h4><p>Hypertext Preprocessor----超文本预处理器</p><p>Personal Home Page   原始名称</p><p><strong>目标用途:</strong> 允许web开发人员快速编写动态生成的web页面，与其他页面相比，PHP是将程序嵌入到HTML文档中去执行，效率比完全生成HTML编辑的CGI高很多</p><p><strong>HTML:</strong> Hypertext Markup Language</p><p><strong>创始人:</strong> 拉姆斯勒·勒多夫Rasmus Lerdorf，1968年生，加拿大滑铁卢大学</p><p>勒多夫最开始是为了维护个人网页，用prel语言写了维护程序，之后又用c进行了重写，最终衍生出php/fi</p><p><strong>时间轴:</strong></p><ul class=" list-paddingleft-2"><li><p>1995.06.08将PHP/FI公开释出</p></li><li><p>1995 php2.0，加入了对MySQL的支持</p></li><li><p>1997 php3.0</p></li><li><p>2000 php4.0</p></li><li><p>2008 php5.0</p></li><li><p>由于php6.0没有完全解决Unicode编码，所以基本没有生产线上的应用，基本只是一款概念产品，很多功能已经在php5.3.3和php5.3.4上实现</p></li></ul><p><strong>常见的IDE(Intergrated Development Environment):</strong> 集成开发环境</p><ul class=" list-paddingleft-2"><li><p>Coda（mac）</p></li><li><p>PHPStrom</p></li><li><p>Adobe Dreamweaver</p></li><li><p>NetBeans</p></li></ul><p><strong>常见文本编辑器，具备代码高亮：</strong></p><ul class=" list-paddingleft-2"><li><p>NodePad++</p></li><li><p>SublimeText</p></li></ul><h4>PHP优势</h4><p><strong>PHP特性:</strong></p><ul class=" list-paddingleft-2"><li><p>php独特混合了C,Java,Prel以及PHP自创的语法</p></li><li><p>可以比CGI或者Prel更快速去执行动态网页，与其他变成语言相比，PHP是讲程序嵌入到HTML文档中去执行，执行效率比完全生成HTML编辑的CGI要高很多，所有的CGI都能实现</p></li><li><p>支持几乎所有流行的数据库以及操作系统</p></li><li><p>PHP可以使用C,C++进行程序的扩展</p></li></ul><p><strong>PHP优势:</strong></p><ul class=" list-paddingleft-2"><li><p>开放源代码</p></li><li><p>免费性</p></li><li><p>快捷性</p></li><li><p>跨平台强</p></li><li><p>效率高</p></li><li><p>图形处理</p></li><li><p>面向对象</p></li><li><p>专业专注</p></li></ul><p><strong>PHP技术应用:</strong></p><ul class=" list-paddingleft-2"><li><p>静态页面生成</p></li><li><p>数据库缓存</p></li><li><p>过程缓存    </p></li><li><p>p+css w3c标准</p></li><li><p>大负荷</p></li><li><p>分布式</p></li><li><p>flex</p></li><li><p>支持MVC</p></li><li><p>Smarty模块引擎</p></li></ul><h4>PHP认证级别</h4><ul class=" list-paddingleft-2"><li><p>初级 IFE:Index Front Engineer 前端工程师</p></li><li><p>中级 IPE:Index PHP Engineer  PHP工程师</p></li><li><p>高级 IAE:Index Architecture Engineer 架构工程师</p></li></ul><h4>6、echo、print_r、print、var_dump之间的区别</h4><table class="syntaxhighlighter  bash" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="bash plain">* </code><code class="bash functions">echo</code><code class="bash plain">、print是php语句，var_dump和print_r是函数</code></p><p class="line number2 index1 alt1"><code class="bash plain">* </code><code class="bash functions">echo</code> <code class="bash plain">输出一个或多个字符串，中间以逗号隔开，没有返回值是语言结构而不是真正的函数，因此不能作为表达式的一部分使用</code></p><p class="line number3 index2 alt2"><code class="bash plain">* print也是php的一个关键字，有返回值 只能打印出简单类型变量的值(如int，string)，如果字符串显示成功则返回</code><code class="bash functions">true</code><code class="bash plain">，否则返回</code><code class="bash functions">false</code><code class="bash plain">* print_r 可以打印出复杂类型变量的值(如数组、对象）以列表的形式显示，并以array、object开头，但print_r输出布尔值和NULL的结果没有意义，因为都是打印</code><code class="bash string">"\n"</code><code class="bash plain">，因此var_dump()函数更适合调试</code></p><p class="line number4 index3 alt1"><code class="bash plain">* var_dump() 判断一个变量的类型和长度，并输出变量的数值</code></p></div></td></tr></tbody></table><h4>7、HTTP状态码</h4><p><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1488160328629858.png" title="1488160328629858.png"></p><p><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1488160328882021.png" title="1488160328882021.png"></p><p><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1488160328356866.png" title="1488160328356866.png"></p><p><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1488160329725311.png" title="1488160329725311.png"></p><p><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1488160329744789.png" title="1488160329744789.png"></p><p><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1488160329122609.png" title="1488160329122609.png"></p><p><strong>常见的HTTP状态码：</strong></p><ul class=" list-paddingleft-2"><li><p>200 - 请求成功</p></li><li><p>301 - 资源(网页等)被永久转义到其他URL</p></li><li><p>404 - 请求的资源(网页等)不存在</p></li><li><p>505 - 内部服务器错误</p></li></ul><p><strong>HTTP状态码分类:</strong></p><ul class=" list-paddingleft-2"><li><p>1** - 信息，服务器收到的请求，需要请求者继续执行操作</p></li><li><p>2**  - 成功，操作被成功接收并处理</p></li><li><p>3** - 重定向，需要进一步的操作以完成请求</p></li><li><p>4** - 客户端错误，请求包含语法错误或者无法完成请求</p></li><li><p>5** 服务器错误，服务器在处理请求的过程<br>中发生了错误</p></li></ul><h4>8、什么是魔术引号</h4><p>魔术引号是一个将自动将进入PHP脚本的数据进行转义的过程，最好在编码时不要转义而在运行时根据需要而转义</p><h4>9、如何获取客户端的ip(要求取得一个int)和服务器ip的代码</h4><p>客户端：<code>$_SERVER["REMOTE_ADDR"];或者getenv('REMOTE_ADDR')</code><br><code>ip2long进行转换</code><br>服务器端：<code>gethostbyname('www.baidu.com')</code></p><h5>10、使用那些工具进行版本控制</h5><p>cvs、svn、vss、git</p><h4>11、优化数据库的方法</h4><ul class=" list-paddingleft-2"><li><p>选取最适用的字段属性，尽可能减少定义字段宽度，尽量把字段设置NOTNULL，例如'省份'、'性别'最好适用ENUM</p></li><li><p>使用连接(JOIN)来代替子查询</p></li><li><p>适用联合(UNION)来代替手动创建的临时表</p></li><li><p>事务处理</p></li><li><p>锁定表、优化事务处理</p></li><li><p>适用外键，优化锁定表</p></li><li><p>建立索引</p></li><li><p>优化查询语句</p></li></ul><h4>12、是否使用过模板引擎？使用的模板引擎的名字是？</h4><p><strong>Smarty:</strong>Smarty算是一种很老的PHP模板引擎了，它曾是我使用这门语言模板的最初选择。虽然它的更新已经不算频繁了，并且缺少新一代模板引擎所具有的部分特性，但是它仍然值得一看。</p><h4>13、对于大流量网站，采用什么方法来解决访问量的问题</h4><ul class=" list-paddingleft-2"><li><p>确认服务器硬件是否能够支持当前的流量</p></li><li><p>数据库读写分离，优化数据表</p></li><li><p>程序功能规则，禁止外部的盗链</p></li><li><p>控制大文件的下载</p></li><li><p>使用不同主机分流主要流量</p></li></ul><h4>14、语句include和require的区别是什么？为避免多次包含同一文件，可以用(?)语句代替他们</h4><ul class=" list-paddingleft-2"><li><p>require是无条件包含，也就是如果一个流程里加入require，无论条件成立与否都会先执行require，当文件不存在或者无法打开的时候，会提示错误，并且会终止程序执行</p></li><li><p>include有返回值，而require没有(可能因为如此require的速度比include快)，如果被包含的文件不存在的化，那么会提示一个错误，但是程序会继续执行下去</p></li></ul><p>注意:包含文件不存在或者语法错误的时候require是致命的，而include不是</p><ul class=" list-paddingleft-2"><li><p>require_once表示了只包含一次，避免了重复包含</p></li></ul><h4>15、谈谈mvc的认识</h4><p>由模型、视图、控制器完成的应用程序，由模型发出要实现的功能到控制器，控制器接收组织功能传递给视图</p><h4>16、 说明php中传值与传引用的区别，并说明传值什么时候传引用？</h4><p>变量默认总是传值赋值，那也就是说，当将一个表达式的值赋予一个变量时，整个表达式的值被赋值到目标变量，这意味着：<strong>当一个变量的赋予另外一个变量时，改变其中一个变量的值，将不会影响到另外一个变量</strong></p><p>php也提供了另外一种方式给变量赋值：引用赋值。这意味着新的变量简单的<strong>引用</strong><em>(换言之，成为了其别名或者指向)</em><strong>了原始变量</strong>。改动的新的变量将影响到原始变量，反之亦然。使用引用赋值，简单地将一个&amp;符号加到将要赋值的变量前(源变量)</p><p>对象默认是传引用<br>对于较大是的数据，传引用比较好，这样可以节省内存的开销</p><p class="show-content"><br></p><h4>17、isset、empty、is_null的区别</h4><p>isset 判断变量是否定义或者是否为空</p><table class="syntaxhighlighter  bash" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="bash plain">变量存在返回ture，否则返回</code><code class="bash functions">false</code></p><p class="line number2 index1 alt1"><code class="bash plain">变量定义不赋值返回</code><code class="bash functions">false</code>&nbsp; <code class="bash functions">unset</code><code class="bash plain">一个变量，返回</code><code class="bash functions">false</code></p><p class="line number3 index2 alt2"><code class="bash plain">变量赋值为null，返回</code><code class="bash functions">false</code></p></div></td></tr></tbody></table><p>empty：判断变量的值是否为空，能转换为false的都是空，为空返回true，反之返回false。</p><table class="syntaxhighlighter  bash" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="bash string">""</code><code class="bash plain">,0,</code><code class="bash string">"0"</code><code class="bash plain">,NULL，FALSE都认为为空，返回</code><code class="bash functions">true</code></p><p class="line number2 index1 alt1"><code class="bash plain">没有任何属性的对象都认为是空</code></p></div></td></tr></tbody></table><p>is_null：检测传入的值(值、变量、表达式)是否为null</p><table class="syntaxhighlighter  bash" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="bash plain">定义了，但是赋值为Null</code></p><p class="line number2 index1 alt1"><code class="bash plain">定义了，但是没有赋值&nbsp;&nbsp;&nbsp; </code><code class="bash functions">unset</code><code class="bash plain">一个变量</code></p></div></td></tr></tbody></table><h4>18、前端调试的工具</h4><ul class=" list-paddingleft-2"><li><p>Firefox的firebug</p></li><li><p>Chrome的开发工具</p></li><li><p>Emmet</p></li><li><p>JSON格式校验工具</p></li></ul><h4>19.    简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）（新浪网技术部）</h4><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它们包含着对数据表里所有记录的引用指针。<br>普通索引(由关键字KEY或INDEX定义的索引)的唯一任务是加快对数据的访问速度。<br>普通索引允许被索引的数据列包含重复的值。如果能确定某个数据列将只包含彼此各不相同的值，在为这个数据列创建索引的时候就应该用关键字UNIQUE把它定义为一个唯一索引。也就是说，唯一索引可以保证数据记录的唯一性。<br>主键，是一种特殊的唯一索引，在一张表中只能定义一个主键索引，主键用于唯一标识一条记录，使用关键字 PRIMARY KEY 来创建。<br>索引可以覆盖多个数据列，如像INDEX(columnA, columnB)索引，这就是联合索引。<br>索引可以极大的提高数据的查询速度，但是会降低插入、删除、更新表的速度，因为在执行这些写操作时，还要操作索引文件。</p><h4>20.数据库中的事务是什么?</h4><p>事
+务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。
+如果所有操作完成，事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。ACID 
+四大特性,原子性、隔离性、一致性、持久性。</p><h4>21.了解XSS攻击吗？如何防止？</h4><p>XSS是跨站脚本攻击，首先是利用跨站脚本漏洞以一个特权模式去执行攻击者构造的脚本，然后利用不安全的Activex控件执行恶意的行为。<br>使用htmlspecialchars()函数对提交的内容进行过滤，使字符串里面的特殊符号实体化。</p><h4>22.SQL注入漏洞产生的原因？如何防止？</h4><p>SQL注入产生的原因：程序开发过程中不注意规范书写sql语句和对特殊字符进行过滤，导致客户端可以通过全局变量POST和GET提交一些sql语句正常执行。</p><h5>防止SQL注入的方式：</h5><ol class=" list-paddingleft-2"><li><p>开启配置文件中的magic_quotes_gpc 和 magic_quotes_runtime设置</p></li><li><p>执行sql语句时使用addslashes进行sql语句转换</p></li><li><p>Sql语句书写尽量不要省略双引号和单引号。</p></li><li><p>过滤掉sql语句中的一些关键词：update、insert、delete、select、 * 。</p></li><li><p>提高数据库表和字段的命名技巧，对一些重要的字段根据程序的特点命名，取不易被猜到的。</p></li><li><p>Php配置文件中设置register_globals为off,关闭全局变量注册</p></li><li><p>控制错误信息，不要在浏览器上输出错误信息，将错误信息写到日志文件中。</p></li></ol><h4>23.PHP网站的主要攻击方式有哪些？</h4><ol class=" list-paddingleft-2"><li><p>命令注入(Command Injection)</p></li><li><p>eval 注入(Eval Injection)</p></li><li><p>客户端脚本攻击(Script Insertion)</p></li><li><p>跨网站脚本攻击(Cross Site Scripting, XSS)</p></li><li><p>SQL 注入攻击(SQL injection)</p></li><li><p>跨网站请求伪造攻击(Cross Site Request<br>Forgeries, CSRF)</p></li><li><p>Session 会话劫持(Session Hijacking)</p></li><li><p>Session 固定攻击(Session Fixation)</p></li><li><p>HTTP 响应拆分攻击(HTTP Response Splitting)</p></li><li><p>文件上传漏洞(File Upload Attack)</p></li><li><p>目录穿越漏洞(Directory Traversal)</p></li><li><p>远程文件包含攻击(Remote Inclusion)</p></li><li><p>动态函数注入攻击(Dynamic Variable<br>Evaluation)</p></li><li><p>URL 攻击(URL attack)</p></li><li><p>表单提交欺骗攻击(Spoofed Form<br>Submissions)</p></li><li><p>HTTP 请求欺骗攻击(Spoofed HTTP Requests)</p></li></ol><h4>24、框架中什么是单一入口和多入口 ， 单一入口的优缺点？</h4><ol class=" list-paddingleft-2"><li><p>多口就是通过访问不同的文件来完成用户请求。单一入口只 web 程序所有的请求都指向一个脚本文件的。</p></li><li><p>单一入口更容易控制权限，方便对 http 请求可以进行安全性检查。<br>缺点：URL 看起来不那么美观，特别是对搜索引擎来说不友好。</p></li></ol><h4>25、    对于关系型数据库而言，索引是相当重要的概念，请回答有关索引的几个问题：</h4><h5>a)、索引的目的是什么？</h5><ol class=" list-paddingleft-2"><li><p>快速访问数据表中的特定信息，提高检索速度</p></li><li><p>创建唯一性索引，保证数据库表中每一行数据的唯一性。</p></li><li><p>加速表和表之间的连接</p></li><li><p>使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间</p></li></ol><h5>b)、索引对数据库系统的负面影响是什么？</h5><p><strong>负面影响：</strong><br>创建索引和维护索引需要耗费时间，这个时间随着数据量的增加而增加；索引需要占用物理空间，不光是表需要占用数据空间，每个索引也需要占用物理空间；当对表进行增、删、改、的时候索引也要动态维护，这样就降低了数据的维护速度。</p><h5>c)、为数据表建立索引的原则有哪些？</h5><ol class=" list-paddingleft-2"><li><p>在最频繁使用的、用以缩小查询范围的字段上建立索引。</p></li><li><p>在频繁使用的、需要排序的字段上建立索引</p></li></ol><h5>d)、 什么情况下不宜建立索引？</h5><ol class=" list-paddingleft-2"><li><p>对于查询中很少涉及的列或者重复值比较多的列，不宜建立索引。</p></li><li><p>对于一些特殊的数据类型，不宜建立索引，比如文本字段（text）等。</p></li></ol><h4>26、    简述在MySQL数据库中MyISAM和InnoDB的区别</h4><p>区别于其他数据库的最重要的特点就是其插件式的表存储引擎。切记：存储引擎是基于表的，而不是数据库。</p><p>InnoDB与MyISAM的区别：</p><p><strong>InnoDB存储引擎:</strong> 主要面向OLTP(Online Transaction Processing，在线事务处理)方面的应用，是第一个完整支持ACID事务的存储引擎(BDB第一个支持事务的存储引擎，已经停止开发)。</p><p><strong>特点：</strong></p><ul class=" list-paddingleft-2"><li><p>行锁设计、支持外键；</p></li><li><p>支持类似于Oracle风格的一致性非锁定读(即：默认情况下读取操作不会产生锁)；</p></li><li><p>InnoDB将数据放在一个逻辑的表空间中，由InnoDB自身进行管理。从MySQL4.1版本开始，可以将每个InnoDB存储引擎的表单独存放到一个独立的ibd文件中；</p></li><li><p>InnoDB通过使用MVCC(多版本并发控制：读不会阻塞写，写也不会阻塞读)来获得高并发性，并且实现了SQL标准的4种隔离级别(默认为REPEATABLE级别)；</p></li><li><p>InnoDB还提供了插入缓冲(insert buffer)、二次写(double write)、自适应哈希索引(adaptive hash index)、预读(read ahead)等高性能和高可用的功能；</p></li><li><p>InnoDB采用了聚集(clustered)的方式来存储表中的数据，每张标的存储都按主键的顺序存放(如果没有显式的在建表时指定主键，InnoDB会为每一行生成一个6字节的ROWID，并以此作为主键)；</p></li><li><p>InnoDB表会有三个隐藏字段：除了上面提到了6字节的DB_ROW_ID外，还有6字节的DB_TX_ID(事务ID)和7字节的DB_ROLL_PTR(指向对应回滚段的地址)。这个可以通过innodb monitor看到；</p></li></ul><p><strong>MyISAM存储引擎:</strong> 是MySQL官方提供的存储引擎，主要面向OLAP(Online Analytical Processing,在线分析处理)方面的应用。<em><em>特点：</em></em></p><ul class=" list-paddingleft-2"><li><p>不支持事务，支持表所和全文索引。操作速度快；</p></li><li><p>MyISAM存储引擎表由MYD和MYI组成，MYD用来存放数据文件，MYI用来存放索引文件。MySQL数据库只缓存其索引文件，数据文件的缓存交给操作系统本身来完成；<br>MySQL5.0版本开始，MyISAM默认支持256T的单表数据；</p></li></ul><h4>27、    解释MySQL外连接、内连接与自连接的区别</h4><p><strong>先说什么是交叉连接:</strong> 交叉连接又叫笛卡尔积，它是指不使用任何条件，直接将一个表的所有记录和另一个表中的所有记录一一匹配。</p><p><strong>内连接</strong> 则是只有条件的交叉连接，根据某个条件筛选出符合条件的记录，不符合条件的记录不会出现在结果集中，即内连接只连接匹配的行。<em><em>外连接</em></em> 其结果集中不仅包含符合连接条件的行，而且还会包括左表、右表或两个表中<br>的所有数据行，这三种情况依次称之为左外连接，右外连接，和全外连接。</p><p>左
+外连接，也称左连接，左表为主表，左表中的所有记录都会出现在结果集中，对于那些在右表中并没有匹配的记录，仍然要显示，右边对应的那些字段值以NULL
+来填充。右外连接，也称右连接，右表为主表，右表中的所有记录都会出现在结果集中。左连接和右连接可以互换，MySQL目前还不支持全外连接。</p><h4>28、    写出三种以上MySQL数据库存储引擎的名称（提示：不区分大小写）</h4><p>MyISAM、InnoDB、BDB（BerkeleyDB）、Merge、Memory（Heap）、Example、Federated、<br>Archive、CSV、Blackhole、MaxDB 等等十几个引擎</p><h4>29、    什么是面向对象？主要特征是什么？几大原则是什么？</h4><p>面向对象是程序的一种设计模式，它利于提高程序的重用性，使程序机构更加清晰。     主要特征是：封装、继承、多态。<br>五大基本原则：   单一职责原则；开放封闭原则；替换原则； 依赖原则； 接口分离原则。</p><h4>30、什么是静态路由，其特点是什么?什么是动态路由，其特点是什么?</h4><p>　参考答案：<br>　　静态路由是由系统管理员设计与构建的路由表规定的路由。适用于网关数量有限的场    合，且网络拓朴结构不经常变化的网络。其缺点是不能动态地适用网络状况的变化，当    网络状况变化后必须由网络管理员修改路由表。<br>动态路由是由路由选择协议而动态构建的，路由协议之间通过交换各自所拥有的路由信    息实时更新路由表的内容。动态路由可以自动学习网络的拓朴结构，并更新路由表。其    缺点是路由广播更新信息将占据大量的网络带宽。</p><h4>31、使用过 Memcache 缓存吗，如果使用过，能够简单的描述一下它的工作原理吗？</h4><p>Memcahce 是把所有的数据保存在内存当中，采用 hash 表的方式，每条数据由 key 和 value 组成，每个 key 是独一无二的，当要访问某个值的时候先按照找到值，然后返回结果。<br>Memcahce 采用 LRU 算法来逐渐把过期数据清除掉。</p><h4>32.    列举流行的 Ajax 框架？说明 Ajax 实现原理是什么及 json 在 Ajax 中起什么作用？</h4><p>流行的 Ajax 框架有 jQuery，Prototype，Dojo，MooTools。</p><p>Ajax
+ 的工作原理是一个页面的指定位置可以加载另一个页面所有的输出内容，这样就实现了一个静态页面也能获取到数据库中的返回数据信息了。所以 Ajax 
+技术实现了一个静态网页在不刷新整个页面的情况下与服务器通信，减少了用户等待时间，同时也从而降低了网络流量，增强了客户体验的友好程度。<br>在使用 Ajax 时，涉及到数据传输，即将数据从服务器返回到客户端，服务器端和客户端分别使用不同的脚步语言来处理数据，这就需要一种通用的数据格式，XML 和 json 就是最常用的两种，而 json 比 XML 更简单。</p><h4>33、Myql中的事务回滚机制概述</h4><p>事务是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位，事务回滚是指将该事务已经完成的对数据库的更新操作撤销。</p><p>　
+　要同时修改数据库中两个不同表时，如果它们不是一个事务的话，当第一个表修改完，可能第二个表修改过程中出现了异常而没能修改，此时就只有第二个表依旧
+是未修改之前的状态，而第一个表已经被修改完毕。而当你把它们设定为一个事务的时候，当第一个表修改完，第二表修改出现异常而没能修改，第一个表和第二个
+表都要回到未修改的状态，这就是所谓的事务回滚。</p><hr><p><strong>上面的33个问题，从易到难分别列出了面试中的一些问题，对于想换工作的同学来说，将这些题目刷一遍在面试能提高不少成功率，那在这里要祝愿一下找工作的各位都能找到自己满意的一份工作!</strong>				
+				</p><div class="share layui-clear bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1551404306516">
+					<li><a href="javascript:;" data-cmd="weixin" class="wechat"><i class="layui-icon"></i>微信</a></li>
+					<li><a href="javascript:;" data-cmd="more" class="share-btn"><i class="layui-icon"></i>分享</a></li>
+				</div>
+				<div class="tags layui-clear">
+				<li>相关标签：<a href="http://www.php.cn/search?word=php%E9%9D%A2%E8%AF%95" target="_blank">PHP面试</a></li>
+					<li class="line">
+												本文原创发布php中文网 ，转载请注明出处，感谢您的尊重！
+											</li>
+				</div>
+								<div class="page layui-clear">
+					<ul>
+												<li>上一篇：<a href="http://www.php.cn/toutiao-353590.html">看php中文网视频课程的正确姿势！</a></li>
+												<li>下一篇：<a href="http://www.php.cn/toutiao-353969.html">2017招聘季：高端php人才薪资待遇如何？</a></li>
+											</ul>
+				</div>
+			    				</div>
+				<p style="font-size: 18px;">相关文章</p>
+				<hr>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-346094.html">少走弯路，一个老程序猿谈PHP职业发展规划</a></li>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-346322.html">圣诞快乐！来自PHP中文网的真诚问候！</a></li>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-346869.html">PHP“钱景”如何？看看内行怎么说？</a></li>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-347583.html">元旦福利大放送！破解百度云下载，10MB/S不是梦！</a></li>
+							<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-353786.html">2017招聘季：PHP面试题超强总结！</a></li>
+		</div>
+
+		<div class="comment">
+				<div class="J_Header" id="J_Header">
+					<h1 class="header-title">网友评论</h1>
+					<p class="header-protocol">文明上网理性发言，请遵守
+						<a href="javascript:void(0);">新闻评论服务协议</a></p>
+						<a class="article-comment-publish" href="javascript:void(0);">我要评论</a>
+												<a class="header-number" href="javascript:void(0);"><i id="J_CommentTotal">10&nbsp;</i>条评论 </a>
+										</div>
+
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/274.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="phpcn_u274"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/274.html" target="_blank" class="tikname">phpcn_u274</a> 
+							<span class="time">· </span>
+							<span class="floor">1楼</span>
+						</li>
+						<li class="info">
+							<p>嗯，确实都是面试常问的题型</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/28.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="代言"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/28.html" target="_blank" class="tikname">代言</a> 
+							<span class="time">· </span>
+							<span class="floor">2楼</span>
+						</li>
+						<li class="info">
+							<p>看下看下。过段时间也要找工作了</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/830.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="phpcn_u830"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/830.html" target="_blank" class="tikname">phpcn_u830</a> 
+							<span class="time">· </span>
+							<span class="floor">3楼</span>
+						</li>
+						<li class="info">
+							<p>看了这篇，我觉得我找不到工作了！！都特么不会啊。</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/58.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="我又来了"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/58.html" target="_blank" class="tikname">我又来了</a> 
+							<span class="time">· </span>
+							<span class="floor">4楼</span>
+						</li>
+						<li class="info">
+							<p>总结的很全面，等我学完面试的时候在来看看</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/61.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="小水滴"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/61.html" target="_blank" class="tikname">小水滴</a> 
+							<span class="time">· </span>
+							<span class="floor">5楼</span>
+						</li>
+						<li class="info">
+							<p>有试卷做就更好了</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/814.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="phpcn_u814"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/814.html" target="_blank" class="tikname">phpcn_u814</a> 
+							<span class="time">· </span>
+							<span class="floor">6楼</span>
+						</li>
+						<li class="info">
+							<p>实力才是最重要的</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/77.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="蚂蚁的力量"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/77.html" target="_blank" class="tikname">蚂蚁的力量</a> 
+							<span class="time">· </span>
+							<span class="floor">7楼</span>
+						</li>
+						<li class="info">
+							<p>对面试很有帮助</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/79.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="我是灰太狼"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/79.html" target="_blank" class="tikname">我是灰太狼</a> 
+							<span class="time">· </span>
+							<span class="floor">8楼</span>
+						</li>
+						<li class="info">
+							<p>面试之前可以来看看</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/86.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="这是啥"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/86.html" target="_blank" class="tikname">这是啥</a> 
+							<span class="time">· </span>
+							<span class="floor">9楼</span>
+						</li>
+						<li class="info">
+							<p>对平常学习也有用的</p></li>
+					</div>
+				</div>
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/10906.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/0189125e3aa471f9117675c31d66744a.jpg" alt="ᑔU"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/10906.html" target="_blank" class="tikname">ᑔU</a> 
+							<span class="time">· </span>
+							<span class="floor">10楼</span>
+						</li>
+						<li class="info">
+							<p>有没有中级工程师以上的面试题</p></li>
+					</div>
+				</div>
+				
+				<div class="text-box layui-clear article_comment_textarea" style="display:block;">
+						<div class="box-left">
+							<li>
+								<a href="http://www.php.cn/member/283367.html">
+									<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="iCocos">
+								</a>
+							</li>
+							<li><a href="http://www.php.cn/member/283367.html"></a></li>
+						</div>
+						<div class="box-right">
+							<textarea name="desc" placeholder="请输入内容" class="layui-textarea article_textarea"></textarea>
+							<button class="layui-btn article_publish" data-id="353786">立即提交</button>
+						</div>
+				</div>
+		</div>
+		
+		<!--推荐新闻-->
+		<div class="article-hot pinBoxContainer" id="tab_detail_list">
+			<div class="pinBox-wrapper" style="position: relative; height: 50px;"><div class="layui-col-md12 php-news-left ">
+				  <ul class="php-news-left-ul">
+				  							<li><a href="http://www.php.cn/course/list/29.html"> PHP</a></li>
+											<li><a href="http://www.php.cn/course/list/51.html"> MySQL</a></li>
+											<li><a href="http://www.php.cn/course/list/11.html"> HTML</a></li>
+											<li><a href="http://www.php.cn/course/list/12.html"> CSS</a></li>
+											<li><a href="http://www.php.cn/course/list/17.html"> JavaScript</a></li>
+											<li><a href="http://www.php.cn/course/list/19.html"> jQuery</a></li>
+											<li><a href="http://www.php.cn/course/list/25.html"> AJAX</a></li>
+											<li><a href="http://www.php.cn/course/list/13.html"> Html5</a></li>
+										<div class="clear"></div>
+				  </ul>
+			</div></div>
+			<div class="layui-col-md12  php-news-info" style="background-color:#fff;">
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/486.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a50894c3ee41784.jpg" alt="独孤九贱(5)_ThinkPHP5视频教程" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/486.html">独孤九贱(5)_ThinkPHP5视频教程</a></h3>
+					  <p title="ThinkPHP是国内最流行的中文PHP开发框架,也是您Web项目的最佳选择。《php.cn独孤九贱(5)－ThinkPHP5视频教程》课程以ThinkPHP5最新版本为例，从最基本的框架常识开始，将您在开发要用到的所有知识点，娓娓道来。语言选简洁明快，实例简单实用，只你具备基本的PHP的语法常识，就可以跟着PHP中文网的这套原创课程，学会用ThinkPHP5创建您的项目。从用户请求到响应输出，从控制器到路由，从模型知识到模板调试，在本套课程中，你总可以找到你的最爱。">ThinkPHP是国内最流行的中文PHP开发框架,也是您Web项目的最佳选择。《php.cn独孤九贱(5)－ThinkPHP5视频教程》课程以ThinkPHP5最新版本为例，从最基本的框架常识开始，将...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-05-16 12:03:57</li>
+							<li>点击数(157014)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/379.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a508deef1e58616.jpg" alt="独孤九贱(4)_PHP视频教程" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/379.html">独孤九贱(4)_PHP视频教程</a></h3>
+					  <p title="江湖传言：PHP是世界上最好的编程语言。真的是这样吗？这个梗究竟是从哪来的？学会本课程，你就会明白了。
+PHP中文网出品的PHP入门系统教学视频，完全从初学者的角度出发，绝不玩虚的，一切以实用、有用为原则，让你学得会，记得住，用得上。学习PHP编程，不得不提醒阁下，前端的基础知识，还是要有一点的。当然不要求精通，但必须对基本标签、基本概念和术语有一定了解，否则，会对你的学习信心造成小打击哟~~（php中文网上有很多优秀的html,css,javascript教程可供您参考，如果你选择我们官方原创课程最好啦）">江湖传言：PHP是世界上最好的编程语言。真的是这样吗？这个梗究竟是从哪来的？学会本课程，你就会明白了。
+PHP中文网出品的PHP入门系统教学视频，完全从初学者的角度出发，绝不玩虚的，一切以实用、有用...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-03-20 22:47:17</li>
+							<li>点击数(154456)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/372.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a5091db685e6482.jpg" alt="独孤九贱(1)_HTML5视频教程" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/372.html">独孤九贱(1)_HTML5视频教程</a></h3>
+					  <p title="《php.cn原创html5视频教程》课程特色：php中文网原创幽默段子系列课程，以恶搞，段子为主题风格的php视频教程！轻松的教学风格，简短的教学模式，让同学们在不知不觉中，学会了HTML知识。
+每节课内容精炼，长度不超过10分钟，非常适合您利用碎片时间来学习。地铁上、等人、候车、餐厅无处不学习~~">《php.cn原创html5视频教程》课程特色：php中文网原创幽默段子系列课程，以恶搞，段子为主题风格的php视频教程！轻松的教学风格，简短的教学模式，让同学们在不知不觉中，学会了HTML知识。
+...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-03-13 10:15:11</li>
+							<li>点击数(123779)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/593.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a9ce29211b72919.jpg" alt="ThinkPHP5实战之[教学管理系统]" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/593.html">ThinkPHP5实战之[教学管理系统]</a></h3>
+					  <p title="本套教程,以一个真实的学校教学管理系统为案例,手把手教会您如何在一张白纸上,从零开始,一步一步的用ThinkPHP5框架快速开发出一个商业项目。">本套教程,以一个真实的学校教学管理系统为案例,手把手教会您如何在一张白纸上,从零开始,一步一步的用ThinkPHP5框架快速开发出一个商业项目。</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-07-24 16:48:56</li>
+							<li>点击数(115947)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/170.html" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a53132d0bd62424.jpg" alt="PHP入门视频教程之一周学会PHP" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/170.html">PHP入门视频教程之一周学会PHP</a></h3>
+					  <p title="所有计算机语言的学习都要从基础开始，《PHP入门视频教程之一周学会PHP》不仅是PHP的基础部分更主要的是PHP语言的核心技术，是学习PHP必须掌握的内容，任何PHP项目的实现都离不开这部分的内容，通过一周的深入学习让你快速掌握PHP的各项技能，助你的工作和学习更上层楼！">所有计算机语言的学习都要从基础开始，《PHP入门视频教程之一周学会PHP》不仅是PHP的基础部分更主要的是PHP语言的核心技术，是学习PHP必须掌握的内容，任何PHP项目的实现都离不开这部分的内容，通...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/4.html"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5c511d62e6c0e698.png"> 大家讲道理</a>
+							</li>
+							<li>2016-11-16 14:54:14</li>
+							<li>点击数(115665)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+							</div>
+			<div class="clear"></div>
+		</div>
+</div>
+	<div class="layui-col-md4 article-list-right ">
+		<div class="panel">
+				<div class="panel-title">作者信息</div>
+				<div id="profile-2">
+					<div class="avatar-wrap">
+						<a href="http://www.php.cn/member/4.html" target="_blank" class="avatar-link">
+							<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5c511d62e6c0e698.png" class="func-um_user gravatar avatar avatar-120 um-avatar um-avatar-uploaded">
+						</a>
+					</div>
+					<div class="profile-info">
+						<p>
+							<span class="author-name">大家讲道理</span>
+							<i class="layui-icon layui-icon-auz" title="认证作者"></i>
+						</p>
+						<p class="author-description">光阴似箭催人老，日月如移越少年。</p>
+						<div class="author-article">
+							<dl class="list-one">
+								<dt class="panel-title">最近文章</dt>
+																<dd>
+									<a href="http://www.php.cn/python-tutorials-377132.html" target="_blank" title="django开发者模式中的autoreload是怎样实现的">django开发者模式中的autoreload是怎样实现的</a>
+									<span><i class="layui-icon layui-icon-fire"></i>149</span>
+								</dd>
+																<dd>
+									<a href="http://www.php.cn/python-tutorials-377131.html" target="_blank" title="python os模块使用详解">python os模块使用详解</a>
+									<span><i class="layui-icon layui-icon-fire"></i>276</span>
+								</dd>
+																<dd>
+									<a href="http://www.php.cn/python-tutorials-377130.html" target="_blank" title="python 装饰器">python 装饰器</a>
+									<span><i class="layui-icon layui-icon-fire"></i>132</span>
+								</dd>
+															</dl>
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<div class="layui-clear"><a href="javascript:publish_article()" class="layui-btn layui-btn-danger article-add">发布技术文章</a> </div>
+		<div class="top-article layui-clear">
+			<div class="layui-tab layui-tab-card">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">最新文章</li>
+			    <li>猜你喜欢</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show">
+			    	<ul>
+						<p class="top-img">
+							<a href="http://www.php.cn/toutiao-387072.html" target="_blank" title="面对巨额亏损的PHP中文网，我该为情怀买单吗？（猪哥）"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5b890a9e4417f872.png" style="width: 100%"></a>
+						</p>
+												<li><a href="http://www.php.cn/toutiao-415695.html" target="_blank" title="PHP中文网近期社区问答精选话题汇总">PHP中文网近期社区问答精选话题汇总</a></li>
+												<li><a href="http://www.php.cn/toutiao-415600.html" target="_blank" title="2019年大前端面试题汇总（收藏）">2019年大前端面试题汇总（收藏）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415599.html" target="_blank" title="2019年PHP面试题大汇总（收藏）">2019年PHP面试题大汇总（收藏）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415575.html" target="_blank" title="2019年最新的18个黑马程序员全套视频教程推荐（免费）">2019年最新的18个黑马程序员全套视频教程推荐（免费）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415523.html" target="_blank" title="PHP常见面试题型汇总（附答案）">PHP常见面试题型汇总（附答案）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415522.html" target="_blank" title="腾讯PHP经典面试题（附答案）">腾讯PHP经典面试题（附答案）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415519.html" target="_blank" title="2019年最新PHP面试题汇总（附答案）">2019年最新PHP面试题汇总（附答案）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415516.html" target="_blank" title="PHP面试技巧—职场暗语你知多少？">PHP面试技巧—职场暗语你知多少？</a></li>
+												
+					</ul>
+			    </div>
+			    <div class="layui-tab-item">
+			    	<ul>
+						<p class="top-img">
+							<a href="http://www.php.cn/toutiao-387072.html" target="_blank" title="面对巨额亏损的PHP中文网，我该为情怀买单吗？（猪哥）"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5b890a9e4417f872.png" style="width: 100%"></a>
+						</p>
+												<li><a href="http://www.php.cn/toutiao-352768.html" target="_blank" title="2019年最好用的10个php开发工具推荐">2019年最好用的10个php开发工具推荐</a></li>
+												<li><a href="http://www.php.cn/toutiao-362311.html" target="_blank" title="2018年最好用的6个php环境搭建工具推荐">2018年最好用的6个php环境搭建工具推荐</a></li>
+												<li><a href="http://www.php.cn/toutiao-408774.html" target="_blank" title="为什么程序员都黑php？PHP中文网有话说！">为什么程序员都黑php？PHP中文网有话说！</a></li>
+												<li><a href="http://www.php.cn/toutiao-408147.html" target="_blank" title="2018浪漫七夕：7款程序员必备表白源码（超炫酷）">2018浪漫七夕：7款程序员必备表白源码（超炫酷）</a></li>
+												<li><a href="http://www.php.cn/toutiao-345556.html" target="_blank" title="学习php怎么入门？史上最清晰的php学习路线图规划！">学习php怎么入门？史上最清晰的php学习路线图规划！</a></li>
+												<li><a href="http://www.php.cn/toutiao-355027.html" target="_blank" title="php难学吗？php学习从入门到精通需要多久？">php难学吗？php学习从入门到精通需要多久？</a></li>
+												<li><a href="http://www.php.cn/toutiao-384729.html" target="_blank" title="2019热门php开发框架排行">2019热门php开发框架排行</a></li>
+												<li><a href="http://www.php.cn/toutiao-361489.html" target="_blank" title="今日推荐：10款超赞的国外黄色主题网站欣赏，老司机请上路！">今日推荐：10款超赞的国外黄色主题网站欣赏，老司机请上路！</a></li>
+												
+					</ul>
+			    </div>
+			  </div>
+			</div>
+
+			
+		</div>
+		<div class="article-course	php-news-right-imginfo" style="margin-bottom:20px;">
+			<h3 class="article-title">相关视频教程</h3>
+							<li>
+				<a href="http://www.php.cn/course/179.html" target="_blank">
+					<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a17982d48686254.jpg" alt="javascript初级视频教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/179.html" target="_blank">javascript初级视频教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/181.html" target="_blank">
+					<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a179283c3885703.jpg" alt="jquery 基础视频教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/181.html" target="_blank">jquery 基础视频教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/198.html" target="_blank">
+					<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a169239acf9a131.jpg" alt="javascript三级联动视频教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/198.html" target="_blank">javascript三级联动视频教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/386.html" target="_blank">
+					<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a508a6eb1fe2744.jpg" alt="独孤九贱(3)_JavaScript视频教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/386.html" target="_blank">独孤九贱(3)_JavaScript视频教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/582.html" target="_blank">
+					<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a50879e1c81a337.jpg" alt="独孤九贱(6)_jQuery视频教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/582.html" target="_blank">独孤九贱(6)_jQuery视频教程</a></span>
+			</li>
+					</div>
+		<div class="top-article layui-clear" id="aritcle_detail_new">
+			<h3 class="article-title">相关视频章节</h3>
+			<ul>
+								<li><a href="http://www.php.cn/code/21972.html" target="_blank" title="PHP面试题实训第二讲">PHP面试题实训第二讲</a></li>
+								<li><a href="http://www.php.cn/code/21973.html" target="_blank" title="PHP面试题实训第三讲">PHP面试题实训第三讲</a></li>
+								<li><a href="http://www.php.cn/code/21974.html" target="_blank" title="PHP面试题实训第四讲">PHP面试题实训第四讲</a></li>
+								<li><a href="http://www.php.cn/code/21975.html" target="_blank" title="PHP面试题实训第五讲">PHP面试题实训第五讲</a></li>
+								<li><a href="http://www.php.cn/code/21976.html" target="_blank" title="PHP面试题实训第六讲">PHP面试题实训第六讲</a></li>
+							</ul>
+		</div>
+    </div>
+    </div>
+</div>
+<!--技术文章-->
+<script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/shCore.js"></script>
+<script>article_status = 4;</script>
+<script type="text/javascript" src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/jquery.js"></script>
+<script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/search-video.js"></script>
+<div class="close_id" id="close_id" style="opacity:0.8;position:fixed;width:35px;height:35px;background:url(http://img.php.cn/upload/article/000/000/003/5b596254afbad676.png) no-repeat;right:0;bottom:0;cursor: pointer;z-index:9999999999;background-size:80% 80%;"></div>
+<a class="close_id" href="http://www.php.cn/k.html" target="_blank" style="position:fixed;right:0;bottom:0;width:300px;height:200px;z-index:999999999">
+    <img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/footer.gif">
+</a>
+<div class="layui-clear layui-bg-black php-ul-li footer_top_margin">
+    <div class="layui-row  layui-main">
+        <div class="layui-col-md9">
+            <ul class="php-float-left">
+                <li><a href="http://www.php.cn/" target="_blank" title="网站首页">网站首页 </a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/2.html" target="_blank" title="PHP视频">PHP视频</a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/4.html" target="_blank" title="PHP实战">PHP实战</a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/1.html" target="_blank" title="PHP代码">PHP代码</a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/3.html" target="_blank" title="PHP手册">PHP手册</a></li>
+                <li><a href="http://www.php.cn/wikis.html" target="_blank" title="词条">词条</a></li>
+                <li><a href="http://www.php.cn/write.html" target="_blank" title="手记">手记</a></li>
+            </ul>
+            <p class="layui-clear footer_phpcn">PHP中文网：独家原创，永久免费的在线php视频教程，php技术学习阵地！</p>
+            <p class="footer_phpcn_record">Copyright 2014-2018 http://www.php.cn/ All Rights Reserved | 皖B2-20150071-9 <img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/ghs.png" width="15"> 皖公网安备 34010402701654号 <a href="http://112.30.63.109:8887/showEi?id=6a58f74d17984675aa1b671d0fa101cf&amp;url=php.cn" rel="nofollow" target="_blank"><img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/foot_line.gif" width="15"></a> <span class="footer_phpcn_say"><a href="http://www.php.cn/about/disclaimer.html" target="_blank">免责申明</a><a href="http://www.php.cn/about/donate.html" style="margin-right:40px" target="_blank">赞助与捐赠</a></span></p>
+            <p></p>
+        </div>
+        <div class="layui-col-md3" style="padding-top:15px;">
+            <img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5c50106148dc3454.png" title="官方QQ群：977601088" width="100">&nbsp;&nbsp;<img src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/phpcn_erwei.jpg" title="扫一扫，关注公众号" width="100">
+
+        </div>
+    </div>
+</div>
+<input type="hidden" id="verifycode" value="/captcha.html">
+<script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/jquery_002.js"></script>
+<script src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/layui.js"></script>
+<script type="text/javascript" src="2017%E6%8B%9B%E8%81%98%E5%AD%A3%EF%BC%9APHP%E9%9D%A2%E8%AF%95%E9%A2%98%E8%B6%85%E5%BC%BA%E6%80%BB%E7%BB%93%EF%BC%81-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/global.js"></script>
+<script>(function(){var bp = document.createElement('script');var curProtocol = window.location.protocol.split(':')[0];if(curProtocol === 'https'){bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';}else{bp.src = 'http://push.zhanzhang.baidu.com/push.js';}var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp, s);
+})();var _hmt = _hmt || [];(function(){var hm = document.createElement("script");hm.src="//hm.baidu.com/hm.js?8cc45d54c337ca616c34b1cf747da91c";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
+<script>
+var player = new searchVideo({
+	id: 'myVideo',
+	src: [""],
+	controls: true,
+	poster: '',
+	autoplay: false,
+	width: '100%',
+	height: '100%'
+});
+</script>
+
+<ul class="layui-fixbar"><li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li></ul></body></html>

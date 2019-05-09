@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  	<title>腾讯PHP经典面试题（附答案）-PHP头条-PHP中文网</title>
+  	<meta name="keywords" content="腾讯PHP经典面试题">
+  	<meta name="description" content="一、PHP开发部分  1．合并两个数组有几种方式，试比较它们的异同  答：  1、array_merge()   2、’+’   3、array_merge_recursive  array_merge 简单的合并数组   array_me">
+<meta property="article:author" content="藏色散人">
+<meta property="article:published_first" content="csdn,https://blog.csdn.net/rodgexue/article/details/79521499">
+	<script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/hm.js"></script><script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/push.js"></script><script>var system={win: false,mac: false,xll: false,ipad:false};var p=navigator.platform;system.win=p.indexOf("Win")==0;system.mac= p.indexOf("Mac")==0;system.x11=(p=="X11")||(p.indexOf("Linux")==0);system.ipad=(navigator.userAgent.match(/iPad/i) != null)?true:false;if(system.win || system.mac || system.xll||system.ipad){}else{window.location.href = "http://m.php.cn/article/415522.html";}</script>
+<meta name="mobile-agent" content="format=html5;url=http://m.php.cn/article/415522.html">
+<meta http-equiv="Cache-Control" content="no-transform ">
+<link rel="shortcut icon" href="http://www.php.cn/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/layui.css">
+<link rel="stylesheet" href="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/style.css">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.php.cn/article/415522.html">
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]--> 
+  	<link rel="stylesheet" href="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/shCoreDefault.css">
+  	<link rel="stylesheet" href="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/shCoreDefault1.css">
+  	<style type="text/css">
+		.layui-badge-dots{margin-right: 15px;width: 5px;height: 5px;background: #bbb!important;position: relative;display: inline-block;font-size: 12px;text-align: center;background-color: #FF5722;color: #fff;padding: 0;border-radius: 50%;}
+		.relevant{color: #666;}
+		.relevant:hover{color: #bbb}
+ 	 </style>
+	  <script type="application/ld+json">
+		 {
+		 "@context": "https://zhanzhang.baidu.com/contexts/cambrian.jsonld",
+		 "@id": "http://www.php.cn/toutiao-415522.html",
+		 "title": "腾讯PHP经典面试题（附答案）",
+		 "description": "一、PHP开发部分  1．合并两个数组有几种方式，试比较它们的异同  答：  1、array_merge()   2、’+’   3、array_merge_recursive  array_merge 简单的合并数组   array_me",
+		 "images": ["http://img.php.cn/upload/article/000/000/020/5c70bc7fcde00891.jpg"],
+		 "pubDate": "2019-02-23T11:19:36",
+		 "upDate": "2019-02-25T17:01:00"
+		 }
+	   </script>
+<script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/share.js"></script><link id="layuicss-layer" rel="stylesheet" href="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/layer.css" media="all"><link rel="stylesheet" href="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/share_style0_16.css"></head>
+<body class="site-home" id="LAY_home" style="background-color: #eee;">
+<div class="layui-header header header-index">
+    <div class="layui-col-md3 php-logo">
+        <a href="http://www.php.cn/" target="_self" class="hide-text"></a>
+    </div>
+    <ul class="layui-nav php-nav">
+        <li class="layui-nav-item ">
+            <a href="http://www.php.cn/" title="php中文网首页">首页</a>
+        </li><li class="layui-nav-item ">
+            <a href="http://www.php.cn/course.html" title="视频教程">视频教程</a>
+        </li>
+        <li class="layui-nav-item ">
+            <a href="http://www.php.cn/wenda.html" title="社区问答">社区问答</a>
+        </li>
+        <li class="layui-nav-item layui-hide-xs ">
+            <a href="http://www.php.cn/article.html" title="技术文章">技术文章<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd><a href="http://www.php.cn/toutiao.html" target="_blank">每日头条</a></dd>
+                <dd><a href="http://www.php.cn/php-weizijiaocheng.html" target="_blank">php教程</a></dd>
+                <dd class="layui-show-xs"><a href="http://www.php.cn/jishu/php/" target="_blank">php小知识<span class="layui-badge-dot"></span></a></dd>
+                <dd><a href="http://www.php.cn/mysql-tutorials.html" target="_blank">mysql教程</a></dd>
+                <dd><a href="http://www.php.cn/linux.html" target="_blank">linux运维</a></dd>
+                <dd><a href="http://www.php.cn/div-tutorial.html" target="_blank">html教程</a></dd>
+                <dd><a href="http://www.php.cn/js-tutorial.html" target="_blank">javascript教程</a></dd>
+                <dd><a href="http://www.php.cn/css-tutorial.html" target="_blank">css教程</a></dd>
+                <dd><a href="http://www.php.cn/xiaochengxu.html" target="_blank">小程序开发</a></dd>
+                <dd><a href="http://www.php.cn/blog.html" target="_blank">博客文章</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-hide-xs ">
+            <a href="http://www.php.cn/dic.html" title="编程词典">编程词典<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd><a href="http://www.php.cn/dic/29.html" target="_blank">php词典</a></dd>
+                <dd class="layui-show-xs"><a href="http://www.php.cn/course/type/99.html" target="_blank">原生手册<span class="layui-badge-dot"></span></a></dd>
+                <dd><a href="http://www.php.cn/dic/51.html" target="_blank">mysql词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/33.html" target="_blank">Linux词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/54.html" target="_blank">Redis词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/11.html" target="_blank">html词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/17.html" target="_blank">javascript词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/12.html" target="_blank">css词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/15.html" target="_blank">Bootstrap词典</a></dd>
+                <dd><a href="http://www.php.cn/dic/19.html" target="_blank">jquery词典</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a target="_blank" href="http://www.php.cn/xiazai/" title="资源下载">资源下载<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                <dd><a href="http://www.php.cn/xiazai/shouce" target="_blank" title="手册下载">手册下载</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/gongju" target="_blank" title="工具下载">工具下载</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/learn" target="_blank" title="学习课件">学习课件</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/js" target="_blank" title="js特效">js特效</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/code" target="_blank" title="网站源码">网站源码</a></dd>
+                <dd><a href="http://www.php.cn/xiazai/leiku" target="_blank" title="类库下载">类库下载</a></dd>
+            </dl> 
+        </li>
+                <li class="layui-nav-item ">
+            <a href="http://www.php.cn/course/type/3.html" title="菜鸟学堂">菜鸟学堂</a>
+        </li>
+    <span class="layui-nav-bar" style="left: 562px; top: 55px;"></span></ul>
+    
+                <div class="user-card-box">
+            <a id="header-avator" href="http://www.php.cn/member/283367.html" class="user-card-item js-header-avator"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" width="40" height="40"><i class="myspace_remind" style="display: none;"></i><span style="display: none;">动态提醒</span></a>
+            <div class="g-user-card">
+                <div class="card-inner">
+                    <div class="card-top">
+                        <a href="http://www.php.cn/member/283367.html"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="iCocos" class="l"></a>
+                        <a href="http://www.php.cn/member/283367.html"><span class="name text-ellipsis" title="iCocos">iCocos</span></a>
+                        <p class="meta"><a href="javascript:;">P豆<b id="js-user-mp">0</b></a><a href="javascript:;">积分<b id="js-user-credit">0</b></a></p>
+                    </div>
+
+                    <div class="user-center-box">                            
+                        <ul>                                
+                            <li>
+                                <a href="http://www.php.cn/member/283367.html" target="_blank"><i class="user-center-icon layui-icon"></i>个人中心</a>
+                            </li>                                
+                            <li>                                    
+                                <a href="http://www.php.cn/member/283367/courses.html" target="_blank"><i class="user-center-icon layui-icon"></i>我的课程</a>                                                                    
+                            </li>                                
+                            <li>
+                                <a href="http://www.php.cn/member/283367/blog.html" target="_blank"><i class="user-center-icon layui-icon"></i>我的博客</a>
+                            </li>                                
+                            <li>
+                                <a href="http://www.php.cn/user.html" target="_blank"><i class="user-center-icon layui-icon"></i>个人设置</a>
+                            </li>
+                            <div class="clear"></div>                        
+                        </ul>                        
+                    </div>
+
+                    <div class="card-sets">
+                        <a href="http://www.php.cn/user/setbindsns.html" target="_blank">帐号绑定</a>
+                        <a href="http://www.php.cn/account/logout.html">安全退出</a>
+                    </div>
+                </div>
+                <i class="card-arr"></i>
+            </div>
+        </div>
+
+        <div class="header_message_record">
+                        <a target="_blank" href="http://www.php.cn/message.html"><i class="layui-icon layui-icon-speaker"></i></a>
+        </div>
+            <div class="layui-form component">
+        <div class="layui-form-select">
+            <div class="layui-select-title">
+                <input type="text" id="key_words" placeholder="输入关键词搜索" onkeyup="keyup()" style="background:#000" class="layui-input"><a href="javascript:;" onclick="searchs()"><i class="layui-icon"></i></a>
+            </div>
+        </div>
+    </div>
+	</div>
+<div class="layui-main" style=" margin-top: 20px;">
+
+	<div class="layui-row php-article">
+    <div class="layui-col-md8 article-list-left">
+		<div class="profile">
+			<div><a href="http://www.php.cn/">首页</a> &gt; <a href="http://www.php.cn/toutiao.html">PHP头条</a> &gt; 正文</div>
+			<h1>腾讯PHP经典面试题（附答案）</h1>
+			<span title="是否原创"><i class="layui-icon"></i>转载</span>
+			<span><i class="layui-icon" title="添加时间"></i>
+						2019-02-25 17:01:00			</span>
+			<span><i class="layui-icon" title="评论"></i>1</span>
+			<span class="hot"><i class="layui-icon" title="浏览"></i>1806</span>
+		</div>
+				<a href="http://www.php.cn/k.html" target="_blank" rel="nofollow"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/article.gif" alt="第五期线上培训班"></a>
+		<div class="detail-content-wrap">
+							<div class="content">
+					<p style="text-align: center;"><strong><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5c70bc7fcde00891.jpg"></strong></p><p><strong>PHP开发工程师笔试试卷</strong></p><p>姓名:PHP</p><p><span style="font-size: 16px;"><strong>一、PHP开发部分</strong></span></p><p><strong>1．合并两个数组有几种方式，试比较它们的异同</strong></p><p>答：</p><p>1、array_merge() </p><p>2、’+’ </p><p>3、array_merge_recursive</p><p>array_merge 简单的合并数组 </p><p>array_merge_recursive 合并两个数组，如果数组中有完全一样的数据，将它们递归合并 </p><p>array_combine 和 ‘+’ ：合并两个数组，前者的值作为新数组的键</p><p><strong>2．请写一个函数来检查用户提交的数据是否为整数（不区分数据类型，可以为二进制、八进制、十进制、十六进制数字）</strong></p><p>答：其实主要还是is_int和 floor 这个方法</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php keyword">if</code><code class="php plain">(!</code><code class="php functions">is_numeric</code><code class="php plain">(</code><code class="php variable">$jp_total</code><code class="php plain">)||</code><code class="php functions">strpos</code><code class="php plain">(</code><code class="php variable">$jp_total</code><code class="php plain">,</code><code class="php string">"."</code><code class="php plain">)!==false){&nbsp; </code></p><p class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"不是整数"</code><code class="php plain">;&nbsp; </code></p><p class="line number3 index2 alt2"><code class="php plain">}</code><code class="php keyword">else</code><code class="php plain">{&nbsp; </code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"是整数"</code><code class="php plain">;&nbsp; </code></p><p class="line number5 index4 alt2"><code class="php plain">}</code></p></div></td></tr></tbody></table><p><strong>3．PHP的strtolower()和strtoupper()函数在安装非中文系统的服务器下可能会导致将汉字转换为乱码，请写两个替代的函数实现兼容Unicode文字的字符串大小写转换</strong></p><p>答：原因是：中文是由多字节组成的，而只有英文系统的单个英文字符只有一个字节，所以该系统把中文的每一个字节都做了strtolower()处理,改变后的中文字节拼接在一起就成了乱码（新生成的编码映射对应的字符可能就不是中文了）</p><p>手动解决：用str_split(string string,intstring,intsplit_length = 1)按每个字节切割，像中文能切割成三个字节。对识别到的字节若是英文字母则进行转换。</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p><p class="line number9 index8 alt2">9</p><p class="line number10 index9 alt1">10</p><p class="line number11 index10 alt2">11</p><p class="line number12 index11 alt1">12</p><p class="line number13 index12 alt2">13</p><p class="line number14 index13 alt1">14</p><p class="line number15 index14 alt2">15</p><p class="line number16 index15 alt1">16</p><p class="line number17 index16 alt2">17</p><p class="line number18 index17 alt1">18</p><p class="line number19 index18 alt2">19</p><p class="line number20 index19 alt1">20</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">&lt;?php&nbsp; </code></p><p class="line number2 index1 alt1"><code class="php keyword">function</code> <code class="php plain">mystrtoupper(</code><code class="php variable">$a</code><code class="php plain">){&nbsp; </code></p><p class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$b</code> <code class="php plain">= </code><code class="php functions">str_split</code><code class="php plain">(</code><code class="php variable">$a</code><code class="php plain">, 1);&nbsp; </code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$r</code> <code class="php plain">= </code><code class="php string">''</code><code class="php plain">;&nbsp; </code></p><p class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">foreach</code><code class="php plain">(</code><code class="php variable">$b</code> <code class="php keyword">as</code> <code class="php variable">$v</code><code class="php plain">){&nbsp; </code></p><p class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$v</code> <code class="php plain">= ord(</code><code class="php variable">$v</code><code class="php plain">);&nbsp; </code></p><p class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">(</code><code class="php variable">$v</code> <code class="php plain">&gt;= 97 &amp;&amp; </code><code class="php variable">$v</code><code class="php plain">&lt;= 122){&nbsp; </code></p><p class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$v</code> <code class="php plain">-= 32;&nbsp; </code></p><p class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$r</code> <code class="php plain">.= </code><code class="php functions">chr</code><code class="php plain">(</code><code class="php variable">$v</code><code class="php plain">);&nbsp; </code></p><p class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php variable">$r</code><code class="php plain">;&nbsp; </code></p><p class="line number13 index12 alt2"><code class="php plain">}&nbsp; </code></p><p class="line number14 index13 alt1">&nbsp;</p><p class="line number15 index14 alt2">&nbsp;</p><p class="line number16 index15 alt1"><code class="php variable">$a</code> <code class="php plain">= </code><code class="php string">'a中你继续F@#$%^&amp;*(BMDJFDoalsdkfjasl'</code><code class="php plain">;&nbsp; </code></p><p class="line number17 index16 alt2"><code class="php functions">echo</code> <code class="php string">'origin string:'</code><code class="php plain">.</code><code class="php variable">$a</code><code class="php plain">.</code><code class="php string">"\n"</code><code class="php plain">;&nbsp; </code></p><p class="line number18 index17 alt1"><code class="php functions">echo</code> <code class="php string">'result string:'</code><code class="php plain">;&nbsp; </code></p><p class="line number19 index18 alt2"><code class="php variable">$r</code> <code class="php plain">= mystrtoupper(</code><code class="php variable">$a</code><code class="php plain">);&nbsp; </code></p><p class="line number20 index19 alt1"><code class="php plain">var_dump(</code><code class="php variable">$r</code><code class="php plain">);</code></p></div></td></tr></tbody></table><p><strong>4．PHP的is_writeable()函数存在Bug，无法准确判断一个目录/文件是否可写，请写一个函数来判断目录/文件是否绝对可写</strong></p><p>答：其中bug存在两个方面， </p><p>1、在windowns中，当文件只有只读属性时，is_writeable()函数才返回false，当返回true时，该文件不一定是可写的。 </p><p>如果是目录，在目录中新建文件并通过打开文件来判断； </p><p>如果是文件，可以通过打开文件（fopen），来测试文件是否可写。</p><p>2、在Unix中，当php配置文件中开启safe_mode时(safe_mode=on)，is_writeable()同样不可用。 </p><p>读取配置文件是否safe_mode是否开启。</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p><p class="line number9 index8 alt2">9</p><p class="line number10 index9 alt1">10</p><p class="line number11 index10 alt2">11</p><p class="line number12 index11 alt1">12</p><p class="line number13 index12 alt2">13</p><p class="line number14 index13 alt1">14</p><p class="line number15 index14 alt2">15</p><p class="line number16 index15 alt1">16</p><p class="line number17 index16 alt2">17</p><p class="line number18 index17 alt1">18</p><p class="line number19 index18 alt2">19</p><p class="line number20 index19 alt1">20</p><p class="line number21 index20 alt2">21</p><p class="line number22 index21 alt1">22</p><p class="line number23 index22 alt2">23</p><p class="line number24 index23 alt1">24</p><p class="line number25 index24 alt2">25</p><p class="line number26 index25 alt1">26</p><p class="line number27 index26 alt2">27</p><p class="line number28 index27 alt1">28</p><p class="line number29 index28 alt2">29</p><p class="line number30 index29 alt1">30</p><p class="line number31 index30 alt2">31</p><p class="line number32 index31 alt1">32</p><p class="line number33 index32 alt2">33</p><p class="line number34 index33 alt1">34</p><p class="line number35 index34 alt2">35</p><p class="line number36 index35 alt1">36</p><p class="line number37 index36 alt2">37</p><p class="line number38 index37 alt1">38</p><p class="line number39 index38 alt2">39</p><p class="line number40 index39 alt1">40</p><p class="line number41 index40 alt2">41</p><p class="line number42 index41 alt1">42</p><p class="line number43 index42 alt2">43</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php comments">/**</code></p><p class="line number2 index1 alt1"><code class="php comments">* Tests for file writability</code></p><p class="line number3 index2 alt2"><code class="php comments">*</code></p><p class="line number4 index3 alt1"><code class="php comments">* is_writable() returns TRUE on Windows servers when you really can't write to</code></p><p class="line number5 index4 alt2"><code class="php comments">* the file, based on the read-only attribute. is_writable() is also unreliable</code></p><p class="line number6 index5 alt1"><code class="php comments">* on Unix servers if safe_mode is on.</code></p><p class="line number7 index6 alt2"><code class="php comments">*</code></p><p class="line number8 index7 alt1"><code class="php comments">* @access&nbsp;&nbsp; private</code></p><p class="line number9 index8 alt2"><code class="php comments">* @return&nbsp;&nbsp; void</code></p><p class="line number10 index9 alt1"><code class="php comments">*/</code></p><p class="line number11 index10 alt2"><code class="php keyword">if</code> <code class="php plain">( ! function_exists(</code><code class="php string">'is_really_writable'</code><code class="php plain">))</code></p><p class="line number12 index11 alt1"><code class="php plain">{</code></p><p class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">function</code> <code class="php plain">is_really_writable(</code><code class="php variable">$file</code><code class="php plain">)</code></p><p class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></p><p class="line number15 index14 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// If we're on a Unix server with safe_mode off we call is_writable</code></p><p class="line number16 index15 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(DIRECTORY_SEPARATOR == </code><code class="php string">'/'</code> <code class="php plain">AND @</code><code class="php functions">ini_get</code><code class="php plain">(</code><code class="php string">"safe_mode"</code><code class="php plain">) == FALSE)</code></p><p class="line number17 index16 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></p><p class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php functions">is_writable</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">);</code></p><p class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></p><p class="line number20 index19 alt1">&nbsp;</p><p class="line number21 index20 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// For windows servers and safe_mode "on" installations we'll actually</code></p><p class="line number22 index21 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// write a file then read it. Bah...</code></p><p class="line number23 index22 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(</code><code class="php functions">is_dir</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">))</code></p><p class="line number24 index23 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></p><p class="line number25 index24 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$file</code> <code class="php plain">= rtrim(</code><code class="php variable">$file</code><code class="php plain">, </code><code class="php string">'/'</code><code class="php plain">).</code><code class="php string">'/'</code><code class="php plain">.md5(mt_rand(1,100).mt_rand(1,100));</code></p><p class="line number26 index25 alt1">&nbsp;</p><p class="line number27 index26 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">((</code><code class="php variable">$fp</code> <code class="php plain">= @</code><code class="php functions">fopen</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">, FOPEN_WRITE_CREATE)) === FALSE)</code></p><p class="line number28 index27 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></p><p class="line number29 index28 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">FALSE;</code></p><p class="line number30 index29 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></p><p class="line number31 index30 alt2">&nbsp;</p><p class="line number32 index31 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">fclose(</code><code class="php variable">$fp</code><code class="php plain">);</code></p><p class="line number33 index32 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">@</code><code class="php functions">chmod</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">, DIR_WRITE_MODE);</code></p><p class="line number34 index33 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">@unlink(</code><code class="php variable">$file</code><code class="php plain">);</code></p><p class="line number35 index34 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">TRUE;</code></p><p class="line number36 index35 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">} </code><code class="php keyword">elseif</code> <code class="php plain">( ! </code><code class="php functions">is_file</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">) OR (</code><code class="php variable">$fp</code> <code class="php plain">= @</code><code class="php functions">fopen</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">, FOPEN_WRITE_CREATE)) === FALSE) {</code></p><p class="line number37 index36 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">FALSE;</code></p><p class="line number38 index37 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></p><p class="line number39 index38 alt2">&nbsp;</p><p class="line number40 index39 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">fclose(</code><code class="php variable">$fp</code><code class="php plain">);</code></p><p class="line number41 index40 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">TRUE;</code></p><p class="line number42 index41 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></p><p class="line number43 index42 alt2"><code class="php plain">}</code></p></div></td></tr></tbody></table><p><strong>5．PHP的chmod()函数存在Bug，无法保证设置成功，请写一个函数在指定路径下创建一个目录/文件并确保可以正确设置权限掩码</strong></p><p>答：我也找不到答案</p><p><strong>6．PHP处理上传文件信息数组中的文件类型$_FILES[‘type’]由客户端浏览器提供，有可能是黑客伪造的信息，请写一个函数来确保用户上传的图像文件类型真实可靠</strong></p><p>答：用getimagesize来判断上传图片的类型比$_FILES函数的type更可靠 </p><p>同一个文件，使用不同的浏览器php返回的type类型是不一样的，由浏览器提供type类型的话， </p><p>就有可能被黑客利用向服务器提交一个伪装撑图片后缀的可执行文件。 </p><p>可以通过getimagesize()函数来判断上传的文件类型，如果是头像文件 会返回这样的一个数组</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">Array(</code></p><p class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">[0] =&gt; 331</code></p><p class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">[1] =&gt; 234</code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">[2] =&gt; 3</code></p><p class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">[3] =&gt; width=</code><code class="php string">"331"</code> <code class="php plain">height=</code><code class="php string">"234"</code></p><p class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">[bits] =&gt; 8</code></p><p class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">[mime] =&gt; image/png</code></p><p class="line number8 index7 alt1"><code class="php plain">)；</code></p></div></td></tr></tbody></table><p>如果通过getimagesize()函数返回的是这样的一个数组 说明上传的是头像文件。其中索引为2的表示类型 </p><p>1 = GIF，2 = JPG，3 = PNG，4 = SWF，5 = PSD，6 = BMP，7 = TIFF(intel byte </p><p>order)，8 = TIFF(motorola byte order)，9 = JPC，10 = JP2，11 = JPX，12 = </p><p>JB2，13 = SWC，14 = IFF，15 = WBMP，16 = XBM， </p><p>你可以通过这个再去限制上传的头像类型</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></p><p class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$file</code><code class="php plain">=</code><code class="php variable">$_FILES</code><code class="php plain">[</code><code class="php string">'file'</code><code class="php plain">];</code></p><p class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">(!</code><code class="php functions">empty</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">))</code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></p><p class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">var_dump(</code><code class="php variable">$file</code><code class="php plain">);</code></p><p class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">var_dump(</code><code class="php functions">getimagesize</code><code class="php plain">(</code><code class="php variable">$file</code><code class="php plain">[</code><code class="php string">"tmp_name"</code><code class="php plain">]));</code></p><p class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp;&nbsp; </code></p><p class="line number8 index7 alt1"><code class="php plain">?&gt;</code></p></div></td></tr></tbody></table><p><strong>7．PHP
+通过对数据的URL编码来实现与Javascript的数据交互，但是对于部分特殊字符的编解码与Javascript的规则不尽相同，请具体说明这种差
+异，并针对UTF-8字符集的数据，写出PHP的编解码函数和Javascript的编解码函数，确保PHP编码数据可以被Javascript正确解码
+ 、Javascript编码的数据可以被PHP正确解码</strong></p><p>答：</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></p><p class="line number2 index1 alt1"><code class="php spaces">&nbsp;</code><code class="php variable">$str</code> <code class="php plain">= </code><code class="php string">'思源博客siyuantlw/tlw/sy/俺只是一个打酱油的'</code><code class="php plain">;</code></p><p class="line number3 index2 alt2"><code class="php spaces">&nbsp;</code><code class="php variable">$str</code> <code class="php plain">= iconv(</code><code class="php string">"GB2312"</code><code class="php plain">,</code><code class="php string">'UTF-8'</code><code class="php plain">,</code><code class="php variable">$str</code><code class="php plain">);</code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;</code><code class="php variable">$str</code> <code class="php plain">= urlencode(</code><code class="php variable">$str</code><code class="php plain">); </code></p><p class="line number5 index4 alt2"><code class="php plain">?&gt;</code></p></div></td></tr></tbody></table><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php comments">//js&nbsp; decodeURIComponent&nbsp;&nbsp; 貌似对GB2312编码的格式不识别，必须转为utf-8才可以，然后，如果字符串中有空格的&nbsp; 就转为 +&nbsp; 号了</code></p><p class="line number2 index1 alt1"><code class="php plain">&lt;html&gt;</code></p><p class="line number3 index2 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">&lt;script&gt;</code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">var</code> <code class="php plain">ds = </code><code class="php string">'&lt;?php echo $str;?&gt;'</code><code class="php plain">;</code></p><p class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">var</code> <code class="php plain">dddd= decodeURIComponent (ds);</code></p><p class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">alert(dddd);</code></p><p class="line number7 index6 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">&lt;/script&gt;</code></p><p class="line number8 index7 alt1"><code class="php plain">&lt;/html&gt;</code></p></div></td></tr></tbody></table><p><strong>8．试阐述Memcache的key多节点分布的算法？当任一节点出现故障时PHP的Memcache客户端将如何处置？如何确保Memcache数据读写操作的原子性？</strong></p><p>答：</p><p>原理：一致性hash</p><p><strong>原子性 </strong></p><p>原子性会导致的问题：简单的说就是A，B都想操作key1，然后都在key1上增加自己的信息，就会有问题 </p><p>memcached是原子的吗？</p><p>宏观 </p><p>所
+有的被发送到memcached的单个命令是完全原子的。如果您针对同一份数据同时发送了一个set命令和一个get命令，它们不会影响对方。它们将被串
+行化、先后执行。即使在多线程模式，所有的命令都是原子的；命令序列不是原子的。如果您通过get命令获取了一个item，修改了它，然后想把它set回
+memcached，我们不保证这个item没有被其他进程（process，未必是操作系统中的进程）操作过。在并发的情况下，您也可能覆写了一个被其
+他进程set的item。 </p><p>memcached 
+1.2.5以及更高版本，提供了gets和cas命令，它们可以解决上面的问题。如果您使用gets命令查询某个key的item，memcached会
+ 给您返回该item当前值的唯一标识。如果您覆写了这个item并想把它写回到memcached中，您可以通过cas命令把那个唯一标识一起发送给 
+memcached。如果该item存放在memcached中的唯一标识与您提供的一致，您的写操作将会成功。如果另一个进程在这期间也修改了这个 
+item，那么该item存放在memcached中的唯一标识将会改变，您的写操作就会失败。</p><p><strong>9．如何实现PHP的安全最大化？怎样避免SQL注入漏洞和XSS跨站脚本攻击漏洞？</strong></p><p>答：基本原则：不对外界展示服务器或程序设计细节（屏蔽错误），不相信任何用户提交的数据（过滤用户提交） </p><p>1、1 屏蔽错误，将display_errors 设置为off </p><p>2、 过滤用户提交参数，这里需要注意的是不能仅仅通过浏览器端的验证，还需要经过服务器端的过滤</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">这里是需要注意最多的地方，因为所有用户提交的数据入口都在这里，这是过滤数据的第一步。</code></p><p class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">1 考虑是否过滤select,insert,update,</code><code class="php functions">delete</code><code class="php plain">,drop,create等直接操作数据的命令语句</code></p><p class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">2 使用</code><code class="php functions">addslashes</code> <code class="php plain">将所有特殊字符过滤</code></p><p class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">3 打开magic_quotes_gpc，开启该参数数后自动将sql语句转换，将 ' 转换成&nbsp; \'</code></p></div></td></tr></tbody></table><p>3、 可以考虑设置统一入口，只允许用户通过指定的入口访问，不能访问未经许可的文件等内容 </p><p>4、可以考虑对安全性要求高的文件进行来源验证，比如要想执行b.php必须先执行a.php，可以在b.php中判断来自a.php的referer,避免用户直接执行b.php</p><p><strong>10．请设计一个数据结构可以实现无限级子菜单的树型菜单功能并提供菜单生成算法，用UML描述设计并写出相关PHP代码</strong></p><p>答：还没找到答案</p><p><strong><span style="font-size: 16px;">二、系统相关部分</span></strong></p><p><strong>1．请简述Linux、FreeBSD、Soalaris、Mac OS、Windows几种系统下进程与线程的内核实现方式、管理机制的异同</strong></p><p><strong>2．请简述Linux/BSD系统下进程间通讯的方式有哪些，并具体说明在PHP下如何实现</strong></p><p>答： </p><p>管道（Pipe）及有名管道（namedpipe）：管道可用于具有亲缘关系进程间的通信，有名管道克服了管道没有名字的限制，因此，除具有管道所具有的功能外，它还允许无亲缘关系进程间的通信； </p><p>信
+号（Signal）：信号是比较复杂的通信方式，用于通知接受进程有某种事件发生，除了用于进程间通信外，进程还可以发送信号给进程本身；linux除了
+支持Unix早期信号语义函数sigal外，还支持语义符合Posix.1标准的信号函数sigaction（实际上，该函数是基于BSD的，BSD为了
+实现可靠信号机制，又能够统一对外接口，用sigaction函数重新实现了signal函数）； </p><p>报文（Message）队列（消息队
+列）：消息队列是消息的链接表，包括Posix消息队列systemV消息队列。有足够权限的进程可以向队列中添加消息，被赋予读权限的进程则可以读走队
+列中的消息。消息队列克服了信号承载信息量少，管道只能承载无格式字节流以及缓冲区大小受限等缺点。 </p><p>共享内存：使得多个进程可以访问同一块内存空间，是最快的可用IPC形式。是针对其他通信机制运行效率较低而设计的。往往与其它通信机制，如信号量结合使用，来达到进程间的同步及互斥。 </p><p>信号量（semaphore）：主要作为进程间以及同一进程不同线程之间的同步手段。 </p><p>套接口（Socket）：更为一般的进程间通信机制，可用于不同机器之间的进程间通信。起初是由Unix系统的BSD分支开发出来的，但现在一般可以移植到其它类Unix系统上：Linux和SystemV的变种都支持套接字。</p><p><strong>3．请简述Linux/BSD系统下系统的消息/事件异步通知机制有几种，并加以比较</strong></p><p><strong>4．简单比较TCP/UDP协议的异同，对于PHP的Socket扩展与Stream扩展，试比较两者基于TCP/UDP协议的SOCKET编程差异？</strong></p><p><strong>5．为什么会出现僵死进程（孤儿进程）？怎样查看僵死进程？如何解决僵死进程问题？</strong></p><p>答：僵尸进程：一个进程使用fork创建子进程，如果子进程退出，而父进程并没有调用wait或waitpid获取子进程的状态信息，那么子进程的进程描述符仍然保存在系统中。这种进程称之为僵死进程。 </p><p>查看：使用ps aux </p><p>删除：ps aux | grep -e ‘^[Zz]’ | awk ‘{print $2}’ | xargs kill -9</p><p><strong>6．对于System-V消息队列，如何解决系统本身对于消息队列条数、总容量（字节数）的限制？如何设置消息的优先级别？请比较阻塞模式和非阻塞模式的异同，并说明如何避免非阻塞模式下的消息队列堵塞？</strong></p><p><strong>7．请描述Apache 2.x版本的MPM（Multi-Processing Module）机制，并具体说明在不同的MPM机制下如何支持PHP？</strong></p><p>答：常用的应该就只有3个：worker|prefork|perchild </p><p>prefork：
+在功能上就是使用Apache的运行方式，一个父进程，然后根据设置以及连接情况生成相应的子进程数。这种模式可靠性和健壮性都是最好的。但是在性能上，
+开销过大。达不到我们这些“吸血鬼”的要求了^_^。如果连接数过多的话，会导致我们无法远程登陆，一定要等到连接数下降后才能连接，这也是最让我头痛的
+事情。 </p><p>worker：混合线程/进程的MPM。一个父进程，后面是带有线程的子进程。每个子进程的线程数是固定且相同的。这是最“平庸”
+的一个模式，但也是使用人最多的一种模式。因为它性能等各方面比较均衡。性能上要比prefork好一些，只是牺牲了一点点的健壮性和可靠性而已。一般推
+荐使用这个选项。 </p><p>perchild：也是混合线程/进程的MPM。当启动perchild 
+MPM时，它会建立指定数量的子进程，且每个子进程都具有指定数量的线程，如负载增加了，那它不会建立新的进程（子进程是固定的），只是在子进程下建立新
+的线程。它还有一个特点就是可以为每一个子进程配置不同的用户和组。也可以为每个虚拟主机指定一个子进程。这种模式性能是最佳的，但是可靠性和健壮性就相
+对是最差的。各取所需，我个人觉得这种模式也不错，如果你不用第三方的模块的话^_^。</p><p><strong>8．请简述PHP在Apache下的几种运行方式并加以比较？如何让PHP在Linux+Apache下以Fast CGI方式运行？</strong></p><p>答：php在apache有3中运行方式：CGI模式、FastCGI模式、Apache 模块DLL。 </p><p>比较： </p><p>Cgi模式和模块dll加载方式比较： </p><p>Cgi
+模式下，apache调用外部执行器php.exe执行php代码，并将解释后生成的html代码和原html整合，再传递给apache服务器，其在执
+行时每次都需要重新解析php.ini、重新载入全部dll扩展并重初始化全部数据结构，运行速度非常慢，但因为是外部加载执行器，php代码执行出错不
+会导致apache崩溃。</p><p>在模块化(DLL)中，PHP是与Web服务器一起启动并运行的。所以从某种角度上来说，以apache模块方式安装的 PHP4有着比CGI模式更好的安全性以及更好的执行效率和速度。</p><p>Cgi和fastcgi模式比较： </p><p>Fastcig
+是cgi的升级版，Cgi和fastcgi工作模式大抵相同，但fastcgi模式中fastcgi的进程管理器可用来管理cgi解释器，该管理器在
+cgi解释器完成请求后，会处于挂起状态，用以等待接下来的请求，因为向比较cgi每次都需要重新解析php.ini、重新载入全部dll扩展并重初始化
+全部数据结构，fastcig模式明显要快很多。</p><p><strong>9． 请写出让PHP能够在命令行下以脚本方式执行时安装PHP所必须指定的configure参数，并说明如何在命令行下运行PHP脚本（写出两种方式）同时向PHP脚本传递参数？</strong></p><p>答：由于 –enable-cli 和 –enable-cgi 同时默认有效，因此，不必再配置行中加上 –enable-cli 来使得 CLI 在 make install 过程中被拷贝到 {PREFIX}/bin/php</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">php -f “index.php” </code></p><p class="line number2 index1 alt1"><code class="php plain">php -r “print_r(get_defined_constants());”</code></p></div></td></tr></tbody></table><p><strong>10．请简述PHP 5.2的内存池及其内存管理机制、垃圾回收机制</strong></p><p>内存管理机制</p><p><strong><span style="font-size: 16px;">试题二：</span></strong></p><p><strong>１、请列举你能想到的UNIX信号，并说明信号用途。</strong></p><p>答： </p><p>Unix信号量也可以在文件/usr/include/sys/signal.h中查看 </p><p>SIGHUP 进程由於控制终端死去或者控制终端发出起命令 </p><p>SIGINT 键盘中断所产生的信号 </p><p>SIGQUIT 键盘终止</p><p><strong>２、请列举、你能想到的所有的字符串查找算法，并加注释简单说明。</strong></p><p>答： </p><p>1 顺序查找 </p><p>2 二分查找 </p><p>3 分块查找 </p><p>4 哈希表查找</p><p><strong>３、有一个IP地址（192.168.0.1），请写出其32位无符号整数形式。</strong></p><p>答：此题是将十进制转换成二进制 采用取余法即可很简单 答案是：11000000.10101000.00000000.00000001 千万不能只记答案哦</p><p><strong>４、写出、你能想到的所有HTTP返回状态值，并说明用途（比如：返回404表示找不到页面）</strong></p><p>答： </p><p>200 （成功） 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。 </p><p>301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。 </p><p>302 （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 </p><p>401 （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。 </p><p>403 （禁止） 服务器拒绝请求。 </p><p>404 （未找到） 服务器找不到请求的网页。 </p><p>500 （服务器内部错误） 服务器遇到错误，无法完成请求。 </p><p>501 （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。 </p><p>502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。 </p><p>503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。 </p><p>504 （网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。 </p><p>505 （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</p><p><strong><span style="font-size: 16px;">基础任务-选作（会得到额外分数）：</span></strong></p><p>１、画几个你最熟悉的SERVER端模型出来（格式不重要，尽量将图画清楚，说明思路即可）</p><p><strong>进阶任务：</strong></p><p><strong>１、PHP的垃圾收集机制是怎样的？</strong></p><p>说明： </p><p>１）如果，你熟悉PHP源码，那么请从源码入手，回答些问题，会获得额外加分 </p><p>２）如果，你不熟悉PHP源码，那么尽你所能，多写点东西，包括利用自己的编程直觉得到的信息，都可以。 </p><p>３）对，则有分，错误不扣，不写无分。</p><p>答：PHP
+可以自动进行内存管理，清除不再需要的对象。PHP使用了引用计数(referencecounting)这种单纯的垃圾回收
+(garbagecollection)机制。每个对象都内含一个引用计数器，每个reference连接到对象，计数器加1。当reference离开
+生存空间或被设为NULL，计数器减1。当某个对象的引用计数器为零时，PHP知道你将不再需要使用这个对象，释放其所占的内存空间。</p><p><strong>２、请写出HTTP头，并符合以下要求：</strong></p><p>１）这是一个post请求 </p><p>２）目标：http://www.example.com:8080/test </p><p>３）POST变量： </p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">username: test </code></p><p class="line number2 index1 alt1"><code class="php plain">pwd: test2 </code></p><p class="line number3 index2 alt2"><code class="php plain">intro: Hello world!</code></p></div></td></tr></tbody></table><p>４）包含以下COOKIE信息： </p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">cur_query: you&amp;me</code></p></div></td></tr></tbody></table><p>说明：</p><p>１）如果，你记不得某个HTTP协议中的指令字了，那么，无奈这举是用“汉字”代替。 </p><p>２）如果，你能记住更多的HTTP协议指令字，那么多写几句，总是没坏处，对吧？ </p><p>３）最关键的，只需要画出正确的“轮廓”（还记得httpwatch等工具打印出来的头部吗？那就是“轮廓”的含义），也会有分数，但如果，连“轮廓”都写错了，那么就很遗憾了。 </p><p>答：</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p><p class="line number9 index8 alt2">9</p><p class="line number10 index9 alt1">10</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">Accept: text/html 可以接受的数据类型 </code></p><p class="line number2 index1 alt1"><code class="php plain">Accept-Encoding: gzip 接受的压缩类型 </code></p><p class="line number3 index2 alt2"><code class="php plain">Accept-Language: zh-CN 接受语言 </code></p><p class="line number4 index3 alt1"><code class="php plain">Cache-Control: no-cache 是否有缓存 </code></p><p class="line number5 index4 alt2"><code class="php plain">Connection : keep-alive 是否保持链接 </code></p><p class="line number6 index5 alt1"><code class="php plain">Host:http:</code><code class="php comments">//www.example.com:8080/test </code></p><p class="line number7 index6 alt2"><code class="php plain">Cookie：intro=Hello world! </code></p><p class="line number8 index7 alt1"><code class="php plain">Content-Disposition: form-data; username=”test”&amp;pwd=”test2”&amp;intro=”hello world!” </code></p><p class="line number9 index8 alt2"><code class="php plain">User-Agent: 浏览器信息 </code></p><p class="line number10 index9 alt1"><code class="php plain">Referer: 前一个页面地址</code></p></div></td></tr></tbody></table><p><strong>设计任务：</strong></p><p>１、最近总有人骚扰我们的投票模块，需要你来设计一个投票限制的东东</p><p>要求如下： </p><p>１）要求每个QQ号码（假设此QQ号码在UNIT32内可以表示）10分钟这内只能投5票。 </p><p>２）我们的用户很踊跃，平均每天要有2000万人左右通过此程序投票。 </p><p>说明： </p><p>１）无需写代码，只需要图跟文字即可。 </p><p>２）对于关键逻辑，请用图加代码表示出来，这也是对你文字表达能力的一个考验。 </p><p>３）对你能想到的所有的边界条件列出来，这是对你逻辑思维全面与敏捷性的考验。 </p><p>４）存储部分，尽你所能吧。如果，你需要一个自己设计的存储层，那么把这个存储层的实现，用文字＋图片方式描述清楚，要是设计合理，你会获得华丽的奖分。 </p><p>答：找了好久终于找到个大神的回答：打字太累了 就截图了 </p><p><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1550891934292049.jpg" title="1550891934292049.jpg" alt="5f3a61c426fd39f02d1ca0994ff2315.jpg"></p><p><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1550891939203377.jpg" title="1550891939203377.jpg" alt="aa6fbb23bdba8d66370791fd0324659.jpg"></p><p><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/1550891945519858.jpg" title="1550891945519858.jpg" alt="a896a13d206cb53d4af94e30a4d6b83.jpg"></p><p><strong>编程任务：</strong></p><p>１、我们碰到了大麻烦，一个新来的传教士惹恼了上帝，上帝很愤怒，要求我们把圣经（bbe.txt）背熟，直至他说哪个单词，我们就要飞快的回答出这个单词在第几行第几个单词位置。听说你是个优秀的程序员，那么髟助我们完成这个不可能的任务吧。</p><p>要求如下： </p><p>１）/myworks/example/bbe.txt，98版本英文圣经一本 </p><p>２）输入部分要求如下：php ./example.php [单词] </p><p>３）输出部分如下：[单词] 1,2 2,4 5,6　表示：此单词在1行2列（第二个单词），2行4列… </p><p>说明：</p><p>１）此文本4MB之巨… </p><p>２）单词的含义：由英文字母（大小写），数字（0-9）组成的串 </p><p>３）提供给你的机器OS为ubuntu 9.10，内存只有1G，而且，很不幸的，其中700M用来做了别的 </p><p>４）上机考试不允许上网，但我装了man文档以及读取CHM以及PDF的阅读器，在电脑的桌面的CHM文件夹中，有相应的PHP参考手册 </p><p>５）算法复杂度要求不能大于O（N^2）（就是N的平方） </p><p>６）什么？PHP低效且用起来不顺手，好的，你可以用别的语言来实现。但注意：提供给你的机器上只有python 2.4/perl 5.8/gcc[g++] 4.1</p><p>答：两份答案感觉还可以 </p><p>bbe.txt文件咱们没有 想像成是 空格 隔开的算了</p><p>hello123 hello tim jason </p><p>woaini1 tianjianxiong333 hh aaa</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p><p class="line number9 index8 alt2">9</p><p class="line number10 index9 alt1">10</p><p class="line number11 index10 alt2">11</p><p class="line number12 index11 alt1">12</p><p class="line number13 index12 alt2">13</p><p class="line number14 index13 alt1">14</p><p class="line number15 index14 alt2">15</p><p class="line number16 index15 alt1">16</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php comments">/* 此文件用于根据bbe.txt文件对所有单词创建索引，相当于一次预处理 */</code>&nbsp;&nbsp;</p><p class="line number2 index1 alt1"><code class="php functions">ini_set</code><code class="php plain">(</code><code class="php string">'display_errors'</code><code class="php plain">,</code><code class="php string">'on'</code><code class="php plain">);&nbsp; </code></p><p class="line number3 index2 alt2"><code class="php plain">set_time_limit(0);&nbsp; </code></p><p class="line number4 index3 alt1"><code class="php variable">$file</code> <code class="php plain">= file(</code><code class="php variable">$src</code><code class="php plain">); </code><code class="php comments">// 数组&nbsp; </code></p><p class="line number5 index4 alt2"><code class="php keyword">foreach</code><code class="php plain">(</code><code class="php variable">$file</code> <code class="php keyword">as</code> <code class="php variable">$i</code> <code class="php plain">=&gt; &amp;</code><code class="php variable">$ls</code><code class="php plain">){&nbsp; </code></p><p class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$a</code> <code class="php plain">= </code><code class="php functions">explode</code><code class="php plain">(</code><code class="php string">" "</code><code class="php plain">,</code><code class="php variable">$ls</code><code class="php plain">);&nbsp; </code></p><p class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$len</code> <code class="php plain">= </code><code class="php functions">count</code><code class="php plain">(</code><code class="php variable">$a</code><code class="php plain">);&nbsp; </code></p><p class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$len</code> <code class="php plain">&gt; 0){&nbsp; </code></p><p class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">for</code><code class="php plain">(</code><code class="php variable">$j</code><code class="php plain">=0;</code><code class="php variable">$i</code><code class="php plain">&lt;</code><code class="php variable">$len</code><code class="php plain">;</code><code class="php variable">$j</code><code class="php plain">++){&nbsp; </code></p><p class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$data</code> <code class="php plain">= </code><code class="php string">"此单词"</code><code class="php plain">.</code><code class="php variable">$a</code><code class="php plain">[</code><code class="php variable">$j</code><code class="php plain">].</code><code class="php string">"在"</code><code class="php plain">.(</code><code class="php variable">$i</code><code class="php plain">+1).</code><code class="php string">"行,"</code><code class="php plain">.(</code><code class="php variable">$j</code><code class="php plain">+1).</code><code class="php string">"列"</code><code class="php plain">;&nbsp; </code></p><p class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$key</code> <code class="php plain">= md5(trim(</code><code class="php functions">strtolower</code><code class="php plain">(</code><code class="php variable">$a</code><code class="php plain">[</code><code class="php variable">$j</code><code class="php plain">])));&nbsp; </code></p><p class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">file_put_contents</code><code class="php plain">(</code><code class="php variable">$key</code><code class="php plain">,</code><code class="php variable">$data</code><code class="php plain">);&nbsp; </code></p><p class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number15 index14 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">//echo $i.". &gt; ".$ls.'&lt;br /&gt;';&nbsp; </code></p><p class="line number16 index15 alt1"><code class="php plain">}</code></p></div></td></tr></tbody></table><p>example.php：</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p><p class="line number9 index8 alt2">9</p><p class="line number10 index9 alt1">10</p><p class="line number11 index10 alt2">11</p><p class="line number12 index11 alt1">12</p><p class="line number13 index12 alt2">13</p><p class="line number14 index13 alt1">14</p><p class="line number15 index14 alt2">15</p><p class="line number16 index15 alt1">16</p><p class="line number17 index16 alt2">17</p><p class="line number18 index17 alt1">18</p><p class="line number19 index18 alt2">19</p><p class="line number20 index19 alt1">20</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php plain">#!/usr/local/bin/php -q&nbsp;&nbsp; </code></p><p class="line number2 index1 alt1"><code class="php plain">&lt;?php&nbsp; </code></p><p class="line number3 index2 alt2"><code class="php plain">set_time_limit(0);&nbsp;&nbsp; </code></p><p class="line number4 index3 alt1"><code class="php variable">$getkey</code><code class="php plain">=</code><code class="php functions">empty</code><code class="php plain">(</code><code class="php variable">$argv</code><code class="php plain">[1]) ? </code><code class="php variable">$_REQUEST</code><code class="php plain">[</code><code class="php string">'k'</code><code class="php plain">] : </code><code class="php variable">$argv</code><code class="php plain">[1];&nbsp; </code></p><p class="line number5 index4 alt2"><code class="php variable">$arr</code> <code class="php plain">= </code><code class="php functions">explode</code><code class="php plain">(</code><code class="php string">","</code><code class="php plain">,</code><code class="php variable">$getkey</code><code class="php plain">);&nbsp;&nbsp;&nbsp; </code></p><p class="line number6 index5 alt1"><code class="php variable">$len</code> <code class="php plain">= </code><code class="php functions">count</code><code class="php plain">(</code><code class="php variable">$arr</code><code class="php plain">);&nbsp; </code></p><p class="line number7 index6 alt2"><code class="php keyword">if</code><code class="php plain">(</code><code class="php variable">$len</code> <code class="php plain">&gt; 0){&nbsp; </code></p><p class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">for</code><code class="php plain">(</code><code class="php variable">$i</code><code class="php plain">=0;</code><code class="php variable">$i</code><code class="php plain">&lt;</code><code class="php variable">$len</code><code class="php plain">;</code><code class="php variable">$i</code><code class="php plain">++){&nbsp; </code></p><p class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php plain">getKey(</code><code class="php variable">$arr</code><code class="php plain">[</code><code class="php variable">$i</code><code class="php plain">]).</code><code class="php string">"\n"</code><code class="php plain">;&nbsp; </code></p><p class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number11 index10 alt2"><code class="php plain">}&nbsp; </code></p><p class="line number12 index11 alt1"><code class="php plain">functuion getKey(</code><code class="php variable">$key</code><code class="php plain">){&nbsp; </code></p><p class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$str</code> <code class="php plain">= </code><code class="php string">"没有找到此单词["</code><code class="php plain">.</code><code class="php variable">$key</code><code class="php plain">.</code><code class="php string">"]"</code><code class="php plain">;&nbsp; </code></p><p class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">(</code><code class="php variable">$key</code><code class="php plain">){&nbsp; </code></p><p class="line number15 index14 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$fc</code> <code class="php plain">= md5(</code><code class="php variable">$key</code><code class="php plain">);&nbsp; </code></p><p class="line number16 index15 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$str</code> <code class="php plain">= </code><code class="php functions">file_get_contents</code><code class="php plain">(</code><code class="php variable">$fc</code><code class="php plain">));&nbsp; </code></p><p class="line number17 index16 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php variable">$str</code><code class="php plain">;&nbsp; </code></p><p class="line number19 index18 alt2"><code class="php plain">}&nbsp; </code></p><p class="line number20 index19 alt1"><code class="php plain">?&gt;</code></p></div></td></tr></tbody></table><p>别人的方法： </p><p>1、使用ascii码，判断字符所在范围 </p><p>2、只要扫描一遍字符即可，复杂度为O（N） </p><p>3、利用了php string{$i} 的特性，取字符串内任一字符 </p><p>4、todo：改为fgetc版本，可以完全不需要使用以上php特性 </p><p>5、字符串匹配算法：http://wendell07.blog.hexun.com/14112681_d.html，目前看来最快的方法：Sunday，由于本题是单词匹配，问题更简单，只要找到头尾……</p><table class="syntaxhighlighter  php" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><p class="line number1 index0 alt2">1</p><p class="line number2 index1 alt1">2</p><p class="line number3 index2 alt2">3</p><p class="line number4 index3 alt1">4</p><p class="line number5 index4 alt2">5</p><p class="line number6 index5 alt1">6</p><p class="line number7 index6 alt2">7</p><p class="line number8 index7 alt1">8</p><p class="line number9 index8 alt2">9</p><p class="line number10 index9 alt1">10</p><p class="line number11 index10 alt2">11</p><p class="line number12 index11 alt1">12</p><p class="line number13 index12 alt2">13</p><p class="line number14 index13 alt1">14</p><p class="line number15 index14 alt2">15</p><p class="line number16 index15 alt1">16</p><p class="line number17 index16 alt2">17</p><p class="line number18 index17 alt1">18</p><p class="line number19 index18 alt2">19</p><p class="line number20 index19 alt1">20</p><p class="line number21 index20 alt2">21</p><p class="line number22 index21 alt1">22</p><p class="line number23 index22 alt2">23</p><p class="line number24 index23 alt1">24</p><p class="line number25 index24 alt2">25</p><p class="line number26 index25 alt1">26</p><p class="line number27 index26 alt2">27</p><p class="line number28 index27 alt1">28</p><p class="line number29 index28 alt2">29</p><p class="line number30 index29 alt1">30</p><p class="line number31 index30 alt2">31</p><p class="line number32 index31 alt1">32</p><p class="line number33 index32 alt2">33</p><p class="line number34 index33 alt1">34</p><p class="line number35 index34 alt2">35</p><p class="line number36 index35 alt1">36</p><p class="line number37 index36 alt2">37</p><p class="line number38 index37 alt1">38</p><p class="line number39 index38 alt2">39</p><p class="line number40 index39 alt1">40</p><p class="line number41 index40 alt2">41</p><p class="line number42 index41 alt1">42</p><p class="line number43 index42 alt2">43</p><p class="line number44 index43 alt1">44</p><p class="line number45 index44 alt2">45</p><p class="line number46 index45 alt1">46</p><p class="line number47 index46 alt2">47</p><p class="line number48 index47 alt1">48</p><p class="line number49 index48 alt2">49</p><p class="line number50 index49 alt1">50</p><p class="line number51 index50 alt2">51</p><p class="line number52 index51 alt1">52</p><p class="line number53 index52 alt2">53</p><p class="line number54 index53 alt1">54</p><p class="line number55 index54 alt2">55</p></td><td class="code"><div class="container"><p class="line number1 index0 alt2"><code class="php variable">$word</code> <code class="php plain">= </code><code class="php variable">$argv</code><code class="php plain">[1];&nbsp; </code></p><p class="line number2 index1 alt1"><code class="php variable">$lines</code> <code class="php plain">= 0;&nbsp; </code></p><p class="line number3 index2 alt2">&nbsp;</p><p class="line number4 index3 alt1"><code class="php variable">$handle</code> <code class="php plain">= @</code><code class="php functions">fopen</code><code class="php plain">(</code><code class="php string">"bbe.txt"</code><code class="php plain">, </code><code class="php string">"r"</code><code class="php plain">);&nbsp; </code></p><p class="line number5 index4 alt2"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$handle</code><code class="php plain">) {&nbsp; </code></p><p class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">while</code> <code class="php plain">(!</code><code class="php functions">feof</code><code class="php plain">(</code><code class="php variable">$handle</code><code class="php plain">)) {&nbsp; </code></p><p class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$line</code> <code class="php plain">= </code><code class="php functions">fgets</code><code class="php plain">(</code><code class="php variable">$handle</code><code class="php plain">, 4096);&nbsp; </code></p><p class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$local</code> <code class="php plain">= local_word(</code><code class="php variable">$line</code><code class="php plain">, </code><code class="php variable">$word</code><code class="php plain">);&nbsp; </code></p><p class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$lines</code><code class="php plain">++;&nbsp; </code></p><p class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">( !</code><code class="php functions">empty</code><code class="php plain">(</code><code class="php variable">$local</code><code class="php plain">) ){&nbsp; </code></p><p class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"$lines,"</code><code class="php plain">.implode(</code><code class="php string">' '</code><code class="php plain">,</code><code class="php variable">$local</code><code class="php plain">).</code><code class="php string">"\n"</code><code class="php plain">;&nbsp; </code></p><p class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">fclose(</code><code class="php variable">$handle</code><code class="php plain">);&nbsp; </code></p><p class="line number15 index14 alt2"><code class="php plain">}&nbsp; </code></p><p class="line number16 index15 alt1">&nbsp;</p><p class="line number17 index16 alt2"><code class="php keyword">function</code> <code class="php plain">local_word(</code><code class="php variable">$line</code><code class="php plain">, </code><code class="php variable">$word</code><code class="php plain">){&nbsp; </code></p><p class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$local</code> <code class="php plain">= </code><code class="php keyword">array</code><code class="php plain">();&nbsp; </code></p><p class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$local_length</code> <code class="php plain">= 1;&nbsp; </code></p><p class="line number20 index19 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$word_length</code> <code class="php plain">= </code><code class="php functions">strlen</code><code class="php plain">(</code><code class="php variable">$word</code><code class="php plain">);&nbsp; </code></p><p class="line number21 index20 alt2">&nbsp;</p><p class="line number22 index21 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">for</code><code class="php plain">(</code><code class="php variable">$i</code> <code class="php plain">= 0; ( </code><code class="php variable">$char</code> <code class="php plain">= </code><code class="php variable">$line</code><code class="php plain">{</code><code class="php variable">$i</code><code class="php plain">} ) !== </code><code class="php string">''</code><code class="php plain">; </code><code class="php variable">$i</code><code class="php plain">++ ){&nbsp; </code></p><p class="line number23 index22 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// 单词最后一个字符必定不是符号，且必有一个符号结尾，此计为一个新词&nbsp; </code></p><p class="line number24 index23 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">( !is_symbel( </code><code class="php variable">$line</code><code class="php plain">{ </code><code class="php variable">$i</code><code class="php plain">-1 } ) &amp;&amp; is_symbel(</code><code class="php variable">$char</code><code class="php plain">) ){&nbsp; </code></p><p class="line number25 index24 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$local_length</code><code class="php plain">++;&nbsp; </code></p><p class="line number26 index25 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></p><p class="line number27 index26 alt2">&nbsp;</p><p class="line number28 index27 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">( </code><code class="php variable">$char</code> <code class="php plain">=== </code><code class="php variable">$word</code><code class="php plain">[0] &amp;&amp; </code><code class="php comments">// 如果第一个字符相同&nbsp; </code></p><p class="line number29 index28 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">is_symbel( </code><code class="php variable">$line</code><code class="php plain">{ </code><code class="php variable">$i</code><code class="php plain">-1 } ) &amp;&amp; </code><code class="php comments">// 且为单词开始&nbsp; </code></p><p class="line number30 index29 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">is_symbel( </code><code class="php variable">$line</code><code class="php plain">{ </code><code class="php variable">$i</code><code class="php plain">+</code><code class="php variable">$word_length</code> <code class="php plain">}) </code><code class="php comments">// 单词结尾应该为符号&nbsp; </code></p><p class="line number31 index30 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">){&nbsp; </code></p><p class="line number32 index31 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// 进入验证单词模式，一个一个字符比对&nbsp; </code></p><p class="line number33 index32 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">for</code><code class="php plain">(</code><code class="php variable">$j</code> <code class="php plain">= 1; (</code><code class="php variable">$w_char</code> <code class="php plain">= </code><code class="php variable">$word</code><code class="php plain">{</code><code class="php variable">$j</code><code class="php plain">}) !== </code><code class="php string">''</code><code class="php plain">; </code><code class="php variable">$j</code><code class="php plain">++ ){&nbsp; </code></p><p class="line number34 index33 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// 遇到单词字符不匹配&nbsp; </code></p><p class="line number35 index34 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">( </code><code class="php variable">$w_char</code> <code class="php plain">!= </code><code class="php variable">$line</code><code class="php plain">{ </code><code class="php variable">$i</code><code class="php plain">+</code><code class="php variable">$j</code> <code class="php plain">} ){&nbsp; </code></p><p class="line number36 index35 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$i</code> <code class="php plain">+= </code><code class="php variable">$j</code><code class="php plain">;&nbsp; </code></p><p class="line number37 index36 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">break</code><code class="php plain">;&nbsp; </code></p><p class="line number38 index37 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number39 index38 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// 如果单词比对完全正确&nbsp; </code></p><p class="line number40 index39 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">( </code><code class="php variable">$j</code> <code class="php plain">== (</code><code class="php variable">$word_length</code><code class="php plain">-1) ){&nbsp; </code></p><p class="line number41 index40 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">//echo "$line_length, $word_length\n";&nbsp; </code></p><p class="line number42 index41 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$local</code><code class="php plain">[] = </code><code class="php variable">$local_length</code><code class="php plain">;&nbsp; </code></p><p class="line number43 index42 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number44 index43 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number45 index44 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number46 index45 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}&nbsp; </code></p><p class="line number47 index46 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php variable">$local</code><code class="php plain">;&nbsp; </code></p><p class="line number48 index47 alt1"><code class="php plain">}&nbsp; </code></p><p class="line number49 index48 alt2">&nbsp;</p><p class="line number50 index49 alt1"><code class="php keyword">function</code> <code class="php plain">is_symbel(</code><code class="php variable">$char</code><code class="php plain">){&nbsp; </code></p><p class="line number51 index50 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$asc</code> <code class="php plain">= ord(</code><code class="php variable">$char</code><code class="php plain">);&nbsp; </code></p><p class="line number52 index51 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">!( (48 &lt;= </code><code class="php variable">$asc</code> <code class="php plain">&amp;&amp; </code><code class="php variable">$asc</code> <code class="php plain">&lt;= 57) ||&nbsp; </code></p><p class="line number53 index52 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">(65 &lt;= </code><code class="php variable">$asc</code> <code class="php plain">&amp;&amp; </code><code class="php variable">$asc</code> <code class="php plain">&lt;= 90) ||&nbsp; </code></p><p class="line number54 index53 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">(97 &lt;= </code><code class="php variable">$asc</code> <code class="php plain">&amp;&amp; </code><code class="php variable">$asc</code> <code class="php plain">&lt;= 122) );&nbsp; </code></p><p class="line number55 index54 alt2"><code class="php plain">}</code></p></div></td></tr></tbody></table>				
+				<div class="share layui-clear bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1551404635546">
+					<li><a href="javascript:;" data-cmd="weixin" class="wechat"><i class="layui-icon"></i>微信</a></li>
+					<li><a href="javascript:;" data-cmd="more" class="share-btn"><i class="layui-icon"></i>分享</a></li>
+				</div>
+				<div class="tags layui-clear">
+				<li>相关标签：<a href="http://www.php.cn/search?word=%E8%85%BE%E8%AE%AFphp%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98" target="_blank">腾讯PHP经典面试题</a></li>
+					<li class="line">
+												本文转载于：csdn，如有侵犯，请联系删除
+											</li>
+				</div>
+								<div class="page layui-clear">
+					<ul>
+												<li>上一篇：<a href="http://www.php.cn/toutiao-415519.html">2019年最新PHP面试题汇总（附答案）</a></li>
+												<li>下一篇：<a href="http://www.php.cn/toutiao-415523.html">PHP常见面试题型汇总（附答案）</a></li>
+											</ul>
+				</div>
+			    				</div>
+				<p style="font-size: 18px;">相关文章</p>
+				<hr>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/php-weizijiaocheng-415219.html">2019年最新PHP经典面试题及答案，PHP程序员必看</a></li>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/php-weizijiaocheng-415221.html">2019春季面试IT公司常用到的10个PHP面试题！</a></li>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/php-weizijiaocheng-415224.html">2019最新PHP模拟面试题及答案</a></li>
+								<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-415519.html">2019年最新PHP面试题汇总（附答案）</a></li>
+							<li><span class="layui-badge-dots"></span><a class="relevant" href="http://www.php.cn/toutiao-415522.html">腾讯PHP经典面试题（附答案）</a></li>
+		</div>
+
+		<div class="comment">
+				<div class="J_Header" id="J_Header">
+					<h1 class="header-title">网友评论</h1>
+					<p class="header-protocol">文明上网理性发言，请遵守
+						<a href="javascript:void(0);">新闻评论服务协议</a></p>
+						<a class="article-comment-publish" href="javascript:void(0);">我要评论</a>
+												<a class="header-number" href="javascript:void(0);"><i id="J_CommentTotal">1&nbsp;</i>条评论 </a>
+										</div>
+
+								<div class="list layui-clear">
+					<div class="pull-left"><a href="http://www.php.cn/member/220678.html" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/c9da7599090658f2a95c09d17b17c959.jpg" alt="Hertter"></a></div>
+					<div class="pull-right">
+						<li>
+							<a href="http://www.php.cn/member/220678.html" target="_blank" class="tikname">Hertter</a> 
+							<span class="time">· </span>
+							<span class="floor">1楼</span>
+						</li>
+						<li class="info">
+							<p>请问这是校招题还是社招题</p></li>
+					</div>
+				</div>
+				
+				<div class="text-box layui-clear article_comment_textarea" style="display:block;">
+						<div class="box-left">
+							<li>
+								<a href="http://www.php.cn/member/283367.html">
+									<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/user_avatar.jpg" alt="iCocos">
+								</a>
+							</li>
+							<li><a href="http://www.php.cn/member/283367.html"></a></li>
+						</div>
+						<div class="box-right">
+							<textarea name="desc" placeholder="请输入内容" class="layui-textarea article_textarea"></textarea>
+							<button class="layui-btn article_publish" data-id="415522">立即提交</button>
+						</div>
+				</div>
+		</div>
+		
+		<!--推荐新闻-->
+		<div class="article-hot pinBoxContainer" id="tab_detail_list">
+			<div class="pinBox-wrapper" style="position: relative; height: 50px;"><div class="layui-col-md12 php-news-left ">
+				  <ul class="php-news-left-ul">
+				  							<li><a href="http://www.php.cn/course/list/29.html"> PHP</a></li>
+											<li><a href="http://www.php.cn/course/list/51.html"> MySQL</a></li>
+											<li><a href="http://www.php.cn/course/list/11.html"> HTML</a></li>
+											<li><a href="http://www.php.cn/course/list/12.html"> CSS</a></li>
+											<li><a href="http://www.php.cn/course/list/17.html"> JavaScript</a></li>
+											<li><a href="http://www.php.cn/course/list/19.html"> jQuery</a></li>
+											<li><a href="http://www.php.cn/course/list/25.html"> AJAX</a></li>
+											<li><a href="http://www.php.cn/course/list/13.html"> Html5</a></li>
+										<div class="clear"></div>
+				  </ul>
+			</div></div>
+			<div class="layui-col-md12  php-news-info" style="background-color:#fff;">
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/486.html" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a50894c3ee41784.jpg" alt="独孤九贱(5)_ThinkPHP5视频教程" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/486.html">独孤九贱(5)_ThinkPHP5视频教程</a></h3>
+					  <p title="ThinkPHP是国内最流行的中文PHP开发框架,也是您Web项目的最佳选择。《php.cn独孤九贱(5)－ThinkPHP5视频教程》课程以ThinkPHP5最新版本为例，从最基本的框架常识开始，将您在开发要用到的所有知识点，娓娓道来。语言选简洁明快，实例简单实用，只你具备基本的PHP的语法常识，就可以跟着PHP中文网的这套原创课程，学会用ThinkPHP5创建您的项目。从用户请求到响应输出，从控制器到路由，从模型知识到模板调试，在本套课程中，你总可以找到你的最爱。">ThinkPHP是国内最流行的中文PHP开发框架,也是您Web项目的最佳选择。《php.cn独孤九贱(5)－ThinkPHP5视频教程》课程以ThinkPHP5最新版本为例，从最基本的框架常识开始，将...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-05-16 12:03:57</li>
+							<li>点击数(157014)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/379.html" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a508deef1e58616.jpg" alt="独孤九贱(4)_PHP视频教程" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/379.html">独孤九贱(4)_PHP视频教程</a></h3>
+					  <p title="江湖传言：PHP是世界上最好的编程语言。真的是这样吗？这个梗究竟是从哪来的？学会本课程，你就会明白了。
+PHP中文网出品的PHP入门系统教学视频，完全从初学者的角度出发，绝不玩虚的，一切以实用、有用为原则，让你学得会，记得住，用得上。学习PHP编程，不得不提醒阁下，前端的基础知识，还是要有一点的。当然不要求精通，但必须对基本标签、基本概念和术语有一定了解，否则，会对你的学习信心造成小打击哟~~（php中文网上有很多优秀的html,css,javascript教程可供您参考，如果你选择我们官方原创课程最好啦）">江湖传言：PHP是世界上最好的编程语言。真的是这样吗？这个梗究竟是从哪来的？学会本课程，你就会明白了。
+PHP中文网出品的PHP入门系统教学视频，完全从初学者的角度出发，绝不玩虚的，一切以实用、有用...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-03-20 22:47:17</li>
+							<li>点击数(154456)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/372.html" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a5091db685e6482.jpg" alt="独孤九贱(1)_HTML5视频教程" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/372.html">独孤九贱(1)_HTML5视频教程</a></h3>
+					  <p title="《php.cn原创html5视频教程》课程特色：php中文网原创幽默段子系列课程，以恶搞，段子为主题风格的php视频教程！轻松的教学风格，简短的教学模式，让同学们在不知不觉中，学会了HTML知识。
+每节课内容精炼，长度不超过10分钟，非常适合您利用碎片时间来学习。地铁上、等人、候车、餐厅无处不学习~~">《php.cn原创html5视频教程》课程特色：php中文网原创幽默段子系列课程，以恶搞，段子为主题风格的php视频教程！轻松的教学风格，简短的教学模式，让同学们在不知不觉中，学会了HTML知识。
+...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-03-13 10:15:11</li>
+							<li>点击数(123779)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/593.html" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a9ce29211b72919.jpg" alt="ThinkPHP5实战之[教学管理系统]" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/593.html">ThinkPHP5实战之[教学管理系统]</a></h3>
+					  <p title="本套教程,以一个真实的学校教学管理系统为案例,手把手教会您如何在一张白纸上,从零开始,一步一步的用ThinkPHP5框架快速开发出一个商业项目。">本套教程,以一个真实的学校教学管理系统为案例,手把手教会您如何在一张白纸上,从零开始,一步一步的用ThinkPHP5框架快速开发出一个商业项目。</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/1120.html"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bdff93895600756.jpeg"> Peter-Zhu</a>
+							</li>
+							<li>2017-07-24 16:48:56</li>
+							<li>点击数(115947)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+								<div class="layui-row diy-border">
+					<div class="layui-col-md3 ">
+					 <a href="http://www.php.cn/course/170.html" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a53132d0bd62424.jpg" alt="PHP入门视频教程之一周学会PHP" width="180" height="124"></a>
+					</div>
+					<div class="layui-col-md9">
+					  <h3><a target="_blank" href="http://www.php.cn/course/170.html">PHP入门视频教程之一周学会PHP</a></h3>
+					  <p title="所有计算机语言的学习都要从基础开始，《PHP入门视频教程之一周学会PHP》不仅是PHP的基础部分更主要的是PHP语言的核心技术，是学习PHP必须掌握的内容，任何PHP项目的实现都离不开这部分的内容，通过一周的深入学习让你快速掌握PHP的各项技能，助你的工作和学习更上层楼！">所有计算机语言的学习都要从基础开始，《PHP入门视频教程之一周学会PHP》不仅是PHP的基础部分更主要的是PHP语言的核心技术，是学习PHP必须掌握的内容，任何PHP项目的实现都离不开这部分的内容，通...</p>
+					  <p>
+						</p><ul class="php-li-float-left diy-li-course-user">
+							<li>
+								<a target="_blank" class="course-user" href="http://www.php.cn/member/4.html"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5c511d62e6c0e698.png"> 大家讲道理</a>
+							</li>
+							<li>2016-11-16 14:54:14</li>
+							<li>点击数(115665)</li>
+						</ul>
+					 <p></p>
+					</div>
+				</div>
+							</div>
+			<div class="clear"></div>
+		</div>
+</div>
+	<div class="layui-col-md4 article-list-right ">
+		<div class="panel">
+				<div class="panel-title">作者信息</div>
+				<div id="profile-2">
+					<div class="avatar-wrap">
+						<a href="http://www.php.cn/member/266796.html" target="_blank" class="avatar-link">
+							<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5bd2c0bcb3fed141.png" class="func-um_user gravatar avatar avatar-120 um-avatar um-avatar-uploaded">
+						</a>
+					</div>
+					<div class="profile-info">
+						<p>
+							<span class="author-name">藏色散人</span>
+							<i class="layui-icon layui-icon-auz" title="认证作者"></i>
+						</p>
+						<p class="author-description">好好学习天天向上！</p>
+						<div class="author-article">
+							<dl class="list-one">
+								<dt class="panel-title">最近文章</dt>
+																<dd>
+									<a href="http://www.php.cn/toutiao-415695.html" target="_blank" title="PHP中文网近期社区问答精选话题汇总">PHP中文网近期社区问答精选话题汇总</a>
+									<span><i class="layui-icon layui-icon-fire"></i>550</span>
+								</dd>
+																<dd>
+									<a href="http://www.php.cn/csharp-article-415688.html" target="_blank" title="c语言递归算法怎么实现">c语言递归算法怎么实现</a>
+									<span><i class="layui-icon layui-icon-fire"></i>776</span>
+								</dd>
+																<dd>
+									<a href="http://www.php.cn/php-weizijiaocheng-415680.html" target="_blank" title="如何使用PHP ZipArchive创建zip文件并下载？">如何使用PHP ZipArchive创建zip文件并下载？</a>
+									<span><i class="layui-icon layui-icon-fire"></i>156</span>
+								</dd>
+															</dl>
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<div class="layui-clear"><a href="javascript:publish_article()" class="layui-btn layui-btn-danger article-add">发布技术文章</a> </div>
+		<div class="top-article layui-clear">
+			<div class="layui-tab layui-tab-card">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">最新文章</li>
+			    <li>猜你喜欢</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show">
+			    	<ul>
+						<p class="top-img">
+							<a href="http://www.php.cn/toutiao-387072.html" target="_blank" title="面对巨额亏损的PHP中文网，我该为情怀买单吗？（猪哥）"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5b890a9e4417f872.png" style="width: 100%"></a>
+						</p>
+												<li><a href="http://www.php.cn/toutiao-415695.html" target="_blank" title="PHP中文网近期社区问答精选话题汇总">PHP中文网近期社区问答精选话题汇总</a></li>
+												<li><a href="http://www.php.cn/toutiao-415600.html" target="_blank" title="2019年大前端面试题汇总（收藏）">2019年大前端面试题汇总（收藏）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415599.html" target="_blank" title="2019年PHP面试题大汇总（收藏）">2019年PHP面试题大汇总（收藏）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415575.html" target="_blank" title="2019年最新的18个黑马程序员全套视频教程推荐（免费）">2019年最新的18个黑马程序员全套视频教程推荐（免费）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415523.html" target="_blank" title="PHP常见面试题型汇总（附答案）">PHP常见面试题型汇总（附答案）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415522.html" target="_blank" title="腾讯PHP经典面试题（附答案）">腾讯PHP经典面试题（附答案）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415519.html" target="_blank" title="2019年最新PHP面试题汇总（附答案）">2019年最新PHP面试题汇总（附答案）</a></li>
+												<li><a href="http://www.php.cn/toutiao-415516.html" target="_blank" title="PHP面试技巧—职场暗语你知多少？">PHP面试技巧—职场暗语你知多少？</a></li>
+												
+					</ul>
+			    </div>
+			    <div class="layui-tab-item">
+			    	<ul>
+						<p class="top-img">
+							<a href="http://www.php.cn/toutiao-387072.html" target="_blank" title="面对巨额亏损的PHP中文网，我该为情怀买单吗？（猪哥）"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5b890a9e4417f872.png" style="width: 100%"></a>
+						</p>
+												<li><a href="http://www.php.cn/toutiao-352768.html" target="_blank" title="2019年最好用的10个php开发工具推荐">2019年最好用的10个php开发工具推荐</a></li>
+												<li><a href="http://www.php.cn/toutiao-362311.html" target="_blank" title="2018年最好用的6个php环境搭建工具推荐">2018年最好用的6个php环境搭建工具推荐</a></li>
+												<li><a href="http://www.php.cn/toutiao-408774.html" target="_blank" title="为什么程序员都黑php？PHP中文网有话说！">为什么程序员都黑php？PHP中文网有话说！</a></li>
+												<li><a href="http://www.php.cn/toutiao-408147.html" target="_blank" title="2018浪漫七夕：7款程序员必备表白源码（超炫酷）">2018浪漫七夕：7款程序员必备表白源码（超炫酷）</a></li>
+												<li><a href="http://www.php.cn/toutiao-345556.html" target="_blank" title="学习php怎么入门？史上最清晰的php学习路线图规划！">学习php怎么入门？史上最清晰的php学习路线图规划！</a></li>
+												<li><a href="http://www.php.cn/toutiao-355027.html" target="_blank" title="php难学吗？php学习从入门到精通需要多久？">php难学吗？php学习从入门到精通需要多久？</a></li>
+												<li><a href="http://www.php.cn/toutiao-384729.html" target="_blank" title="2019热门php开发框架排行">2019热门php开发框架排行</a></li>
+												<li><a href="http://www.php.cn/toutiao-387072.html" target="_blank" title="面对巨额亏损的PHP中文网，我该为情怀买单吗？（猪哥）">面对巨额亏损的PHP中文网，我该为情怀买单吗？（猪哥）</a></li>
+												
+					</ul>
+			    </div>
+			  </div>
+			</div>
+
+			
+		</div>
+		<div class="article-course	php-news-right-imginfo" style="margin-bottom:20px;">
+			<h3 class="article-title">相关视频教程</h3>
+							<li>
+				<a href="http://www.php.cn/course/3.html" target="_blank">
+					<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/59ffc5f855d17967.jpg" alt="新版php入门教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/3.html" target="_blank">新版php入门教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/4.html" target="_blank">
+					<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a448c665f3f1791.jpg" alt="PHP 新手入门教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/4.html" target="_blank">PHP 新手入门教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/5.html" target="_blank">
+					<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a448b5651a7e219.jpg" alt="PHP快速入门免费教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/5.html" target="_blank">PHP快速入门免费教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/6.html" target="_blank">
+					<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a448c3d757fd500.jpg" alt="php轻松入门教程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/6.html" target="_blank">php轻松入门教程</a></span>
+			</li>
+						<li>
+				<a href="http://www.php.cn/course/7.html" target="_blank">
+					<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5a448baf4fc5d433.jpg" alt="弹指间学会PHP编程" height="60">
+				</a>
+				<span><a href="http://www.php.cn/course/7.html" target="_blank">弹指间学会PHP编程</a></span>
+			</li>
+					</div>
+		<div class="top-article layui-clear" id="aritcle_detail_new">
+			<h3 class="article-title">相关视频章节</h3>
+			<ul>
+								<li><a href="http://www.php.cn/code/5.html" target="_blank" title="PHP开发基础教程之环境搭建">PHP开发基础教程之环境搭建</a></li>
+								<li><a href="http://www.php.cn/code/10.html" target="_blank" title="PHP 新手入门之如何安装运行环境和使用编译器">PHP 新手入门之如何安装运行环境和使用编译器</a></li>
+								<li><a href="http://www.php.cn/code/14.html" target="_blank" title="PHP开发基础教程之学习之语法">PHP开发基础教程之学习之语法</a></li>
+							</ul>
+		</div>
+    </div>
+    </div>
+</div>
+<!--技术文章-->
+<script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/shCore.js"></script>
+<script>article_status = 266796;</script>
+<script type="text/javascript" src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/jquery.js"></script>
+<script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/search-video.js"></script>
+<div class="close_id" id="close_id" style="opacity:0.8;position:fixed;width:35px;height:35px;background:url(http://img.php.cn/upload/article/000/000/003/5b596254afbad676.png) no-repeat;right:0;bottom:0;cursor: pointer;z-index:9999999999;background-size:80% 80%;"></div>
+<a class="close_id" href="http://www.php.cn/k.html" target="_blank" style="position:fixed;right:0;bottom:0;width:300px;height:200px;z-index:999999999">
+    <img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/footer.gif">
+</a>
+<div class="layui-clear layui-bg-black php-ul-li footer_top_margin">
+    <div class="layui-row  layui-main">
+        <div class="layui-col-md9">
+            <ul class="php-float-left">
+                <li><a href="http://www.php.cn/" target="_blank" title="网站首页">网站首页 </a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/2.html" target="_blank" title="PHP视频">PHP视频</a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/4.html" target="_blank" title="PHP实战">PHP实战</a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/1.html" target="_blank" title="PHP代码">PHP代码</a></li>
+                <li><a href="http://www.php.cn/course/list/29/type/3.html" target="_blank" title="PHP手册">PHP手册</a></li>
+                <li><a href="http://www.php.cn/wikis.html" target="_blank" title="词条">词条</a></li>
+                <li><a href="http://www.php.cn/write.html" target="_blank" title="手记">手记</a></li>
+            </ul>
+            <p class="layui-clear footer_phpcn">PHP中文网：独家原创，永久免费的在线php视频教程，php技术学习阵地！</p>
+            <p class="footer_phpcn_record">Copyright 2014-2018 http://www.php.cn/ All Rights Reserved | 皖B2-20150071-9 <img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/ghs.png" width="15"> 皖公网安备 34010402701654号 <a href="http://112.30.63.109:8887/showEi?id=6a58f74d17984675aa1b671d0fa101cf&amp;url=php.cn" rel="nofollow" target="_blank"><img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/foot_line.gif" width="15"></a> <span class="footer_phpcn_say"><a href="http://www.php.cn/about/disclaimer.html" target="_blank">免责申明</a><a href="http://www.php.cn/about/donate.html" style="margin-right:40px" target="_blank">赞助与捐赠</a></span></p>
+            <p></p>
+        </div>
+        <div class="layui-col-md3" style="padding-top:15px;">
+            <img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/5c50106148dc3454.png" title="官方QQ群：977601088" width="100">&nbsp;&nbsp;<img src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/phpcn_erwei.jpg" title="扫一扫，关注公众号" width="100">
+
+        </div>
+    </div>
+</div>
+<input type="hidden" id="verifycode" value="/captcha.html">
+<script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/jquery_002.js"></script>
+<script src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/layui.js"></script>
+<script type="text/javascript" src="%E8%85%BE%E8%AE%AFPHP%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E9%99%84%E7%AD%94%E6%A1%88%EF%BC%89-PHP%E5%A4%B4%E6%9D%A1-PHP%E4%B8%AD%E6%96%87%E7%BD%91_files/global.js"></script>
+<script>(function(){var bp = document.createElement('script');var curProtocol = window.location.protocol.split(':')[0];if(curProtocol === 'https'){bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';}else{bp.src = 'http://push.zhanzhang.baidu.com/push.js';}var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp, s);
+})();var _hmt = _hmt || [];(function(){var hm = document.createElement("script");hm.src="//hm.baidu.com/hm.js?8cc45d54c337ca616c34b1cf747da91c";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
+<script>
+var player = new searchVideo({
+	id: 'myVideo',
+	src: [""],
+	controls: true,
+	poster: '',
+	autoplay: false,
+	width: '100%',
+	height: '100%'
+});
+</script>
+
+<ul class="layui-fixbar"><li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li></ul></body></html>

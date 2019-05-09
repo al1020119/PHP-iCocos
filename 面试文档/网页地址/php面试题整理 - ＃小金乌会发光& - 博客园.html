@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+    <title>php面试题整理 - ＃小金乌会发光&amp; - 博客园</title>
+<meta property="og:description" content="PHP经典面试题：（不断跟进补充中。。。）1、用PHP打印出前一天的时间格式是2009-02-1022:21:21(2分)echodate('Y-m-dH:i:s',strtotime">
+    <link type="text/css" rel="stylesheet" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-CodingLife.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-CodingLife-mobile.css">
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/carsonzhu/rss">
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/carsonzhu/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/carsonzhu/wlwmanifest.xml">
+    <script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/amp4ads-host-v0.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_rendering_313.js"></script><script async="" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery-2.js"></script>
+    <script>var currentBlogId=230292;var currentBlogApp='carsonzhu',cb_enable_mathjax=false;var isLogined=false;</script>
+    <script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script>
+<link rel="preload" href="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/integrator.js" as="script"><script type="text/javascript" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/integrator.js"></script><script src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_313.js" async=""></script></head>
+<body>
+<a name="top"></a>
+
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/carsonzhu/"><img id="blogLogo" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/carsonzhu/">#小金乌会发光$</a></h1>
+<h2>Nobody grows old merely by a number of years,we grow old by deserting our ideals!</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/carsonzhu/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89%26amp%3B">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/carsonzhu/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/carsonzhu/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 257&nbsp; </span>
+<span id="stats_article_count">文章 - 33&nbsp; </span>
+<span id="stats-comment_count">评论 - 17</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+        <div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/carsonzhu/p/4564464.html">php面试题整理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>PHP经典面试题：（不断跟进补充中。。。）</p>
+<p>1、用PHP打印出前一天的时间格式是2009-02-10&nbsp;22:21:21(2分)</p>
+<p>echo&nbsp;date('Y-m-d&nbsp;H:i:s',&nbsp;strtotime('-1&nbsp;day'));</p>
+<p>或者</p>
+<p>$yesterday&nbsp;=&nbsp;time()&nbsp;-&nbsp;(24&nbsp;*&nbsp;60&nbsp;*&nbsp;60);</p>
+<p>echo&nbsp;'today:'.date('Y-m-d&nbsp;H:i:s')."n";</p>
+<p>echo&nbsp;'yesterday:'.&nbsp;date('Y-m-d&nbsp;H:i:s',&nbsp;$yesterday)."n";</p>
+<p>&nbsp;</p>
+<p>2、echo(),print(),print_r()的区别(3分)</p>
+<p>echo是PHP语句,&nbsp;print和print_r是函数,语句没有返回值,函数可以有返回值(即便没有用)&nbsp;</p>
+<p>print只能打印出简单类型变量的值(如int,string)</p>
+<p>print_r可以打印出复杂类型变量的值(如数组,对象)</p>
+<p>echo&nbsp;--&nbsp;输出一个或者多个字符串</p>
+<p>&nbsp;</p>
+<p>3、能够使HTML和PHP分离开使用的模板(1分)</p>
+<p>smarty，Heyes&nbsp;Template&nbsp;Class等</p>
+<p>&nbsp;</p>
+<p>5、使用哪些工具进行版本控制？(1分)</p>
+<p>CVS和SVN,SVN号称下一代CVS,功能强大,不过CVS是老牌,市占率很高.我一直用SVN,题目是问用什么工具呃,这个可能需要这么回
+答:CVS&nbsp;Server&nbsp;on&nbsp;Apache作服务端,WinCVS作客户
+端;Subversion&nbsp;on&nbsp;Apache/DAV&nbsp;做服务端,TortoiseSVN做客户端,或者
+Subclipse做客户端.</p>
+<p>&nbsp;</p>
+<p>6、如何实现字符串翻转？(3分)</p>
+<p>strrev()</p>
+<p>或者</p>
+<p>$str&nbsp;=&nbsp;"abcdefg";</p>
+<p>&nbsp;</p>
+<p>function&nbsp;strrevv($str)</p>
+<p>{</p>
+<p>$len=strlen($str);</p>
+<p>$newstr&nbsp;=&nbsp;'';</p>
+<p>for($i=$len;$i&gt;=0;$i--)</p>
+<p>{</p>
+<p>$newstr&nbsp;.=&nbsp;$str{$i};</p>
+<p>}</p>
+<p>return&nbsp;$newstr;</p>
+<p>}</p>
+<p>$showstr&nbsp;=&nbsp;strrevv($str);</p>
+<p>echo&nbsp;$showstr."&lt;br&gt;";</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------------------------------------------------</p>
+<p>7、优化MYSQL数据库的方法。(4分，多写多得)</p>
+<p>(1).选取最适用的字段属性,应该尽量把字段设置为NOT&nbsp;NULL，这样在将来执行查询的时候，数据库不用去比较NULL值。</p>
+<p>(2).使用连接（JOIN）来代替子查询(Sub-Queries)</p>
+<p>(3).使用联合(UNION)来代替手动创建的临时表</p>
+<p>(4).尽量少使用&nbsp;LIKE&nbsp;关键字和通配符</p>
+<p>(5).使用事务和外键</p>
+<p>或者</p>
+<p>(1).数据库设计方面,这是DBA和Architect的责任,设计结构良好的数据库,必要的时候,去正规化(英文是这个:denormalize,中文翻译成啥我不知道),允许部分数据冗余,避免JOIN操作,以提高查询效率</p>
+<p>(2).系统架构设计方面,表散列,把海量数据散列到几个不同的表里面.快慢表,快表只留最新数据,慢表是历史存档.集群,主服务器Read&nbsp;&amp;&nbsp;write,从服务器read&nbsp;only,或者N台服务器,各机器互为Master</p>
+<p>(3).(1)和(2)超越PHP&nbsp;Programmer的要求了,会更好,不会没关系.检查有没有少加索引</p>
+<p>(4).写高效的SQL语句,看看有没有写低效的SQL语句,比如生成笛卡尔积的全连接啊,大量的Group&nbsp;By和
+order&nbsp;by,没有limit等等.必要的时候,把数据库逻辑封装到DBMS端的存储过程里面.缓存查询结果,explain每一个sql
+语句</p>
+<p>(5).所得皆必须,只从数据库取必需的数据,比如查询某篇文章的评论
+数,select&nbsp;count(*)&nbsp;...&nbsp;where&nbsp;article_id&nbsp;=&nbsp;就
+可以了,不要先select&nbsp;*&nbsp;...&nbsp;where&nbsp;article_id&nbsp;=&nbsp;然后
+msql_num_rows.只传送必须的SQL语句,比如修改文章的时候,如果用户只修改了标题,那就
+update&nbsp;...&nbsp;set&nbsp;title&nbsp;=&nbsp;where&nbsp;article_id&
+nbsp;=&nbsp;不要set&nbsp;content&nbsp;=&nbsp;(大文本)</p>
+<p>(6).必要的时候用不同的存储引擎.比如InnoDB可以减少死锁.HEAP可以提高一个数量级的查询速度</p>
+<p>&nbsp;</p>
+<p>8、PHP的意思(送1分)</p>
+<p>Hypertext&nbsp;Preprocessor</p>
+<p>&nbsp;</p>
+<p>9、MYSQL取得当前时间的函数是?，格式化日期的函数是(2分)</p>
+<p>now(),&nbsp;DATE_FORMAT(date,format)</p>
+<p>&nbsp;</p>
+<p>10、实现中文字串截取无乱码的方法。(3分)</p>
+<p>mb_substr()</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------------------------------------------------</p>
+<p>11、您是否用过版本控制软件?&nbsp;如果有您用的版本控制软件的名字是?(1分)</p>
+<p>TortoiseSVN-1.2.6&nbsp;svn-1.2.3</p>
+<p>&nbsp;</p>
+<p>12、您是否用过模板引擎?&nbsp;如果有您用的模板引擎的名字是?(1分)</p>
+<p>smarty</p>
+<p>&nbsp;</p>
+<p>13、请简单阐述您最得意的开发之作(4分)</p>
+<p>这个自己想，因为你不再是菜鸟，每个人都有不同的思路，思路也会随之自己的知识而改变……</p>
+<p>&nbsp;</p>
+<p>14、对于大流量的网站,您采用什么样的方法来解决访问量问题?(4分)</p>
+<p>首先，确认服务器硬件是否足够支持当前的流量</p>
+<p>其次，优化数据库访问。</p>
+<p>第三，禁止外部的盗链。</p>
+<p>第四，控制大文件的下载。</p>
+<p>第五，使用不同主机分流主要流量</p>
+<p>第六，使用流量分析统计软件。</p>
+<p>&nbsp;</p>
+<p>-----------------------------------------------------------------</p>
+<p>15、用PHP写出显示客户端IP与服务器IP的代码1分)</p>
+<p>//显示客户端I</p>
+<p>function&nbsp;get_client_ip()&nbsp;{#</p>
+<p>if(getenv('HTTP_CLIENT_IP'))&nbsp;{</p>
+<p>$client_ip&nbsp;=&nbsp;getenv('HTTP_CLIENT_IP');</p>
+<p>}&nbsp;elseif(getenv('HTTP_X_FORWARDED_FOR'))&nbsp;{</p>
+<p>$client_ip&nbsp;=&nbsp;getenv('HTTP_X_FORWARDED_FOR');</p>
+<p>}&nbsp;elseif(getenv('REMOTE_ADDR'))&nbsp;{</p>
+<p>$client_ip&nbsp;=&nbsp;getenv('REMOTE_ADDR');</p>
+<p>}&nbsp;else&nbsp;{</p>
+<p>$client_ip&nbsp;=&nbsp;$HTTP_SERVER_VAR['REMOTE_ADDR'];</p>
+<p>}</p>
+<p>return&nbsp;$client_ip;</p>
+<p>}</p>
+<p>//服务器IP</p>
+<p>function&nbsp;get_server_ip(){</p>
+<p>if&nbsp;(isset($_SERVER))</p>
+<p>{</p>
+<p>if($_SERVER['SERVER_ADDR'])&nbsp;$huoqu_ip=$_SERVER['SERVER_ADDR'];</p>
+<p>else&nbsp;$huoqu_ip=$_SERVER['LOCAL_ADDR'];</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>$huoqu_ip=getenv('SERVER_ADDR');</p>
+<p>}</p>
+<p>return&nbsp;$huoqu_ip;</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>16、语句include和require的区别是什么?为避免多次包含同一文件，可用(?)语句代替它们?&nbsp;(2分)</p>
+<p>require()和include()除了怎样处理失败之外在各方面都完全一样。include()产生一个警告而require()则导致一个致命错误。</p>
+<p>换句话说，如果你想在丢失文件时停止处理页面,用require()。include()&nbsp;就不是这样，脚本会继续运行。</p>
+<p>require()无论如何都会包含文件,而include()可以有选择地包含.www.</p>
+<p>代替用</p>
+<p>include_once</p>
+<p>require_once</p>
+<p>&nbsp;</p>
+<p>17、如何修改SESSION的生存时间(1分).（没有测试）</p>
+<p>$savePath&nbsp;=&nbsp;"./session_save_dir/";</p>
+<p>$lifeTime&nbsp;=&nbsp;24&nbsp;*&nbsp;3600;</p>
+<p>session_save_path($savePath);</p>
+<p>session_set_cookie_params($lifeTime);</p>
+<p>session_start();</p>
+<p>&nbsp;</p>
+<p>18、有一个网页地址,&nbsp;比如PHPma主页:&nbsp;http://www.phpma.com,如何得到它的内容?($1分)</p>
+<p>file_get_contents($url)</p>
+<p>&nbsp;</p>
+<p>19、在HTTP&nbsp;1.0中，状态码401的含义是(?)；如果返回“找不到文件”的提示，则可用&nbsp;header&nbsp;函数，其语句为(?);(2分)</p>
+<p>未授权（Unauthorized)</p>
+<p>Header("http/1.0&nbsp;403&nbsp;Forbidden");</p>
+<p>20、在PHP中，heredoc是一种特殊的字符串，它的结束标志必须?(1分)</p>
+<p>在大部分语言里，双引号是字符串，单引号是字符。但是在PHP里，字符串的表现形式有3种。即：</p>
+<p>&nbsp;</p>
+<p>单引号</p>
+<p>双引号</p>
+<p>定界符（heredoc&nbsp;syntax）</p>
+<p>看见了吧，单引号居然可以用来表示字符串。那么如果我想表示单引号怎么办？和大多数语言一样，使用转义符号吧。即反斜线"".那么使用单引号和双引号有什么区别呢？我的观点是没有多大区别。唯一的区别就是双引号可以应用更多的转义符。</p>
+<p>让我们定界符吧。它的语法是"&lt;&lt;&lt;"。用法是在其后提供一个标识符，然后在标识符后提供字符串，再在字符串后提供此标识符来结尾。例如：</p>
+<p>&nbsp;</p>
+<p>&lt;?php</p>
+<p>$str&nbsp;=&nbsp;&lt;&lt;&lt;EOD</p>
+<p>Hello,&nbsp;this&nbsp;is&nbsp;an&nbsp;example&nbsp;for&nbsp;HEREDOC&nbsp;Syntax.</p>
+<p>Please&nbsp;attention&nbsp;to&nbsp;it.</p>
+<p>EOD;</p>
+<p>echo&nbsp;$str;</p>
+<p>?&gt;注意，这里的提供的标志符是EOD，中间的是字符串。</p>
+<p>&nbsp;</p>
+<p>&lt;&lt;&lt;EOD这个开头并没有分号</p>
+<p>结束标志必须顶格写，并且要有分号结束</p>
+<p>&nbsp;</p>
+<p>21、谈谈asp,php,jsp的优缺点(1分)--（具体请自己搜索）</p>
+<p>&nbsp;</p>
+<p>22、谈谈对mvc的认识(1分)</p>
+<p>MVC(Model/View/Controller)模式包括三类对象。Model是应用对象，View是它在屏幕上的表示，</p>
+<p>Controller定义用户界面对用户输入的响应方式。</p>
+<p>模型-视图-控制器（MVC）是80年代Smalltalk-80出现的一种软件设计模式，现在已经被广泛的使用。</p>
+<p>1)模型（Model）</p>
+<p>模型是应用程序的主体部分。模型表示业务数据，或者业务逻辑.</p>
+<p>2)视图（View）</p>
+<p>视图是应用程序中用户界面相关的部分，是用户看到并与之交互的界面。</p>
+<p>3)控制器（controller)</p>
+<p>控制器工作就是根据用户的输入，控制用户界面数据显示和更新model对象状态。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>-------------------------------------------------------------------</p>
+<p>23、写出发贴数最多的十个人名字的SQL，利用下表：members(id,username,posts,pass,email)(2分)</p>
+<p>select&nbsp;members.username</p>
+<p>from&nbsp;members</p>
+<p>order&nbsp;by&nbsp;posts&nbsp;DESC</p>
+<p>limit&nbsp;10</p>
+<p>&nbsp;</p>
+<p>24.&nbsp;请说明php中传值与传引用的区别。什么时候传值什么时候传引用？(2分)</p>
+<p>按值传递：函数范围内对值的任何改变在函数外部都会被忽略</p>
+<p>按引用传递：函数范围内对值的任何改变在函数外部也能反映出这些修改&nbsp;PHPma</p>
+<p>优缺点：按值传递时，php必须复制值。特别是对于大型的字符串和对象来说，这将会是一个代价很大的操作。</p>
+<p>按引用传递则不需要复制值，对于性能提高很有好处。</p>
+<p>&nbsp;</p>
+<p>25.&nbsp;在PHP中error_reporting这个函数有什么作用？&nbsp;(1分)</p>
+<p>用来配置错误信息回报的等级</p>
+<p>&nbsp;</p>
+<p>26.&nbsp;请写一个函数验证电子邮件的格式是否正确&nbsp;(2分)</p>
+<p>//if&nbsp;the&nbsp;email&nbsp;address&nbsp;is&nbsp;valid,&nbsp;return&nbsp;true,else&nbsp;return&nbsp;false</p>
+<p>function&nbsp;validateEmail($email)</p>
+<p>{</p>
+<p>if(eregi('^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*$',$email)&nbsp;){</p>
+<p>return&nbsp;true;</p>
+<p>}else{</p>
+<p>return&nbsp;false;</p>
+<p>}</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>27.&nbsp;简述如何得到当前执行脚本路径，包括所得到参数。(2分)</p>
+<p>echo&nbsp;$_SERVER['SCRIPT_FILENAME']."?".$_SERVER['QUERY_STRING'];</p>
+<p>&nbsp;</p>
+<p>28.如何修改SESSION的生存时间.&nbsp;(1分)</p>
+<p>setcookie()</p>
+<p>或</p>
+<p>session_set_cookie_params($lifeTime)</p>
+<p>--------------------------------------------------------------------</p>
+<p>&nbsp;</p>
+<p>29、JS表单弹出对话框函数是?获得输入焦点函数是?&nbsp;(2分)</p>
+<p>alert(),prompt(),confirm()</p>
+<p>focus()</p>
+<p>&nbsp;</p>
+<p>30、JS的转向函数是?怎么引入一个外部JS文件?(2分)</p>
+<p>window.location.href</p>
+<p>&lt;script&nbsp;type="text/javascript"&nbsp;src="prototype.js"&gt;&lt;/script&gt;</p>
+<p>&nbsp;</p>
+<p>31、foo()和@foo()之间有什么区别？(1分)</p>
+<p>PHP&nbsp;支持一个错误控制运算符：@。当将其放置在一个&nbsp;PHP&nbsp;表达式之前，该表达式可能产生的任何错误信息都被忽略掉。</p>
+<p>注意:&nbsp;@&nbsp;运算符只对表达式有效。对新手来说一个简单的规则就是：如果能从某处得到值，就能在它前面加
+上&nbsp;@&nbsp;运算符。例如，可以把它放在变量，函数和include()调用，常量，等等之前。不能把它放在函数或类的定义之前，也不能
+用于条件结构例如&nbsp;if&nbsp;和&nbsp;foreach&nbsp;等。</p>
+<p>&nbsp;</p>
+<p>32、如何声明一个名为”myclass”的没有方法和属性的类？&nbsp;(1分)</p>
+<p>class&nbsp;myclass{};</p>
+<p>&nbsp;</p>
+<p>33、如何实例化一个名为”myclass”的对象？(1分)</p>
+<p>$newmyclass&nbsp;=&nbsp;new&nbsp;myclass();</p>
+<p>&nbsp;</p>
+<p>34、你如何访问和设置一个类的属性？&nbsp;(2分)</p>
+<p>通过-〉</p>
+<p>$newmyclass&nbsp;=&nbsp;new&nbsp;myclass();</p>
+<p>$temp=$newmyclass-&gt;testvalue;</p>
+<p>$newmyclass-&gt;testvalue="a";</p>
+<p>&nbsp;</p>
+<p>35、mysql_fetch_row()&nbsp;和mysql_fetch_array之间有什么区别？&nbsp;(1分)</p>
+<p>mysql_fetch_row&nbsp;--&nbsp;从结果集中取得一行作为枚举数组</p>
+<p>mysql_fetch_array&nbsp;--&nbsp;从结果集中取得一行作为关联数组，或数字数组，或二者兼有</p>
+<p>&nbsp;</p>
+<p>--------------------------------------------------------------------</p>
+<p>36、GD库是做什么用的？&nbsp;(1分)</p>
+<p>GD库提供了一系列用来处理图片的API，使用GD库可以处理图片，或者生成图片。</p>
+<p>在网站上GD库通常用来生成缩略图或者用来对图片加水印或者对网站数据生成报表。</p>
+<p>&nbsp;</p>
+<p>37、指出一些在PHP输入一段HTML代码的办法。(1分)</p>
+<p>print("&lt;br/&gt;");</p>
+<p>echo&nbsp;"&lt;br/&gt;";</p>
+<p>&nbsp;</p>
+<p>38、下面哪个函数可以打开一个文件，以对文件进行读和写操作？(1分)(c)</p>
+<p>(a)&nbsp;fget()&nbsp;(b)&nbsp;file_open()&nbsp;(c)&nbsp;fopen()&nbsp;(d)&nbsp;open_file()</p>
+<p>&nbsp;</p>
+<p>39、下面哪个选项没有将&nbsp;john&nbsp;添加到users&nbsp;数组中？&nbsp;(1分)&nbsp;(b)(c)(d)</p>
+<p>(a)&nbsp;$users[]&nbsp;=&nbsp;‘john’;</p>
+<p>(b)&nbsp;array_add($users,’john’);//这个选项不敢确定，但是测试着没有这个函数</p>
+<p>(c)&nbsp;array_push($users,‘john’);</p>
+<p>(d)&nbsp;$users&nbsp;||=&nbsp;‘john’;</p>
+<p>&nbsp;</p>
+<p>40、下面的程序会输入是否?(1分)</p>
+<p>&lt;?php</p>
+<p>$num&nbsp;=&nbsp;10;</p>
+<p>function&nbsp;multiply(){</p>
+<p>$num&nbsp;=&nbsp;$num&nbsp;*&nbsp;10;</p>
+<p>}</p>
+<p>multiply();</p>
+<p>echo&nbsp;$num;</p>
+<p>?&gt;</p>
+<p>否，局部变量</p>
+<p>&nbsp;</p>
+<p>41、使用php写一段简单查询，查出所有姓名为“张三”的内容并打印出来&nbsp;(2分)</p>
+<p>表名User</p>
+<p>Name&nbsp;Tel&nbsp;Content&nbsp;Date</p>
+<p>张三&nbsp;13333663366&nbsp;大专毕业&nbsp;2006-10-11</p>
+<p>张三&nbsp;13612312331&nbsp;本科毕业&nbsp;2006-10-15</p>
+<p>张四&nbsp;021-55665566&nbsp;中专毕业&nbsp;2006-10-15</p>
+<p>&nbsp;</p>
+<p>请根据上面的题目完成代码：</p>
+<p>$mysql_db=mysql_connect("local","root","pass");</p>
+<p>@mysql_select_db("DB",$mysql_db);</p>
+<p>$result=mysql_query("select&nbsp;*&nbsp;from&nbsp;User&nbsp;where&nbsp;Name='张三'");</p>
+<p>while($row=mysql_fetch_array($result))</p>
+<p>{</p>
+<p>echo&nbsp;$row['Name'].$row['Tel'].$row['Content'].$row['Date'];</p>
+<p>echo&nbsp;"&lt;br&gt;";</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>42、如何使用下面的类,并解释下面什么意思?(3)</p>
+<p>&nbsp;</p>
+<p>class&nbsp;test{</p>
+<p>function&nbsp;Get_test($num){</p>
+<p>$num=md5(md5($num)."En");</p>
+<p>return&nbsp;$num;</p>
+<p>}</p>
+<p>}</p>
+<p>双重md5加密</p>
+<p>$testObject&nbsp;=&nbsp;new&nbsp;test();</p>
+<p>$encryption&nbsp;=&nbsp;$testObject-&gt;Get_test("xiaotian_ls");</p>
+<p>&nbsp;</p>
+<p>）</p>
+<p>&nbsp;&nbsp;</p>
+<p>43、写出&nbsp;SQL语句的格式&nbsp;:&nbsp;插入&nbsp;，更新&nbsp;，删除&nbsp;(4分)</p>
+<p>表名User</p>
+<p>Name&nbsp;Tel&nbsp;Content&nbsp;Date</p>
+<p>张三&nbsp;13333663366&nbsp;大专毕业&nbsp;2006-10-11</p>
+<p>张三&nbsp;13612312331&nbsp;本科毕业&nbsp;2006-10-15</p>
+<p>张四&nbsp;021-55665566&nbsp;中专毕业&nbsp;2006-10-15</p>
+<p>(a)&nbsp;有一新记录(小王&nbsp;13254748547&nbsp;高中毕业&nbsp;2007-05-06)请用SQL语句新增至表中</p>
+<p>INSERT&nbsp;INTO&nbsp;User('Name','Tel','Content','Date')&nbsp;VALUES('小王','13254748547','高中毕业','2007-05-06')</p>
+<p>(b)&nbsp;请用sql语句把张三的时间更新成为当前系统时间</p>
+<p>UPDATE&nbsp;User&nbsp;SET&nbsp;Date=DATE_FORMAT(NOW(),'%Y-%m-%d')&nbsp;WHERE&nbsp;Name='张三'</p>
+<p>(c)&nbsp;请写出删除名为张四的全部记录</p>
+<p>DELETE&nbsp;FROM&nbsp;User&nbsp;WHERE&nbsp;Name='张四'</p>
+<p>&nbsp;</p>
+<p>44、请写出数据类型(int&nbsp;char&nbsp;varchar&nbsp;datetime&nbsp;text)的意思;&nbsp;请问varchar和char有什么区别(2分)</p>
+<p>char&nbsp;&nbsp;&nbsp;固定长度的字符,不足的长度用空格补上;varchar好象没有这个类型,</p>
+<p>37、MySQ自增类型(通常为表ID字段)必需将其设为(?)字段(1分)</p>
+<p>&nbsp;</p>
+<p>45、写出以下程序的输出结果&nbsp;(1分)</p>
+<p>&lt;?</p>
+<p>$b=201;</p>
+<p>$c=40;</p>
+<p>$a=$b&gt;$c?4:5;</p>
+<p>echo&nbsp;$a;</p>
+<p>?&gt;</p>
+<p>答案：4</p>
+<p>&nbsp;</p>
+<p>46、检测一个变量是否有设置的函数是否?是否为空的函数是?(2分)</p>
+<p>isset();empty();</p>
+<p>&nbsp;</p>
+<p>-----------------------------------------------------------------------------</p>
+<p>47、取得查询结果集总数的函数是?(1分)</p>
+<p>mysql_fetch_array();</p>
+<p>&nbsp;</p>
+<p>48、$arr&nbsp;=&nbsp;array('james',&nbsp;'tom',&nbsp;'symfony');&nbsp;请打印出第一个元素的值&nbsp;(1分)</p>
+<p>echo&nbsp;$arr['0'];</p>
+<p>&nbsp;</p>
+<p>49、请将41题的数组的值用','号分隔并合并成字串输出(1分)</p>
+<p>$arr_im&nbsp;=&nbsp;implode(",",$arr);</p>
+<p>print_r($arr_im);</p>
+<p>&nbsp;</p>
+<p>50、$a&nbsp;=&nbsp;'abcdef';&nbsp;请取出$a的值并打印出第一个字母(1分)</p>
+<p>$a&nbsp;=&nbsp;'abcdef';</p>
+<p>echo&nbsp;$a;</p>
+<p>$a_exp&nbsp;=&nbsp;substr($a,0,1);</p>
+<p>echo&nbsp;"&lt;br&gt;";</p>
+<p>echo&nbsp;$a_exp;</p>
+<p>&nbsp;</p>
+<p>51、PHP可以和sql&nbsp;server/oracle等数据库连接吗?(1分)</p>
+<p>当然可以</p>
+<p>&nbsp;</p>
+<p>52、请写出PHP5权限控制修饰符(3分)</p>
+<p>PHP5引入了访问修饰，被放在属性和方法声明的前面用以控制它们的可见性。PHP5中支持以下三种不同的访问修饰：</p>
+<p>　　&nbsp;1、默认的是public(公共)，即当你没有为属性和方法指定访问修饰时就默认为public的。而这些public的项目在类内类外都可以访问。</p>
+<p>　　&nbsp;2、private(私有)访问修饰，意味着被修饰的项只能在类中被访问。如果你没使用__get()和__set()，就最好给
+每个属性都加上private修饰。也可以给方法加private修饰，例如一些只在类中才用到的函数。private修饰的项不能被继承（更多详细内容
+会在本章后续部分提到）。</p>
+<p>　　&nbsp;3、protected(保护)修饰的项能在类及其子类中访问。同样更多详细内容会在本章后续部分提到。现在暂时可以把protected看成界于public和private之间的修饰。</p>
+<p>&nbsp;</p>
+<p>53、请写出php5的构造函数和析构函数(2分)</p>
+<p>如果你在一个类中声明一个函数,命名为__construct,这个函数将被当成是一个构造函数并在建立一个对象实例时被执行.&nbsp;清楚地
+说,__是两个下划线.&nbsp;就像其它任何函数一样,构造函数可能有参数或者默认值.&nbsp;你可以定义一个类来建立一个对象并将其属性全放在
+一个语句(statement)中.</p>
+<p>你也可以定义一个名为__destruct的函数,PHP将在对象被销毁前调用这个函数.&nbsp;它称为析构函数.</p>
+<p>------------------------------------------------------------------------------</p>
+<p>&nbsp;</p>
+<p>54、以下请用PHPMYADMIN完成--（没有测试）</p>
+<p>&nbsp;</p>
+<p>(一)创建新闻发布系统，表名为message有如下字段&nbsp;(3分)</p>
+<p>&nbsp;</p>
+<p>id&nbsp;文章id</p>
+<p>title&nbsp;文章标题</p>
+<p>content&nbsp;文章内容</p>
+<p>category_id&nbsp;文章分类id</p>
+<p>hits&nbsp;点击量</p>
+<p>&nbsp;</p>
+<p>(二)同样上述新闻发布系统：表comment记录用户回复内容，字段如下&nbsp;(4分)</p>
+<p>&nbsp;</p>
+<p>comment_id&nbsp;回复id</p>
+<p>id&nbsp;文章id，关联message表中的id</p>
+<p>comment_content&nbsp;回复内容</p>
+<p>现通过查询数据库需要得到以下格式的文章标题列表,并按照回复数量排序，回复最高的排在最前面</p>
+<p>文章id&nbsp;文章标题&nbsp;点击量&nbsp;回复数量</p>
+<p>用一个SQL语句完成上述查询，如果文章没有回复则回复数量显示为0</p>
+<p>select&nbsp;message.id,message.title,&nbsp;message.hits&nbsp;sum(select&nbsp;count(0)&nbsp;from&nbsp;comment&nbsp;where&nbsp;message.id=comment.id)&nbsp;as&nbsp;comsums&nbsp;from&nbsp;message&nbsp;comment&nbsp;order&nbsp;by&nbsp;comsums;</p>
+<p>&nbsp;</p>
+<p>(三)上述内容管理系统，表category保存分类信息，字段如下&nbsp;(3分)</p>
+<p>&nbsp;</p>
+<p>category_id&nbsp;int(4)&nbsp;not&nbsp;null&nbsp;auto_increment;</p>
+<p>categroy_name&nbsp;varchar(40)&nbsp;not&nbsp;null;</p>
+<p>用户输入文章时，通过选择下拉菜单选定文章分类</p>
+<p>写出如何实现这个下拉菜单</p>
+<p>//以下使用的adodb</p>
+<p>$cnn&nbsp;=&amp;&nbsp;NewADOConnection('mysql');</p>
+<p>$cnn&nbsp;-&gt;&nbsp;Connect($db_hostspec,&nbsp;$db_username,&nbsp;$db_password,&nbsp;$db_database);</p>
+<p>$cnn&nbsp;-&gt;&nbsp;SetFetchMode(ADODB_FETCH_ASSOC);</p>
+<p>if&nbsp;(!$cnn)&nbsp;message("无法连接数据库&nbsp;$db_database");</p>
+<p>$sql&nbsp;=&nbsp;"SELECT&nbsp;*&nbsp;FROM&nbsp;`category`&nbsp;WHERE&nbsp;1;</p>
+<p>$rst&nbsp;=&amp;&nbsp;$cnn&nbsp;-&gt;&nbsp;Execute($sql);</p>
+<p>if&nbsp;(!$rst)&nbsp;die($cnn&nbsp;-&gt;&nbsp;ErrorMsg());</p>
+<p>$arr_categroy&nbsp;=&nbsp;$rst&nbsp;-&gt;&nbsp;GetArray();</p>
+<p>&lt;select&gt;</p>
+<p>&lt;?php&nbsp;foreach&nbsp;($arr_categroy&nbsp;as&nbsp;$i&nbsp;=&gt;&nbsp;$row):&nbsp;?&gt;</p>
+<p>&lt;option&nbsp;value="&lt;?php&nbsp;echo&nbsp;$i;?&gt;&nbsp;"&gt;&lt;?php&nbsp;echo&nbsp;$row;?&gt;&lt;/option&gt;</p>
+<p>&lt;?php&nbsp;endforeach;&nbsp;?&gt;</p>
+<p>&lt;/select&gt;</p></div><div id="MySignature" style="display: block;">“I find that the harder i work，the more luck i seem to have！”</div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/carsonzhu/category/697398.html" target="_blank">php</a></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/carsonzhu/tag/php/">php</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4564464,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow('4cf0acd5-a709-e511-b908-9dcfd8948a71');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/carsonzhu/" target="_blank"><img src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/20150609105610.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/carsonzhu/">＃小金乌会发光&amp;</a><br>
+            <a href="http://home.cnblogs.com/u/carsonzhu/followees">关注 - 24</a><br>
+            <a href="http://home.cnblogs.com/u/carsonzhu/followers">粉丝 - 46</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('4cf0acd5-a709-e511-b908-9dcfd8948a71');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4564464,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(4564464,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/carsonzhu/p/4563268.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/carsonzhu/p/4563268.html" title="发布于2015-06-09 13:34">leetcode：Multiply Strings</a><br><a href="https://www.cnblogs.com/carsonzhu/p/4566440.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/carsonzhu/p/4566440.html" title="发布于2015-06-10 16:29">leetcode：Happy Number</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-06-09 20:11</span> <a href="https://www.cnblogs.com/carsonzhu/">＃小金乌会发光&amp;</a> 阅读(<span id="post_view_count">82</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4564464" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4564464);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=230292,cb_entryId=4564464,cb_blogApp=currentBlogApp,cb_blogUserGuid='4cf0acd5-a709-e511-b908-9dcfd8948a71',cb_entryCreatedDate='2015/6/9 20:11:00';loadViewCount(cb_entryId);var cb_postType=1;var isMarkdown=false;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-工控')">【推荐】超50万C++/C#源码: 大型实时仿真HMI组态CAD\GIS图形源码！</a><br><a href="https://gitee.com/enterprises?from=bky-2" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-gitee')">【推荐】专业便捷的企业级代码托管服务 - Gitee 码云</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="php%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86%20-%20%EF%BC%83%E5%B0%8F%E9%87%91%E4%B9%8C%E4%BC%9A%E5%8F%91%E5%85%89&amp;%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="COPU2_TZ6uACFUNplgodKrsDjQ"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="1" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/minfei/p/5523977.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">面试题整理</a><br>·  <a href="https://www.cnblogs.com/summer-sun/p/5491017.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">整理面试题</a><br>·  <a href="https://www.cnblogs.com/jami918/p/3597593.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">面试题整理</a><br>·  <a href="https://www.cnblogs.com/xiaohaoxuezhang/p/4573185.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">面试题整理</a><br>·  <a href="https://www.cnblogs.com/dee0912/p/3999596.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">PHP 面试题数组篇[ 整理中 ]</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CJbT2_TZ6uACFQ9zlgod4FcJPA"><div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="2" data-load-complete="true" width="468" height="60" frameborder="0"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/620975/" target="_blank">蔚来的第一个“春节”</a><br> ·  <a href="https://news.cnblogs.com/n/620973/" target="_blank">虎牙财报电话会议实录：对头部主播的依赖度并不高</a><br> ·  <a href="https://news.cnblogs.com/n/620972/" target="_blank">HTC败走印度：手机、VR双双陷入困局 未来在哪儿？</a><br> ·  <a href="https://news.cnblogs.com/n/620935/" target="_blank">杀敌一千，自损八百，特斯拉会毁灭中国新造车吗？</a><br> ·  <a href="https://news.cnblogs.com/n/620971/" target="_blank">晨兴资本张斐：我们仍处于互联网早期</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+ if(enablePostBottom()) {
+    codeHighlight();
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverT2();
+    deliverC1();
+    deliverC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);  
+}
+</script>
+</div>
+
+    
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/carsonzhu/">＃小金乌会发光&amp;</a><br>园龄：<a href="https://home.cnblogs.com/u/carsonzhu/" title="入园时间：2015-06-03">3年9个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/carsonzhu/followers/">46</a><br>关注：<a href="https://home.cnblogs.com/u/carsonzhu/followees/">24</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow('4cf0acd5-a709-e511-b908-9dcfd8948a71')">+加关注</a></div><script>getFollowStatus('4cf0acd5-a709-e511-b908-9dcfd8948a71')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="Calendar" cellspacing="0" cellpadding="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2019/02/01');return false;">&lt;</a></td><td align="center">2019年3月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2019/04/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">24</td><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td align="center"><a href="https://www.cnblogs.com/carsonzhu/archive/2019/03/01.html"><u>1</u></a></td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td class="CalTodayDay" align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/carsonzhu/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/carsonzhu/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/carsonzhu/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/carsonzhu/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/carsonzhu/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/carsonzhu/tag/leetcode/">leetcode</a>(51)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/C%2FC%2B%2B/">C/C++</a>(32)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/linux/">linux</a>(17)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/amp/">amp</a>(16)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/c%2B%2B%E3%80%90%E8%BD%AC%E3%80%91/">c++【转】</a>(15)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/SQL/">SQL</a>(13)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/math/">math</a>(10)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/%E9%9D%A2%E8%AF%95%26amp%3Bamp/">面试&amp;amp</a>(9)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BF%AE%E5%85%BB/">计算机的基本修养</a>(8)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">牛客网学习笔记</a>(8)</li><li><a href="https://www.cnblogs.com/carsonzhu/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/carsonzhu/category/997934.html">C# &amp; .NET(40)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/carsonzhu/category/703225.html">C/C++(31)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/carsonzhu/category/1284009.html">Deep Learning(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/carsonzhu/category/740945.html">Java(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/carsonzhu/category/699447.html">leetcode刷题(49)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/carsonzhu/category/697396.html">linux之路(15)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/carsonzhu/category/1137720.html">NodeJs(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/carsonzhu/category/697398.html">php(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/carsonzhu/category/734120.html">python(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/carsonzhu/category/801634.html">QT(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/carsonzhu/category/697401.html">REST(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/carsonzhu/category/828978.html">WebService(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/carsonzhu/category/700615.html">版本控制工具(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="https://www.cnblogs.com/carsonzhu/category/828977.html">笔试&amp;面试&amp;就业(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="https://www.cnblogs.com/carsonzhu/category/829375.html">读书笔记&amp;心得(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="https://www.cnblogs.com/carsonzhu/category/887049.html">机器学习相关(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="https://www.cnblogs.com/carsonzhu/category/828979.html">计算机的基本修养(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="https://www.cnblogs.com/carsonzhu/category/828981.html">计算机网络(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="https://www.cnblogs.com/carsonzhu/category/867400.html">设计模式（C++/C#篇）(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="https://www.cnblogs.com/carsonzhu/category/777634.html">数据结构与算法(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="https://www.cnblogs.com/carsonzhu/category/1124322.html">数据可视化(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_21" href="https://www.cnblogs.com/carsonzhu/category/703520.html">数据库相关&amp;建模(17)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/carsonzhu/archive/2019/03.html">2019年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/carsonzhu/archive/2019/02.html">2019年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/carsonzhu/archive/2019/01.html">2019年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/carsonzhu/archive/2018/11.html">2018年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/carsonzhu/archive/2018/08.html">2018年8月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/carsonzhu/archive/2018/05.html">2018年5月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/carsonzhu/archive/2018/03.html">2018年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/carsonzhu/archive/2018/02.html">2018年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/carsonzhu/archive/2017/12.html">2017年12月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="https://www.cnblogs.com/carsonzhu/archive/2017/11.html">2017年11月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="https://www.cnblogs.com/carsonzhu/archive/2017/10.html">2017年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="https://www.cnblogs.com/carsonzhu/archive/2017/09.html">2017年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="https://www.cnblogs.com/carsonzhu/archive/2017/08.html">2017年8月 (16)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="https://www.cnblogs.com/carsonzhu/archive/2017/07.html">2017年7月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="https://www.cnblogs.com/carsonzhu/archive/2017/06.html">2017年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="https://www.cnblogs.com/carsonzhu/archive/2017/05.html">2017年5月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="https://www.cnblogs.com/carsonzhu/archive/2016/10.html">2016年10月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="https://www.cnblogs.com/carsonzhu/archive/2016/09.html">2016年9月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="https://www.cnblogs.com/carsonzhu/archive/2016/08.html">2016年8月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="https://www.cnblogs.com/carsonzhu/archive/2016/06.html">2016年6月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="https://www.cnblogs.com/carsonzhu/archive/2016/05.html">2016年5月 (26)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="https://www.cnblogs.com/carsonzhu/archive/2016/04.html">2016年4月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="https://www.cnblogs.com/carsonzhu/archive/2016/03.html">2016年3月 (21)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="https://www.cnblogs.com/carsonzhu/archive/2016/02.html">2016年2月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="https://www.cnblogs.com/carsonzhu/archive/2016/01.html">2016年1月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="https://www.cnblogs.com/carsonzhu/archive/2015/12.html">2015年12月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="https://www.cnblogs.com/carsonzhu/archive/2015/10.html">2015年10月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="https://www.cnblogs.com/carsonzhu/archive/2015/09.html">2015年9月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="https://www.cnblogs.com/carsonzhu/archive/2015/08.html">2015年8月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="https://www.cnblogs.com/carsonzhu/archive/2015/07.html">2015年7月 (29)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="https://www.cnblogs.com/carsonzhu/archive/2015/06.html">2015年6月 (23)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlecategory" class="catListArticleCategory sidebar-block">
+<h3 class="catListTitle">文章分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="https://www.cnblogs.com/carsonzhu/category/697218.html">leetcode(5)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_links698504" class="catList sidebar-block">
+<h3 class="catListTitle">友情链接</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="http://segmentfault.com/u/carsonzhu" rel="nofollow">开发者社区</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_1" href="http://www.oschina.net/" rel="nofollow">开源中国</a> </li>
+<li class="c_b_p_link_desc">开源技术社区</li>
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/carsonzhu/p/5272271.html#4176043">1. Re:extern “C”的作用详解</a></li>
+        <li class="recent_comment_body">现在博客园有插入代码模块的功能啊，为什么要直接输入方式呢</li>
+        <li class="recent_comment_author">--明明1109</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/carsonzhu/p/5272271.html#4088206">2. Re:extern “C”的作用详解</a></li>
+        <li class="recent_comment_body">代码部分看起来不明朗</li>
+        <li class="recent_comment_author">--禾田守望者</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/carsonzhu/p/5468223.html#4055556">3. Re:使用IntelliJ IDEA开发java web</a></li>
+        <li class="recent_comment_body">相比起来，MyEclipse还是方便了很多<br>创建项目就会直接生成classes和lib文件夹</li>
+        <li class="recent_comment_author">--mio4</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/carsonzhu/p/4649437.html#3832937">4. Re:C++关键字  inline</a></li>
+        <li class="recent_comment_body">Mark</li>
+        <li class="recent_comment_author">--chestnutJack</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/carsonzhu/p/5770253.html#3738988">5. Re:设计模式之观察者模式（c++）</a></li>
+        <li class="recent_comment_body">@飘雪的冬夜前者并没有说错，“目标是通知的发布者，它发出通知时并不需要知道谁是它的观察者。”指的是目标不需要知道观察者的身份，和数量，这完全符合发布-订阅模式的理念。“目标知道它的观察者”指的是在su......</li>
+        <li class="recent_comment_author">--＃小金乌会发光&amp;</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/carsonzhu/p/5272271.html">1. extern “C”的作用详解(42739)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5859552.html">2. C++中String类的字符串分割实现(41467)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5468223.html">3. 使用IntelliJ IDEA开发java web(36867)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5313262.html">4. UML实践详细经典教程(16900)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5770253.html">5. 设计模式之观察者模式（c++）(14786)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/carsonzhu/p/5538531.html">1. 腾讯2017暑期实习生编程题(4)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5468223.html">2. 使用IntelliJ IDEA开发java web(3)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/4550193.html">3. leetcode资料整理(2)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5313262.html">4. UML实践详细经典教程(2)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5272271.html">5. extern “C”的作用详解(2)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/carsonzhu/p/5468223.html">1. 使用IntelliJ IDEA开发java web(6)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5272271.html">2. extern “C”的作用详解(5)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/7260699.html">3. C#Note13：如何在C#中调用python(2)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5313262.html">4. UML实践详细经典教程(2)</a></li><li><a href="https://www.cnblogs.com/carsonzhu/p/5528901.html">5. 小项目分析之C++ 实现模拟银行排队(2)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 ＃小金乌会发光&amp;
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+
+<iframe id="google_osd_static_frame_2897053921411" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>

@@ -1,0 +1,168 @@
+@CHARSET "UTF-8";
+body .syntaxhighlighter .line
+{
+    white-space: pre-wrap !important;
+}
+
+
+
+
+
+.syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .syntaxhighlighter table caption, .syntaxhighlighter textarea
+{
+    line-height: 1.5em !important;
+}
+
+.syntaxhighlighter
+{
+	background-color: #1B2426 !important;
+}
+
+/* Gutter line numbers */
+.syntaxhighlighter .line
+{
+	color: #B9BDB6 !important;
+}
+
+/* Add border to the lines */
+.syntaxhighlighter .line 
+{
+	border-left: 3px solid #435A5F !important;
+	color: #B9BDB6 !important;
+}
+
+.syntaxhighlighter.printing .line .content 
+{
+	border: 0 !important;
+}
+
+/* First line */
+.syntaxhighlighter .code .line.alt1,
+.syntaxhighlighter .code .line.alt2,
+.syntaxhighlighter .gutter .line.alt1,
+.syntaxhighlighter .gutter .line.alt2 
+{
+	background-color: #1B2426 !important;
+}
+
+/* Highlighed line */
+.syntaxhighlighter .gutter .line.highlighted,
+.syntaxhighlighter .code .line.alt1.highlighted,
+.syntaxhighlighter .code .line.alt2.highlighted
+{
+	background-color: #35293a !important;
+	color: #fff !important;
+}
+
+.syntaxhighlighter .toolbar
+{
+	background-color: #1B2426 !important;
+}
+
+.syntaxhighlighter .toolbar
+{
+    right:10px !important;
+    top:4px !important;
+}
+
+.syntaxhighlighter.collapsed .toolbar
+{
+    background-color: #1B2426 !important;
+    color: #14faec !important; 
+}
+
+.syntaxhighlighter.collapsed .toolbar .toolbar_item.expandSource
+{
+    background-image: url(http://www.cnblogs.com/images/cnblogs_com/heyuquan/409470/t_magnifier.gif) !important;
+    background-repeat:no-repeat !important;
+    color: #14faec !important; 
+    height: 16px !important;
+    text-indent: 0 !important;
+    width: auto !important;    
+    padding-left: 20px !important;
+
+}
+
+.syntaxhighlighter .toolbar .toolbar_item.help
+{
+	background-image: url(http://www.cnblogs.com/images/cnblogs_com/heyuquan/409470/t_help.gif) !important;
+	background-repeat:no-repeat !important;
+	overflow: hidden !important;
+	text-indent: -5000px !important;
+	width: 16px !important;
+	height: 16px !important;
+}
+
+/************************************
+ * Actual syntax highlighter colors.
+ ************************************/
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a
+{ 
+	color: #B9BDB6 !important;
+}
+
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a
+{ 
+	color: #1cfb05 !important;
+}
+
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a
+{
+	color: #fa0404 !important; 
+}
+
+.syntaxhighlighter .keyword
+{ 
+	color: #0163dc !important; 
+}
+
+.syntaxhighlighter .preprocessor 
+{ 
+	color: #14faec !important; 
+}
+
+.syntaxhighlighter .variable 
+{ 
+	color: #FFAA3E !important; 
+}
+
+.syntaxhighlighter .value
+{ 
+	
+}
+
+.syntaxhighlighter .functions
+{ 
+	color: #FFAA3E !important; 
+}
+
+.syntaxhighlighter .constants
+{ 
+	color: #E0E8FF !important; 
+}
+
+.syntaxhighlighter .script
+{ 
+	background-color: #435A5F !important;
+}
+
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a
+{ 
+	color: #E0E8FF !important; 
+}
+
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a
+{ 
+	color: #FFFFFF !important; 
+}
+
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a
+{ 
+	color: #FFAA3E !important; 
+}

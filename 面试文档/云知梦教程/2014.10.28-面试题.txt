@@ -1,0 +1,72 @@
+2014.10.28-面试题
+
+一.printf和sprintf的区别:
+$a='10abc';
+$b=20;
+
+$str=sprintf('------%d------%s-----',$a,$b);
+
+echo $str;
+
+二.数组合并
+$arr1=array(1,2,3);
+$arr2=array(3=>4,4=>5,5=>6);
+$arr3=$arr1+$arr2;
+
+三.数组遍历
+$arr=array(
+	'name'=>'user1',
+	'age'=>'20',
+	'sex'=>'nan',
+);
+
+while(list($a,$b)=each($arr)){
+	echo "----$a--$b--<br>";
+}
+
+四.预定义常量
+__FILE__
+M_PI
+__LINE__
+__FUNCTION__
+
+五.不断在文件头部写东西
+
+for($i=0;$i<10;$i++){
+	$str=file_get_contents('hello.txt');
+	$new="{$i}\n{$str}";
+	file_put_contents('hello.txt',$new);
+}
+
+六.ip转整型
+$ip="192.168.100.1";
+echo ip2long($ip);
+
+echo '<br>';
+
+$ip2="192.168.100.150";
+echo ip2long($ip2);
+
+七.多数组排序
+$arr=array(
+	array('id'=>'0','name'=>'bbbbbbbbbbbbbbbbbbbbbbbbb'),
+	array('id'=>'0','name'=>'user123456'),
+	array('id'=>'0','name'=>'aaaaaaaaaaaaaaaa'),
+	array('id'=>'0','name'=>'a'),
+	array('id'=>'0','name'=>'xxxxxxx'),
+	array('id'=>'0','name'=>'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
+);
+
+foreach($arr as $val){
+	$arr2[]=strlen($val['name']);
+}
+
+
+array_multisort($arr2,$arr);
+
+foreach($arr as $key=>&$val){
+	$val['id']=$key+1;
+}
+
+
+

@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+    <title>PHP 面试题数组篇[ 整理中 ] - 黄棣-dee - 博客园</title>
+<meta property="og:description" content="网上找的PHP数组题，准备自己做一遍并且记录下来。不断添加中。1.写函数创建长度为10的数组，数组中的元素为递增的奇数，首项为1. 1 1 [1] =&gt; 3 [2] =&gt; 5 [3] =&amp;">
+    <link type="text/css" rel="stylesheet" href="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-LessIsMoreRight.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-LessIsMoreRight-mobile.css">
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dee0912/rss">
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dee0912/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dee0912/wlwmanifest.xml">
+    <script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js"></script><script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/amp4ads-host-v0.js"></script><script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_rendering_315.js"></script><script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/hm.js"></script><script async="" src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js"></script><script type="text/javascript" src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/encoder.js"></script><script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery-2.js"></script>
+    <script>var currentBlogId=196695;var currentBlogApp='dee0912',cb_enable_mathjax=false;var isLogined=false;</script>
+    <script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script>
+<link rel="preload" href="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/integrator.js" as="script"><script type="text/javascript" src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/integrator.js"></script><script src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_315.js" async=""></script></head>
+<body>
+<a name="top"></a>
+
+<div id="page_begin_html"><script type="text/javascript">window['__document_write_ajax_callbacks__']['2']();</script><script>window['__document_write_ajax_callbacks__']['1']();</script></div><script>load_page_begin_html();</script>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/dee0912/">Meadows of Heaven</a></div>
+<div class="subtitle">厚积薄发</div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dee0912/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E9%BB%84%E6%A3%A3-dee">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/dee0912/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/dee0912/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-311&nbsp;
+文章-67&nbsp;
+评论-58&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+        <div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/dee0912/p/3999596.html">PHP 面试题数组篇[ 整理中 ]</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>网上找的PHP数组题，准备自己做一遍并且记录下来。不断添加中。</p>
+<p><span style="background-color: #ffff99;">1.写函数创建长度为10的数组，数组中的元素为递增的奇数，首项为1.</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">function</span> arrsort(<span style="color: #800080;">$first</span>,<span style="color: #800080;">$length</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>         <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">();
+</span><span style="color: #008080;"> 6</span>         <span style="color: #0000ff;">for</span>(<span style="color: #800080;">$i</span>=<span style="color: #800080;">$first</span>;<span style="color: #800080;">$i</span>&lt;=<span style="color: #800080;">$length</span>;<span style="color: #800080;">$i</span>++<span style="color: #000000;">){
+</span><span style="color: #008080;"> 7</span> 
+<span style="color: #008080;"> 8</span>             <span style="color: #800080;">$arr</span>[] = <span style="color: #800080;">$i</span>*2-1<span style="color: #000000;">;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">10</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">$arr</span><span style="color: #000000;">;
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span>     <span style="color: #800080;">$arr1</span> = arrsort(1,10<span style="color: #000000;">);
+</span><span style="color: #008080;">14</span>     <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr1</span>);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<p>Array ( [0] =&gt; 1 [1] =&gt; 3 [2] =&gt; 5 [3] =&gt; 7 [4] =&gt; 9 
+[5] =&gt; 11 [6] =&gt; 13 [7] =&gt; 15 [8] =&gt; 17 [9] =&gt; 19 )</p>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff99;">2.创建长度为10的数组，数组中的数为递增的等比数，比值为3，首项为1.</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>      <span style="color: #008000;">//</span><span style="color: #008000;">$num为比值</span>
+<span style="color: #008080;"> 4</span>      <span style="color: #0000ff;">function</span> arrsort(<span style="color: #800080;">$first</span>,<span style="color: #800080;">$length</span>,<span style="color: #800080;">$num</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 5</span> 
+<span style="color: #008080;"> 6</span>           <span style="color: #800080;">$arr</span>= <span style="color: #0000ff;">array</span><span style="color: #000000;">();
+</span><span style="color: #008080;"> 7</span>           <span style="color: #0000ff;">for</span>(<span style="color: #800080;">$i</span>=<span style="color: #800080;">$first</span>;<span style="color: #800080;">$i</span>&lt;=<span style="color: #800080;">$length</span>;<span style="color: #800080;">$i</span>++<span style="color: #000000;">){
+</span><span style="color: #008080;"> 8</span>     
+<span style="color: #008080;"> 9</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">pow($num,$i-2);返回$num的($i-2)次方</span>
+<span style="color: #008080;">10</span>                 <span style="color: #800080;">$arr</span>[] = <span style="color: #800080;">$num</span>*<span style="color: #008080;">pow</span>(<span style="color: #800080;">$num</span>,<span style="color: #800080;">$i</span>-2<span style="color: #000000;">);
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">          }
+</span><span style="color: #008080;">12</span>           <span style="color: #0000ff;">return</span> <span style="color: #800080;">$arr</span><span style="color: #000000;">;
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">    }            
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span>     <span style="color: #800080;">$arr1</span> = arrsort(1,10,3<span style="color: #000000;">);
+</span><span style="color: #008080;">16</span>     <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr1</span>);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<p>Array ( [0] =&gt; 1 [1] =&gt; 3 [2] =&gt; 9 [3] =&gt; 27 [4] =&gt; 81
+ [5] =&gt; 243 [6] =&gt; 729 [7] =&gt; 2187 [8] =&gt; 6561 [9] =&gt; 
+19683 )</p>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff99;">3.求数组中最大数的下标.</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">function</span> maxkey(<span style="color: #800080;">$arr</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>     <span style="color: #800080;">$maxval</span> = <span style="color: #008080;">max</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">foreach</span>(<span style="color: #800080;">$arr</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$key</span>=&gt;<span style="color: #800080;">$val</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 5</span>     
+<span style="color: #008080;"> 6</span>         <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$maxval</span> == <span style="color: #800080;">$val</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 7</span>         
+<span style="color: #008080;"> 8</span>             <span style="color: #800080;">$maxkey</span> = <span style="color: #800080;">$key</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">11</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$maxkey</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">13</span> 
+<span style="color: #008080;">14</span> <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>(0,-1,-2,5,"b"=&gt;15,3<span style="color: #000000;">);
+</span><span style="color: #008080;">15</span> <span style="color: #0000ff;">echo</span> maxkey(<span style="color: #800080;">$arr</span>);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<p>b</p>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff99;">4.创建一个长度为10的数组，数组中的元素满足斐波拉契数列的规律.</span></p>
+<p>( 
+斐波那契数列，又称黄金分割数列，指的是这样一个数列：1、1、2、3、5、8、13、21、……在数学上，斐波纳契数列以如下被以递归的方法定
+义：F0=0，F1=1，Fn=F(n-1)+F(n-2)（n&gt;=2，n∈N*）.&nbsp;特别指出：第0项是0，第1项是第一个1。)</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">function</span> arrFibo(<span style="color: #800080;">$len</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>     <span style="color: #800080;">$arr</span>[0] = 0<span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>     <span style="color: #800080;">$arr</span>[1] = 1<span style="color: #000000;">;
+</span><span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">for</span>(<span style="color: #800080;">$i</span>=2;<span style="color: #800080;">$i</span>&lt;<span style="color: #800080;">$len</span>;<span style="color: #800080;">$i</span>++<span style="color: #000000;">){
+</span><span style="color: #008080;"> 8</span>     
+<span style="color: #008080;"> 9</span>         <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$i</span>] = <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$i</span>-1]+<span style="color: #800080;">$arr</span>[<span style="color: #800080;">$i</span>-2<span style="color: #000000;">];
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">11</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$arr</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">13</span> 
+<span style="color: #008080;">14</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">15</span> <span style="color: #008080;">print_r</span>(arrFibo(10<span style="color: #000000;">));
+</span><span style="color: #008080;">16</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<pre>Array
+(
+    [0] =&gt; 0
+    [1] =&gt; 1
+    [2] =&gt; 1
+    [3] =&gt; 2
+    [4] =&gt; 3
+    [5] =&gt; 5
+    [6] =&gt; 8
+    [7] =&gt; 13
+    [8] =&gt; 21
+    [9] =&gt; 34
+)<br><br></pre>
+<p><span style="background-color: #ffff99;">&nbsp;5.计算数组中最大数和最小数的差.</span></p>
+<p>两种方法：</p>
+<p><span style="background-color: #ffff99;">①max/min</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">function</span> arrsub(<span style="color: #800080;">$arr</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>     <span style="color: #800080;">$maxval</span> = <span style="color: #008080;">max</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span>     <span style="color: #800080;">$minval</span> = <span style="color: #008080;">min</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 7</span>     <span style="color: #800080;">$sub</span> = <span style="color: #800080;">$maxval</span> - <span style="color: #800080;">$minval</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 8</span>     
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$sub</span><span style="color: #000000;">; 
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">11</span> 
+<span style="color: #008080;">12</span> <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>(-1,-2,100<span style="color: #000000;">);
+</span><span style="color: #008080;">13</span> 
+<span style="color: #008080;">14</span> <span style="color: #0000ff;">echo</span> arrsub(<span style="color: #800080;">$arr</span>);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<p>102</p>
+<p><span style="background-color: #ffff99;">②sort把元素按从小到大排序/rsort吧元素按从大到小排序</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">function</span> arrsub(<span style="color: #800080;">$arr</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>     <span style="color: #008080;">sort</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span>     <span style="color: #800080;">$min</span> = <span style="color: #800080;">$arr</span>[0<span style="color: #000000;">];
+</span><span style="color: #008080;"> 7</span> 
+<span style="color: #008080;"> 8</span>     <span style="color: #008080;">rsort</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 9</span>     <span style="color: #800080;">$max</span> = <span style="color: #800080;">$arr</span>[0<span style="color: #000000;">];
+</span><span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span>     <span style="color: #800080;">$sub</span> = <span style="color: #800080;">$max</span> - <span style="color: #800080;">$min</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$sub</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">15</span> 
+<span style="color: #008080;">16</span> <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>(-1,-2,100<span style="color: #000000;">);
+</span><span style="color: #008080;">17</span> 
+<span style="color: #008080;">18</span> <span style="color: #0000ff;">echo</span> arrsub(<span style="color: #800080;">$arr</span>);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<p>102</p>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff99;">6.写一个方法，将一个长度超过10的数组最后5项直接截取，不改变顺序变为前5项，如{1,2,3,4,5,6,7,8,9,10}变为{6,7,8,9,10,1,2,3,4,5}.</span></p>
+<p>思路：先把数组截取相应的长度( array_slice )，再把2段数组拼接( array_merge )</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">function</span> arrsort(<span style="color: #800080;">$arr</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>     <span style="color: #800080;">$num</span> = <span style="color: #008080;">count</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$num</span> &gt; 10<span style="color: #000000;">){
+</span><span style="color: #008080;"> 8</span>     
+<span style="color: #008080;"> 9</span>         <span style="color: #008000;">//</span><span style="color: #008000;">array_slice($arr,起始位置,截取长度,保留索引(默认为false))</span>
+<span style="color: #008080;">10</span>         <span style="color: #800080;">$arr_firstpart</span> = <span style="color: #008080;">array_slice</span>(<span style="color: #800080;">$arr</span>,0,<span style="color: #800080;">$num</span>-5,<span style="color: #0000ff;">true</span><span style="color: #000000;">);
+</span><span style="color: #008080;">11</span>         <span style="color: #800080;">$arr_lastpart</span> = <span style="color: #008080;">array_slice</span>(<span style="color: #800080;">$arr</span>,(<span style="color: #800080;">$num</span>-5),5,<span style="color: #0000ff;">true</span><span style="color: #000000;">);
+</span><span style="color: #008080;">12</span>     }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">13</span>     
+<span style="color: #008080;">14</span>         <span style="color: #0000ff;">echo</span> "数组不超过10个元素,请重新输入"<span style="color: #000000;">;
+</span><span style="color: #008080;">15</span>         <span style="color: #0000ff;">exit</span><span style="color: #000000;">();
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">17</span>     
+<span style="color: #008080;">18</span>     <span style="color: #008000;">//</span><span style="color: #008000;">拼接</span>
+<span style="color: #008080;">19</span>     <span style="color: #800080;">$arr_new</span> = <span style="color: #008080;">array_merge</span>(<span style="color: #800080;">$arr_lastpart</span>,<span style="color: #800080;">$arr_firstpart</span><span style="color: #000000;">);
+</span><span style="color: #008080;">20</span> 
+<span style="color: #008080;">21</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$arr_new</span><span style="color: #000000;">;
+</span><span style="color: #008080;">22</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">23</span> 
+<span style="color: #008080;">24</span> <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>("a"=&gt;1,2,3,8,9,6,"b"=&gt;5,-1,"c"=&gt;8,0,7<span style="color: #000000;">);
+</span><span style="color: #008080;">25</span> 
+<span style="color: #008080;">26</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">27</span> 
+<span style="color: #008080;">28</span> <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;">29</span> 
+<span style="color: #008080;">30</span> <span style="color: #0000ff;">echo</span> "&lt;br&gt;= = = = = 拼接后 = = = = &lt;br&gt;&lt;br&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">31</span> 
+<span style="color: #008080;">32</span> <span style="color: #008080;">print_r</span>(arrsort(<span style="color: #800080;">$arr</span><span style="color: #000000;">));
+</span><span style="color: #008080;">33</span> 
+<span style="color: #008080;">34</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<pre>Array
+(
+    [a] =&gt; 1
+    [0] =&gt; 2
+    [1] =&gt; 3
+    [2] =&gt; 8
+    [3] =&gt; 9
+    [4] =&gt; 6
+    [b] =&gt; 5
+    [5] =&gt; -1
+    [c] =&gt; 8
+    [6] =&gt; 0
+    [7] =&gt; 7
+)
+<br>= = = = = 拼接后 = = = = <br><br>Array
+(
+    [b] =&gt; 5
+    [0] =&gt; -1
+    [c] =&gt; 8
+    [1] =&gt; 0
+    [2] =&gt; 7
+    [a] =&gt; 1
+    [3] =&gt; 2
+    [4] =&gt; 3
+    [5] =&gt; 8
+    [6] =&gt; 9
+    [7] =&gt; 6
+)</pre>
+<p>当数组不满足长度为10时：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>("a"=&gt;1,2,3);</pre>
+</div>
+<p>输出：</p>
+<pre>Array
+(
+    [a] =&gt; 1
+    [0] =&gt; 2
+    [1] =&gt; 3
+)
+<br>= = = = = 拼接后 = = = = <br><br>数组不超过10个元素,请重新输入</pre>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff99;">7.将两个数组连接成一个新数组.</span></p>
+<p>方法①使用array_merge()函数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">array_merge</span>(<span style="color: #800080;">$arr1</span>,<span style="color: #800080;">$arr2</span>);</pre>
+</div>
+<p>方法②使用array_merge_recursive()函数递归追加数组</p>
+<p>(&nbsp;array_merge_recursive() 函数与&nbsp;array_merge() 函数&nbsp;一样，将一个或多个数组的元素的合并起来，一个数组中的值附加在前一个数组的后面。并返回作为结果的数组。</p>
+<p>但是，与&nbsp;array_merge()&nbsp;不同的是，当有重复的键名时，值不会被覆盖，而是将多个相同键名的值递归组成一个数组。)</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span>     <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>("a"=&gt;1,"b"=&gt;2,3<span style="color: #000000;">);
+</span><span style="color: #008080;"> 4</span>     <span style="color: #800080;">$arr2</span> = <span style="color: #0000ff;">array</span>("a"=&gt;Dee,3,5<span style="color: #000000;">);
+</span><span style="color: #008080;"> 5</span>     
+<span style="color: #008080;"> 6</span>     <span style="color: #800080;">$arr3</span> = <span style="color: #008080;">array_merge</span>(<span style="color: #800080;">$arr</span>,<span style="color: #800080;">$arr2</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 7</span>     <span style="color: #800080;">$arr4</span> = <span style="color: #008080;">array_merge_recursive</span>(<span style="color: #800080;">$arr</span>,<span style="color: #800080;">$arr2</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">10</span>     <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr3</span><span style="color: #000000;">);
+</span><span style="color: #008080;">11</span> 
+<span style="color: #008080;">12</span>     <span style="color: #0000ff;">echo</span> "&lt;br&gt; = = = = = &lt;br&gt;&lt;br&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">13</span> 
+<span style="color: #008080;">14</span>     <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr4</span><span style="color: #000000;">);
+</span><span style="color: #008080;">15</span>     <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<pre>Array
+(
+    [a] =&gt; Dee
+    [b] =&gt; 2
+    [0] =&gt; 3
+    [1] =&gt; 3
+    [2] =&gt; 5
+)
+<br> = = = = = <br><br>Array
+(
+    [a] =&gt; Array
+        (
+            [0] =&gt; 1
+            [1] =&gt; Dee
+        )
+
+    [b] =&gt; 2
+    [0] =&gt; 3
+    [1] =&gt; 3
+    [2] =&gt; 5
+)</pre>
+<p>第一个输出的数组中索引为"a"的值1被索引被第二个数组中索引为"a"的值Dee覆盖了。</p>
+<p>方法③</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">function</span> arrsort(<span style="color: #800080;">$arr1</span>,<span style="color: #800080;">$arr2</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span>     <span style="color: #800080;">$arr_new</span> = <span style="color: #800080;">$arr1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>     
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">foreach</span>(<span style="color: #800080;">$arr2</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$key</span>=&gt;<span style="color: #800080;">$val</span><span style="color: #000000;">){    
+</span><span style="color: #008080;"> 8</span>     
+<span style="color: #008080;"> 9</span>             <span style="color: #800080;">$arr_new</span>[] = <span style="color: #800080;">$val</span><span style="color: #000000;">;
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">11</span> 
+<span style="color: #008080;">12</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$arr_new</span><span style="color: #000000;">;
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span> <span style="color: #800080;">$arr1</span> = <span style="color: #0000ff;">array</span>("a"=&gt;1,"b"=&gt;2,3<span style="color: #000000;">);
+</span><span style="color: #008080;">16</span> <span style="color: #800080;">$arr2</span> = <span style="color: #0000ff;">array</span>("a"=&gt;Dee,"c"=&gt;3,5<span style="color: #000000;">);
+</span><span style="color: #008080;">17</span> 
+<span style="color: #008080;">18</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">19</span> <span style="color: #008080;">print_r</span>(arrsort(<span style="color: #800080;">$arr1</span>,<span style="color: #800080;">$arr2</span><span style="color: #000000;">));
+</span><span style="color: #008080;">20</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<pre>Array
+(
+    [a] =&gt; 1
+    [b] =&gt; 2
+    [0] =&gt; 3
+    [1] =&gt; Dee
+    [2] =&gt; 3
+    [3] =&gt; 5
+)</pre>
+<p>如果是索引数组而且有重复的索引，则第二个数组中的这个重复的索引会被修改成新的索引。</p>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff99;">8.数组逆序( 不能使用rsort函数，不能生成新数组 )</span></p>
+<p>使用array_reverse()函数会创建新的数组，所以不能使用。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> 
+<span style="color: #008080;"> 3</span> <span style="color: #800080;">$arr</span> = <span style="color: #0000ff;">array</span>("a","b","c",1,10<span style="color: #000000;">);
+</span><span style="color: #008080;"> 4</span> <span style="color: #800080;">$i</span> = "";<span style="color: #008000;">//</span><span style="color: #008000;">要替换位置的数的下标</span>
+<span style="color: #008080;"> 5</span> <span style="color: #800080;">$j</span> = "";<span style="color: #008000;">//</span><span style="color: #008000;">临时变量</span>
+<span style="color: #008080;"> 6</span> <span style="color: #800080;">$k</span> = "";<span style="color: #008000;">//</span><span style="color: #008000;">被替换位置的数的下标</span>
+<span style="color: #008080;"> 7</span> 
+<span style="color: #008080;"> 8</span> <span style="color: #800080;">$len</span> = <span style="color: #008080;">count</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 9</span> <span style="color: #800080;">$half_len</span> = <span style="color: #008080;">floor</span>(<span style="color: #800080;">$len</span>/2);<span style="color: #008000;">//</span><span style="color: #008000;">向下取整，取整的值是循环的次数</span>
+<span style="color: #008080;">10</span> 
+<span style="color: #008080;">11</span> <span style="color: #0000ff;">for</span>(<span style="color: #800080;">$i</span>=0;<span style="color: #800080;">$i</span>&lt;<span style="color: #800080;">$half_len</span>;<span style="color: #800080;">$i</span>++<span style="color: #000000;">){
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span>     <span style="color: #800080;">$j</span> = <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$i</span><span style="color: #000000;">];
+</span><span style="color: #008080;">14</span>     
+<span style="color: #008080;">15</span>     <span style="color: #008000;">//</span><span style="color: #008000;">判断数组个数奇偶</span>
+<span style="color: #008080;">16</span>     <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$len</span>%2!=0){ <span style="color: #008000;">//</span><span style="color: #008000;">奇数</span>
+<span style="color: #008080;">17</span>     
+<span style="color: #008080;">18</span>         <span style="color: #800080;">$k</span> = <span style="color: #800080;">$half_len</span>*2-<span style="color: #800080;">$i</span><span style="color: #000000;">;
+</span><span style="color: #008080;">19</span>     }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">20</span>         
+<span style="color: #008080;">21</span>         <span style="color: #008000;">//</span><span style="color: #008000;">偶数</span>
+<span style="color: #008080;">22</span>         <span style="color: #800080;">$k</span> = <span style="color: #800080;">$half_len</span>*2-<span style="color: #800080;">$i</span>-1<span style="color: #000000;">;
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">24</span> 
+<span style="color: #008080;">25</span>     <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$i</span>] = <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$k</span><span style="color: #000000;">];
+</span><span style="color: #008080;">26</span>     <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$k</span>] = <span style="color: #800080;">$j</span><span style="color: #000000;">;
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">28</span> 
+<span style="color: #008080;">29</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">30</span> <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;">31</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>输出：</p>
+<pre>Array
+(
+    [0] =&gt; 10
+    [1] =&gt; 1
+    [2] =&gt; c
+    [3] =&gt; b
+    [4] =&gt; a
+)</pre>
+<p>( 未完待续 )</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/dee0912/category/608550.html" target="_blank">PHP</a></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/dee0912/tag/php%E6%95%B0%E7%BB%84/">php数组</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3999596,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow('b4fd652a-8fc9-e211-8d02-90b11c0b17d6');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/dee0912/" target="_blank"><img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/20160707124938.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/dee0912/">黄棣-dee</a><br>
+            <a href="http://home.cnblogs.com/u/dee0912/followees">关注 - 7</a><br>
+            <a href="http://home.cnblogs.com/u/dee0912/followers">粉丝 - 91</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('b4fd652a-8fc9-e211-8d02-90b11c0b17d6');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(3999596,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(3999596,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/dee0912/p/3996276.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/dee0912/p/3996276.html" title="发布于2014-09-28 21:59">PHP+jQuery 注册模块的改进之一：验证码存入SESSION</a><br><a href="https://www.cnblogs.com/dee0912/p/4000098.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/dee0912/p/4000098.html" title="发布于2014-10-01 11:57">GitHub 初探</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2014-09-29 11:33</span> <a href="https://www.cnblogs.com/dee0912/">黄棣-dee</a> 阅读(<span id="post_view_count">1807</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=3999596" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(3999596);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=196695,cb_entryId=3999596,cb_blogApp=currentBlogApp,cb_blogUserGuid='b4fd652a-8fc9-e211-8d02-90b11c0b17d6',cb_entryCreatedDate='2014/9/29 11:33:00';loadViewCount(cb_entryId);var cb_postType=1;var isMarkdown=false;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-工控')">【推荐】超50万C++/C#源码: 大型实时仿真HMI组态CAD\GIS图形源码！</a><br><a href="https://gitee.com/enterprises?from=bky-2" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-gitee')">【推荐】专业便捷的企业级代码托管服务 - Gitee 码云</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CPOZt_rZ6uACFQwaKgod8KIDJw"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="1" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/carsonzhu/p/4564464.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">php面试题整理</a><br>·  <a href="https://www.cnblogs.com/dongxiaodong/p/9917563.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">【PHP篇】数组</a><br>·  <a href="https://www.cnblogs.com/hdcoder/p/8862724.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">php面试题整理</a><br>·  <a href="https://www.cnblogs.com/-beyond/p/9226410.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">PHP面试题整理</a><br>·  <a href="https://www.cnblogs.com/myphper/p/4933031.html" target="_blank" onclick="clickRecomItmem(undefined,'undefined')">PHP 数组函数整理</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="COaft_rZ6uACFVwwKgodnkEO1A"><div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="2" data-load-complete="true" width="468" height="60" frameborder="0"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/620975/" target="_blank">蔚来的第一个“春节”</a><br> ·  <a href="https://news.cnblogs.com/n/620973/" target="_blank">虎牙财报电话会议实录：对头部主播的依赖度并不高</a><br> ·  <a href="https://news.cnblogs.com/n/620972/" target="_blank">HTC败走印度：手机、VR双双陷入困局 未来在哪儿？</a><br> ·  <a href="https://news.cnblogs.com/n/620935/" target="_blank">杀敌一千，自损八百，特斯拉会毁灭中国新造车吗？</a><br> ·  <a href="https://news.cnblogs.com/n/620971/" target="_blank">晨兴资本张斐：我们仍处于互联网早期</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+ if(enablePostBottom()) {
+    codeHighlight();
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverT2();
+    deliverC1();
+    deliverC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);  
+}
+</script>
+</div>
+
+    
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/dee0912/">黄棣-dee</a><br>园龄：<a href="https://home.cnblogs.com/u/dee0912/" title="入园时间：2013-05-31">5年9个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/dee0912/followers/">91</a><br>关注：<a href="https://home.cnblogs.com/u/dee0912/followees/">7</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow('b4fd652a-8fc9-e211-8d02-90b11c0b17d6')">+加关注</a></div><script>getFollowStatus('b4fd652a-8fc9-e211-8d02-90b11c0b17d6')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="Calendar" cellspacing="0" cellpadding="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2019/02/01');return false;">&lt;</a></td><td align="center">2019年3月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2019/04/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">24</td><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td class="CalTodayDay" align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/dee0912/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/dee0912/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/dee0912/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/dee0912/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/dee0912/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/dee0912/p/10009545.html">1. macOS 下 PHPStorm + Xdebug 调试 Docker 环境中的代码</a></li><li><a href="https://www.cnblogs.com/dee0912/p/9338976.html">2. Redis 分布式锁的实现</a></li><li><a href="https://www.cnblogs.com/dee0912/p/6244732.html">3. MySQL InnoDB 引擎的持久性与性能</a></li><li><a href="https://www.cnblogs.com/dee0912/p/6375729.html">4. 升级 phpStudy 中 MySQL 版本至 5.7.17</a></li><li><a href="https://www.cnblogs.com/dee0912/p/6368981.html">5. MySQL 4 种隔离级别的区别</a></li><li><a href="https://www.cnblogs.com/dee0912/p/6351576.html">6. Sublime Text3 运行 PHP 文件</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5940288.html">7. PHP 使用 curl_* 系列函数和 curl_multi_* 系列函数进行多接口调用时的性能对比</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5815267.html">8. 在 Linux 下搭建 Git 服务器</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5795511.html">9. 使用 SVN Hook 实现服务器端代码自动更新</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5793785.html">10. 一道无限级分类题的 PHP 实现</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/dee0912/tag/ThinkPHP/">ThinkPHP</a>(31)</li><li><a href="https://www.cnblogs.com/dee0912/tag/Javascript%20%E7%AC%94%E8%AE%B0%E4%B8%8E%E6%80%BB%E7%BB%93/">Javascript 笔记与总结</a>(23)</li><li><a href="https://www.cnblogs.com/dee0912/tag/php/">php</a>(23)</li><li><a href="https://www.cnblogs.com/dee0912/tag/nginx/">nginx</a>(20)</li><li><a href="https://www.cnblogs.com/dee0912/tag/php%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">php错误与异常</a>(18)</li><li><a href="https://www.cnblogs.com/dee0912/tag/Web%20%E5%9C%A8%E7%BA%BF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8E%E6%80%BB%E7%BB%93/">Web 在线文件管理器学习笔记与总结</a>(15)</li><li><a href="https://www.cnblogs.com/dee0912/tag/MySQL/">MySQL</a>(14)</li><li><a href="https://www.cnblogs.com/dee0912/tag/redis/">redis</a>(12)</li><li><a href="https://www.cnblogs.com/dee0912/tag/http/">http</a>(12)</li><li><a href="https://www.cnblogs.com/dee0912/tag/memcached/">memcached</a>(11)</li><li><a href="https://www.cnblogs.com/dee0912/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(283)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/dee0912/category/608556.html">Apache / Nginx / Lighttpd(21)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/dee0912/category/608578.html">CMS</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/dee0912/category/616591.html">Git / GitHub(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/dee0912/category/609121.html">HTML &amp; CSS(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/dee0912/category/608552.html">HTML5 &amp; CSS3(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/dee0912/category/630768.html">HTTP 协议(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/dee0912/category/608573.html">IDE(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/dee0912/category/608553.html">Javascript(34)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/dee0912/category/608554.html">jQuery / jQuery UI(23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/dee0912/category/616746.html">jQuery Mobile</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/dee0912/category/608572.html">Linux(18)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/dee0912/category/629701.html">Memcached / Redis(22)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/dee0912/category/608551.html">MySQL / SQL(15)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="https://www.cnblogs.com/dee0912/category/630199.html">Node.js(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="https://www.cnblogs.com/dee0912/category/616738.html">NoSQL(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="https://www.cnblogs.com/dee0912/category/608550.html">PHP(84)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="https://www.cnblogs.com/dee0912/category/611271.html">SVN(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="https://www.cnblogs.com/dee0912/category/630316.html">ThinkPHP(33)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="https://www.cnblogs.com/dee0912/category/608557.html">Web安全(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="https://www.cnblogs.com/dee0912/category/608555.html">Web标准 &amp; 浏览器(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="https://www.cnblogs.com/dee0912/category/608579.html">读书笔记</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_21" href="https://www.cnblogs.com/dee0912/category/608558.html">其它(3)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(311)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/dee0912/archive/2018/11.html">2018年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/dee0912/archive/2018/07.html">2018年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/dee0912/archive/2017/02.html">2017年2月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/dee0912/archive/2017/01.html">2017年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/dee0912/archive/2016/10.html">2016年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/dee0912/archive/2016/08.html">2016年8月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/dee0912/archive/2016/06.html">2016年6月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/dee0912/archive/2016/05.html">2016年5月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/dee0912/archive/2016/04.html">2016年4月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="https://www.cnblogs.com/dee0912/archive/2016/03.html">2016年3月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="https://www.cnblogs.com/dee0912/archive/2016/02.html">2016年2月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="https://www.cnblogs.com/dee0912/archive/2016/01.html">2016年1月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="https://www.cnblogs.com/dee0912/archive/2015/12.html">2015年12月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="https://www.cnblogs.com/dee0912/archive/2015/11.html">2015年11月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="https://www.cnblogs.com/dee0912/archive/2015/10.html">2015年10月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="https://www.cnblogs.com/dee0912/archive/2015/09.html">2015年9月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="https://www.cnblogs.com/dee0912/archive/2015/08.html">2015年8月 (17)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="https://www.cnblogs.com/dee0912/archive/2015/07.html">2015年7月 (24)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="https://www.cnblogs.com/dee0912/archive/2015/06.html">2015年6月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="https://www.cnblogs.com/dee0912/archive/2015/05.html">2015年5月 (29)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="https://www.cnblogs.com/dee0912/archive/2015/04.html">2015年4月 (56)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="https://www.cnblogs.com/dee0912/archive/2015/03.html">2015年3月 (24)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="https://www.cnblogs.com/dee0912/archive/2015/02.html">2015年2月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="https://www.cnblogs.com/dee0912/archive/2015/01.html">2015年1月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="https://www.cnblogs.com/dee0912/archive/2014/12.html">2014年12月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="https://www.cnblogs.com/dee0912/archive/2014/11.html">2014年11月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="https://www.cnblogs.com/dee0912/archive/2014/10.html">2014年10月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="https://www.cnblogs.com/dee0912/archive/2014/09.html">2014年9月 (10)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleArchive">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(6)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="https://www.cnblogs.com/dee0912/archives/2016/05.html" rel="nofollow">2016年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="https://www.cnblogs.com/dee0912/archives/2016/03.html" rel="nofollow">2016年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="https://www.cnblogs.com/dee0912/archives/2015/12.html" rel="nofollow">2015年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="https://www.cnblogs.com/dee0912/archives/2015/05.html" rel="nofollow">2015年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_4" href="https://www.cnblogs.com/dee0912/archives/2014/11.html" rel="nofollow">2014年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_5" href="https://www.cnblogs.com/dee0912/archives/2014/10.html" rel="nofollow">2014年10月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	211064
+	</li>
+	<li class="liRank">
+		排名 -	1519
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5547931.html#4180179">1. Re:JavaScript + PHP 实现刷新继续保持倒计时的按钮</a></li>
+        <li class="recent_comment_body">倒计时秒数30 s， 放到请求参数里面好吗？<br>最好是放到后端吧</li>
+        <li class="recent_comment_author">--wonbin2011</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#4179260">2. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">详细，清晰，谢谢</li>
+        <li class="recent_comment_author">--wswind</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#4132151">3. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">ssh git@192.168.56.101 'cat &gt;&gt; .ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub这一步一直提示密码错误，实际上密码没有错，试过了好几次没......</li>
+        <li class="recent_comment_author">--勿悔125</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#4092727">4. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">已加关注，非常详细，楼主辛苦。。。</li>
+        <li class="recent_comment_author">--列兵许四多</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#4085559">5. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">我使用小乌龟克隆的时候，成功倒是成功克隆了，可是一完成就弹出个小窗口提示：参数错误！这是什么原有呢？</li>
+        <li class="recent_comment_author">--嫖虫</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5470700.html#4028844">6. Re:VirtualBox + CentOS 使用 NAT + Host-Only 方式联网</a></li>
+        <li class="recent_comment_body">再补充一下，若是需要在VirtualBox中安装CentOS7的话，那么文中所提到的ifcfg-eth0就变为ifcfg-enp0s3了，并且也不是复制为ifcfg-eth1，而是复制为ifcfg-e......</li>
+        <li class="recent_comment_author">--trytrytry66</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5470700.html#4026006">7. Re:VirtualBox + CentOS 使用 NAT + Host-Only 方式联网</a></li>
+        <li class="recent_comment_body">楼主写的很好。补充一下：需要关闭centos的防火墙才能用ssh连接centos #查看防火墙状态 service iptables status #关闭防火墙 sudo service ip..........</li>
+        <li class="recent_comment_author">--trytrytry66</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5348503.html#4009204">8. Re:使用 PHP 过滤器（Filter）进行严格表单验证</a></li>
+        <li class="recent_comment_body">你这个写的比菜鸟教程写的良心多了。</li>
+        <li class="recent_comment_author">--郝一二三</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3996351">9. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">谢谢楼主，后续有没有怎么管理git服务器的文章</li>
+        <li class="recent_comment_author">--麦田金龟子</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/4285221.html#3896345">10. Re:ThinkPHP 3.2.2 实现持久登录 ( 记住我 )</a></li>
+        <li class="recent_comment_body">在另外的电脑登录，并不影响其他若干客户端的记住我的登录状态 - 将记住我的功能采用另外的表和 token 生成机制实现即可。原 token 用于实现普通的登录和退出功能新 token 用于实现记住我.......</li>
+        <li class="recent_comment_author">--hudeyong_1</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/4175151.html#3814372">11. Re:PHP json_decode 函数解析 json 结果为 NULL 的解决方法</a></li>
+        <li class="recent_comment_body">实在感谢，解决了一个小时没解决的问题</li>
+        <li class="recent_comment_author">--OneiroXL</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3768662">12. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">做的非常好<br>Git常用命令大全:<a href="" target="_blank"></a></li>
+        <li class="recent_comment_author">--无敌是多么的寂寞！</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/4285221.html#3765817">13. Re:ThinkPHP 3.2.2 实现持久登录 ( 记住我 )</a></li>
+        <li class="recent_comment_body">对于我的第3个关于密码加密的问题，总算找到了解决方案了。我觉得最合适的方法，是让模型继承AdvModel，然后为密码字段设置写入过滤规则，在存入数据库前进行加密。可以参考[高级模型]()。...</li>
+        <li class="recent_comment_author">--Black Puppy</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/4285221.html#3765258">14. Re:ThinkPHP 3.2.2 实现持久登录 ( 记住我 )</a></li>
+        <li class="recent_comment_body">@黄棣-dee你好！谢谢你写的文章。不知道你是否还对ThinkPHP保持了以往的兴趣，冒昧地想问几个问题，还请不吝赐教。我因为接手的项目，正在学习ThinkPHP 3.2。关于用户认证，有若干疑问：1......</li>
+        <li class="recent_comment_author">--Black Puppy</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3719115">15. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">步骤⑥服务器端 Git 打开 RSA 认证  是怎么操作的？</li>
+        <li class="recent_comment_author">--在路上的牛小牛</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3705529">16. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">博主,请问这个git的权限管理方面..知道怎么管理么?</li>
+        <li class="recent_comment_author">--Sungeek</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3704338">17. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">根据楼主的说明整了一下,确实可以了!非常感谢,膜拜,我能转载吧?</li>
+        <li class="recent_comment_author">--Sungeek</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/4070899.html#3702520">18. Re:[ PHP+jQuery ] ajax 多级联动菜单的应用：电商网站的用户地址选择功能 ( 一 ) - 传统下拉菜单</a></li>
+        <li class="recent_comment_body">感谢楼主分享，刚需！</li>
+        <li class="recent_comment_author">--ReallyBear</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3701276">19. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">按照博主的搭建成功后，下载了tortoisegit为什么每次拉取和推送都要输入密码，想问下博主到底是哪里出问题了</li>
+        <li class="recent_comment_author">--ralu</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5793785.html#3692120">20. Re:一道无限级分类题的 PHP 实现</a></li>
+        <li class="recent_comment_body">前辈，像对这种数组处理，它现实中有没有应用场景。还是仅仅实现效果。</li>
+        <li class="recent_comment_author">--小何php</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3644941">21. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">很好，按照楼主所写的 搭建成功了。多谢！</li>
+        <li class="recent_comment_author">--mrossZ</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5815267.html#3536957">22. Re:在 Linux 下搭建 Git 服务器</a></li>
+        <li class="recent_comment_body">楼主辛苦了，谢谢</li>
+        <li class="recent_comment_author">--ck2016</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/4295992.html#3515876">23. Re:宿主机( win 7 系统) ping 虚拟机VMware( cent os 6.6 ) 出现“请求超时”或者“无法访问目标主机”的解决方法</a></li>
+        <li class="recent_comment_body">关闭虚拟机的防火墙：1) 重启后生效 开启： chkconfig iptables on 关闭： chkconfig iptables off 2) 即时生效，重启后失效 开启： service ip......</li>
+        <li class="recent_comment_author">--hainingwyx</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5506070.html#3444453">24. Re:使用 JSONP 实现简单的 SSO 单点登录</a></li>
+        <li class="recent_comment_body">mark jsonp 单点登录</li>
+        <li class="recent_comment_author">--lk_</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5451564.html#3443926">25. Re:ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件</a></li>
+        <li class="recent_comment_body">@小何php你是在tp下测试吗，访问的url要和文件路径对应啊...</li>
+        <li class="recent_comment_author">--黄棣-dee</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5451564.html#3443851">26. Re:ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件</a></li>
+        <li class="recent_comment_body">@黄棣-dee请问我本地运行直接输入127.0.0.1，就可以吗？我还是没发出邮件。。。...</li>
+        <li class="recent_comment_author">--小何php</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5451564.html#3443809">27. Re:ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件</a></li>
+        <li class="recent_comment_body">@黄棣-dee嗯，我试试，谢谢啊！非常感谢...</li>
+        <li class="recent_comment_author">--小何php</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5451564.html#3443808">28. Re:ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件</a></li>
+        <li class="recent_comment_body">@小何php另外一个你测试最好别用qq邮箱的smtp服务器，换126或者别的邮箱...</li>
+        <li class="recent_comment_author">--黄棣-dee</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5451564.html#3443806">29. Re:ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件</a></li>
+        <li class="recent_comment_body">@小何php配置就用我这篇文章第一段config.php的格式配置，MAIL_USER用你的qq邮箱，MAIL_PWD要去qq邮箱首页的设置里获取授权码：“设置” -- “POP3/IMAP/SMTP......</li>
+        <li class="recent_comment_author">--黄棣-dee</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/5451564.html#3443801">30. Re:ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件</a></li>
+        <li class="recent_comment_body">前辈你好，我请教一下，我的发送邮箱是1241256555@qq.com<br>我在配置文件里面该怎么写？还有就是我把上面搞好之后，直接在本地运行能实现功能吗？</li>
+        <li class="recent_comment_author">--小何php</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3443637">31. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">写的太好了</li>
+        <li class="recent_comment_author">--小何php</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3977760.html#3180984">32. Re:jQuery 两种方法实现IE10以下浏览器的placeholder效果</a></li>
+        <li class="recent_comment_body">当文本框是密码输入框的时候，要分开来。因为密码输入框输进去的是一个个的圆点</li>
+        <li class="recent_comment_author">--风沙渡</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3119074">33. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">写的不错~</li>
+        <li class="recent_comment_author">--星月梦缘</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3967514.html#3099703">34. Re:jQuery 实现带下拉提示且自动填充的邮箱</a></li>
+        <li class="recent_comment_body">mark</li>
+        <li class="recent_comment_author">--rpg</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3093299">35. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">恩，方法的连写，谢谢你，这篇博客很不错</li>
+        <li class="recent_comment_author">--Lasthelloworld</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3093297">36. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">@Lasthelloworld原生的js不支持方法的连写...</li>
+        <li class="recent_comment_author">--dee0912</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3093289">37. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">谢谢，原生Js的函数可以这样吗，他的术语是什么，我去百度一下</li>
+        <li class="recent_comment_author">--Lasthelloworld</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3093255">38. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">@Lasthelloworld对，同时绑定多个事件...</li>
+        <li class="recent_comment_author">--dee0912</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3093094">39. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">@dee0912你好，我有一个位置不是很明白，jquery 支持$('#id').focus(function(){ }).click(function(){});这一句，代表同时给id元素绑定两个事......</li>
+        <li class="recent_comment_author">--Lasthelloworld</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/dee0912/p/3950093.html#3093089">40. Re:PHP+jQuery 注册模块开发</a></li>
+        <li class="recent_comment_body">@Lasthelloworld...</li>
+        <li class="recent_comment_author">--dee0912</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/dee0912/p/5815267.html">1. 在 Linux 下搭建 Git 服务器(89041)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4175151.html">2. PHP json_decode 函数解析 json 结果为 NULL 的解决方法(28558)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5240370.html">3. PHP 生成随机字符串与唯一字符串(16559)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4295992.html">4. 宿主机( win 7 系统) ping 虚拟机VMware( cent os 6.6 ) 出现“请求超时”或者“无法访问目标主机”的解决方法(16238)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5470700.html">5. VirtualBox + CentOS 使用 NAT + Host-Only 方式联网(14237)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3973339.html">6. MySQL 命令行导出、导入Select 查询结果(13728)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5571827.html">7. PHP 检测变量是否为空(11134)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5473299.html">8. PHP 使用 mcrypt 扩展中的 mcrypt_encrypt() 和 mcrypt_decrypt() 对数据进行加密和解密(10887)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5116695.html">9. ThinkPHP 3.2.3 简单后台模块开发（一）常用配置(9650)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4432651.html">10. Nginx 报错： nginx: [error] open() "/usr/local/nginx/logs/nginx.pid" failed (2: No such file or directory) 的解决方法(9054)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5140063.html">11. ThinkPHP3.2.3 的异常和错误屏蔽处理(8949)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5592619.html">12. jQuery File Upload 单页面多实例的实现(8147)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5743942.html">13. 使用 Composer 为 ThinkPHP（3.2.3）框架添加和管理组件(8074)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5272149.html">14. CentOS 6.6 安装 Node.js(8062)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3983662.html">15. CSS 实现背景图尺寸不随浏览器缩放而变化(7739)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5068691.html">16. 基于 ThinkPHP 3.2.3 的页面静态化功能的实现(7084)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5061053.html">17. ThinkPHP 3.2.3 中设置和使用 Session(6611)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5331142.html">18. PHP 模拟 HTTP 基本认证（Basic Authentication）(6538)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/6375729.html">19. 升级 phpStudy 中 MySQL 版本至 5.7.17(6026)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4151903.html">20. ThinkPHP 3.2.2 在 volist 多重循环嵌套中使用 if 判断标签(5904)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5135186.html">21. ThinkPHP 3.2.3 简单后台模块开发（二）RBAC(5491)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/6351576.html">22. Sublime Text3 运行 PHP 文件(4830)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5605323.html">23. PHP 数组的拷贝是按值传递 or 按引用传递(4135)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5208002.html">24. ThinkPHP3.2.3 Nginx 下 URL_MODEL 的配置(4008)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5460072.html">25. ThinkPHP 3.2.3 使用 PHPExcel 处理 Excel 表格(3817)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5795511.html">26. 使用 SVN Hook 实现服务器端代码自动更新(3599)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5094534.html">27. ThinkPHP 3.2.3 多模块 和 多应用 的配置(3591)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5189740.html">28. ThinkPHP 3.2.3 关联模型的使用(3286)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4743768.html">29. Nginx 笔记与总结（14）expires 缓存设置(2969)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4285221.html">30. ThinkPHP 3.2.2 实现持久登录 ( 记住我 )(2857)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4449472.html">31. SVN 树冲突的解决方法（Ubuntu 环境）(2857)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3964200.html">32. jQuery 复合选择器的几个例子(2843)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4960025.html">33. 使用 JavaScript 实现基本队列、优先队列和循环队列(2739)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5370033.html">34. PHP 两个多维数组根据某个键的值进行组合排序的几种思路(2675)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4070899.html">35. [ PHP+jQuery ] ajax 多级联动菜单的应用：电商网站的用户地址选择功能 ( 一 ) - 传统下拉菜单(2668)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5448350.html">36. PHP （sendmail / PHPMailer / ezcMailComposer）发送邮件(2630)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5494649.html">37. JSON 与 JSONP(2530)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4240447.html">38. artDialog ( v 6.0.2 ) content 参数引入页面 html  内容(2213)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5472908.html">39. PHP 使用 password_hash() 给密码加密(2078)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4756782.html">40. ThinkPHP 源码分析之常量 IS_AJAX(2006)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/dee0912/p/3950093.html">1. PHP+jQuery 注册模块开发(14)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5815267.html">2. 在 Linux 下搭建 Git 服务器(12)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4020009.html">3. PHP+jQuery 长文章分页类 ( 支持 url  / ajax 分页方式 )(6)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5451564.html">4. ThinkPHP 3.2.3 使用 Swift Mailer 邮件系统发送邮件(6)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3967514.html">5. jQuery 实现带下拉提示且自动填充的邮箱(4)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4285221.html">6. ThinkPHP 3.2.2 实现持久登录 ( 记住我 )(3)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5470700.html">7. VirtualBox + CentOS 使用 NAT + Host-Only 方式联网(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4070899.html">8. [ PHP+jQuery ] ajax 多级联动菜单的应用：电商网站的用户地址选择功能 ( 一 ) - 传统下拉菜单(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4009880.html">9. PHP+jQuery 列表分页类 ( 支持 url 分页 / ajax 分页 )(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3977760.html">10. jQuery 两种方法实现IE10以下浏览器的placeholder效果(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5793785.html">11. 一道无限级分类题的 PHP 实现(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5547931.html">12. JavaScript + PHP 实现刷新继续保持倒计时的按钮(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5506070.html">13. 使用 JSONP 实现简单的 SSO 单点登录(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5348503.html">14. 使用 PHP 过滤器（Filter）进行严格表单验证(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4295992.html">15. 宿主机( win 7 系统) ping 虚拟机VMware( cent os 6.6 ) 出现“请求超时”或者“无法访问目标主机”的解决方法(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4175151.html">16. PHP json_decode 函数解析 json 结果为 NULL 的解决方法(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/dee0912/p/5815267.html">1. 在 Linux 下搭建 Git 服务器(21)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3950093.html">2. PHP+jQuery 注册模块开发(7)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3983662.html">3. CSS 实现背景图尺寸不随浏览器缩放而变化(3)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5135186.html">4. ThinkPHP 3.2.3 简单后台模块开发（二）RBAC(3)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5506070.html">5. 使用 JSONP 实现简单的 SSO 单点登录(3)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4070899.html">6. [ PHP+jQuery ] ajax 多级联动菜单的应用：电商网站的用户地址选择功能 ( 一 ) - 传统下拉菜单(3)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4175151.html">7. PHP json_decode 函数解析 json 结果为 NULL 的解决方法(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5470700.html">8. VirtualBox + CentOS 使用 NAT + Host-Only 方式联网(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5592619.html">9. jQuery File Upload 单页面多实例的实现(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4960025.html">10. 使用 JavaScript 实现基本队列、优先队列和循环队列(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/3967514.html">11. jQuery 实现带下拉提示且自动填充的邮箱(2)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4361261.html">12. PHP 开发 APP 接口 学习笔记与总结 - APP 接口实例 [5] 版本设计分析及数据表设计(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4743768.html">13. Nginx 笔记与总结（14）expires 缓存设置(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/10009545.html">14. macOS 下 PHPStorm + Xdebug 调试 Docker 环境中的代码(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/9338976.html">15. Redis 分布式锁的实现(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5940288.html">16. PHP 使用 curl_* 系列函数和 curl_multi_* 系列函数进行多接口调用时的性能对比(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5544182.html">17. ThinkPHP 3.2.3 加减乘法验证码类(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5140063.html">18. ThinkPHP3.2.3 的异常和错误屏蔽处理(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/5272149.html">19. CentOS 6.6 安装 Node.js(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4612183.html">20. Redis 笔记与总结8 PHP + Redis 信息管理系统（分页+好友关注）(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4295992.html">21. 宿主机( win 7 系统) ping 虚拟机VMware( cent os 6.6 ) 出现“请求超时”或者“无法访问目标主机”的解决方法(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4155036.html">22. html 实体转换为字符：转换 UEditor 编辑器 ( 在 ThinkPHP 3.2.2 中 ) 保存的数据(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4093014.html">23. PDO 学习与使用 ( 一 ) ：PDO 对象、exec 方法、query 方法与防 SQL 注入(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4053861.html">24. jQuery 图片剪裁插件使用之 imgAreaSelect(1)</a></li><li><a href="https://www.cnblogs.com/dee0912/p/4009880.html">25. PHP+jQuery 列表分页类 ( 支持 url 分页 / ajax 分页 )(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 黄棣-dee
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+<!--PageEndHtml Block Begin-->
+<div style="text-align:center">访客数：<img src="PHP%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B0%E7%BB%84%E7%AF%87[%20%E6%95%B4%E7%90%86%E4%B8%AD%20]%20-%20%E9%BB%84%E6%A3%A3-dee%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/counter.html" alt="AmazingCounters.com" border="0">
+<br>
+2016/05/17 起统计</div>
+
+<script language="javascript" type="text/javascript">
+
+// 生成目录索引列表
+
+function GenerateContentList()
+{
+    var mainContent = $('#cnblogs_post_body');
+    var h2_list = $('#cnblogs_post_body h2');//如果你的章节标题不是h2,只需要将这里的h2换掉即可
+
+    if(mainContent.length < 1)
+        return;
+ 
+    if(h2_list.length>0)
+    {
+        var content = '<a name="_labelTop"></a>';
+        content += '<div id="navCategory">';
+        content += '<p style="font-size:18px"><b>目录</b></p>';
+        content += '<ul>';
+        for(var i=0; i<h2_list.length; i++)
+        {
+            var go_to_top = '<div style="text-align: right"><a href="#_labelTop">回到顶部</a><a name="_label' + i + '"></a></div>';
+            $(h2_list[i]).before(go_to_top);
+            
+            var h3_list = $(h2_list[i]).nextAll("h3");
+            var li3_content = '';
+            for(var j=0; j<h3_list.length; j++)
+            {
+                var tmp = $(h3_list[j]).prevAll('h2').first();
+                if(!tmp.is(h2_list[i]))
+                    break;
+                var li3_anchor = '<a name="_label' + i + '_' + j + '"></a>';
+                $(h3_list[j]).before(li3_anchor);
+                li3_content += '<li><a href="#_label' + i + '_' + j + '">' + $(h3_list[j]).text() + '</a></li>';
+            }
+            
+            var li2_content = '';
+            if(li3_content.length > 0)
+                li2_content = '<li><a href="#_label' + i + '">' + $(h2_list[i]).text() + '</a><ul>' + li3_content + '</ul></li>';
+            else
+                li2_content = '<li><a href="#_label' + i + '">' + $(h2_list[i]).text() + '</a></li>';
+            content += li2_content;
+        }
+        content += '</ul>';
+        content += '</div><p>&nbsp;</p>';
+        content += '<p style="font-size:18px"><b>正文</b></p>';
+        if($('#cnblogs_post_body').length != 0 )
+        {
+            $($('#cnblogs_post_body')[0]).prepend(content);
+        }
+    }   
+}
+
+GenerateContentList();
+</script>
+<!--PageEndHtml Block End-->
+
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9efa11a81941b7632a7b370e05d3f77c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><iframe id="google_osd_static_frame_9379444486848" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>

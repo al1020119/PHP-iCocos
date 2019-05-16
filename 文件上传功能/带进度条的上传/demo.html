@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src='jquery.min.js'></script>
+  <style type="text/css">
+  #process{
+  	display: inline-block;
+  	height: 30px;
+  	width: 0px;
+  	border-radius: 5px;
+  	background: red;
+  }
+  </style>
+</head>
+<body>
+<form id="myForm">
+ <input type="text" name="picName"/>
+ <input id="file" type="file" name="file"/>
+ <input type="submit" name="submit">
+ <div id="process"> </div><i id="per">0</i>
+ <input id="token" name="token" type="hidden" />
+</form>
+</body>
+</html>
+<script type="text/javascript">
+  //$("#myForm").submit(function(){
+     var fm = document.getElementsByTagName('form')[0];
+     fm.onsubmit = function(){
+     var formData = new FormData(fm);
+     var xhr = new XMLHttpRequest();
+     console.log(xhr);
+     //事件进度对象
+     /*xhr.upload.onprogress = function(evt){
+         //通过事件感知附件上传情况
+         console.log(evt);
+         var loaded = evt.loaded;//已上传大小
+         var total = evt.total;//总大小
+         var per = Math.floor((loaded/total)*100)+"%";//已经上传百分比
+         document.getElementById('process').style.width=per;
+     }*/
+     xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4){
+        alert(xhr.responseText);
+       }  
+     } 
+     xhr.open('post','./ajax.php');
+    xhr.send(formData);
+    //evt.preventDefault();
+ // })
+}
+</script>

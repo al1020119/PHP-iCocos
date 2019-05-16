@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+function Check(){
+ //alert('dddd');
+ for(i=1; i<9; i++){
+ if(document.getElementById('v'+i).value == ''){
+  document.getElementById('v'+i).name = 'uu';
+ }
+ }
+}
+</script>
+</head>
+<body>
+<form name="upfile" action="demo.php" method="post" enctype="multipart/form-data">
+<input type="file" name="spic[]" id="v1" /><br/>
+<input type="file" name="spic[]" id="v2" /><br/>
+<input type="file" name="spic[]" id="v3" /><br/>
+<input type="file" name="spic[]" id="v4" /><br/>
+<input type="file" name="spic[]" id="v5" /><br/>
+<input type="file" name="spic[]" id="v6" /><br/>
+<input type="file" name="spic[]" id="v7" /><br/>
+<input type="file" name="spic[]" id="v8" /><br/>
+<input type="submit" name="sub" value="提交" onclick="return Check()" />
+<input type="reset" name="res" value="重填" />
+</form>
+</body>
+</html>

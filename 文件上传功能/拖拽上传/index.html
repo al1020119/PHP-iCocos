@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="html5" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<title>演示：Dropzone.js实现文件拖拽上传</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/demo/css/demo.css">
+<link rel="stylesheet" href="dropzone.css">
+<style>
+
+</style>
+</head>
+<body>
+<div class="container">
+	<header>
+		<div class="row">
+			<div class="col-md-3 col-xs-12"><h1 class="logo"><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+			<div class="col-md-9 text-right"></div>
+		</div>
+	</header>
+	<div class="row main" style="min-height:500px">
+		<div class="col-md-12">
+			<h2 class="top_title"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><a href="http://www.helloweba.com/view-blog-393.html">Dropzone.js实现文件拖拽上传</a></h2>
+			<div class="row" style="margin-top:30px;">
+				<div class="col-md-6 col-xs-12 col-md-offset-3">
+					<!--<form id="mydropzone" action="/target" class="dropzone"></form>-->
+					<div id="mydropzone" class="dropzone"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+	</footer>
+</div>
+<script src="dropzone.min.js"></script>
+<script>
+   var myDropzone = new Dropzone("div#mydropzone", { 
+		url: "upload.php",
+		paramName: "file",
+		maxFilesize: 0.5, // MB
+		maxFiles: 5,
+		acceptedFiles: ".jpg,.png,.gif"
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width,height=device-heght,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{$pageseo.title}</title>
+    <link rel="stylesheet" href="_STATIC_/2015/member/css/inrecord.css" />    
+    <script type="text/javascript" src="_STATIC_/2015/index/js/jquery-1.10.2.min.js"></script>
+    <style type="text/css">
+     .as p{
+     	height: 70px;
+     }
+	</style>
+	<script type="text/javascript">
+	$(function(){
+		page = 2; is_loading = 1;
+		$(window).scroll(function(){
+			if($(document).height()==($(this).height()+$(this).scrollTop()) && is_loading==1){
+				$(".as").append("<p>"+(page++)+"</p>")
+			}
+		});
+		$(window).scroll();
+	});
+	
+	</script>
+</head>
+<body onload="ft()" bgcolor="#efefef">
+<div class="as">
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+</div>
+</body>
+{__NOLAYOUT__}
